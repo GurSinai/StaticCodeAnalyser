@@ -1,0 +1,67 @@
+/* Reset some default styles */
+body, ul {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+  }
+  
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  header h1 {
+    margin: 0;
+  }
+  
+  #new-project-button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  h2 {
+    margin-bottom: 10px;
+  }
+  
+  #project-list {
+    list-style: none;
+  }
+  
+  .project-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .project-item .project-name {
+    flex: 1;
+  }
+  
+  .project-item .actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .delete-button, .open-button {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
