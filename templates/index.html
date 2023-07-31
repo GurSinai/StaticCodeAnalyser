@@ -1,24 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My App</title>
-  <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
-</head>
-<body>
-  <header>
-    <h1>Welcome to My App</h1>
-    <button id="new-project-button">Create New Project</button>
-  </header>
-  
-  <main>
-    <h2>Current Projects</h2>
-    <ul id="project-list">
-      <!-- Projects will be dynamically added here using JavaScript -->
-    </ul>
-  </main>
+{% extends "base.html" %}
+{% block content %}
 
-  <script src="scripts.js"></script>
-</body>
-</html>
+<div style="padding-left: 2rem; padding-top: 3rem" class="container-md">
+  <div class="container-sm border-bottom" style="display:flex; align-items: center; justify-content: space-between">
+    <p class="h1">My Projects</p>
+    <button style="margin-left: 1rem" type="button" class="btn btn-primary">Create new project</button>
+
+  </div>
+  <br>
+  <div class="d-flex flex-wrap" style="justify-content: center">
+  {% for project in projects %}
+
+    <div class="card" style="width: 15rem; margin: 0.7rem">
+      <div class="card-body d-flex justify-content-between" style="flex-direction:column">
+        <div>
+          <h5 class="card-title">{{project['name']}}</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">{{project['lang']}}</h6>
+          <p class="card-text">{{project['desc']}}</p>
+        </div>
+        <div>
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}
