@@ -3,37 +3,39 @@ DB_FILE = 'PROJECTS'
 
 def create_new_proj(proj_name):
     saved = []
-    if not os.path.isfile(DB_FILE):
-        saved = read_projects(DB_FILE)
+    if os.path.isfile(DB_FILE):
+        saved = read_all_projects()
     with open(DB_FILE, 'w') as out:
-        myJson = json.loads('{}')
-
-"""
-def write_user(file_name, username, psw, salt):
-    saved=[]
-    if os.path.isfile(file_name):
-        saved = read_users(file_name)
-    with open(file_name, 'w') as out:
-        myJson = json.loads('{"name":"'+username+'", "password":"'+psw+'", "salt":"'+salt+'"}')
+        myJson = json.loads('{"name":"' + proj_name + '", "files":[]}')
         saved.append(myJson)
         json.dump(saved, out, indent=1)
         out.close()
 
-def read_users(file_name):
-    if not os.path.isfile(file_name):
+def read_all_projects() -> list:
+    if not os.path.isfile(DB_FILE):
         return []
-    with open(file_name, 'r') as openfile:
-        read_data=openfile.read();
-        # Opening a file, and checking if it is empty
-        if (read_data == ''):
-             return []
-        json_obj=json.loads(read_data)
+    with open(DB_FILE, 'r') as openfile:
+        read_data = openfile.read()
+        if read_data == '':
+            return []
+        json_obj = json.loads(read_data)
         return json_obj
 
+def get_project(name):
+    projects = read_all_projects()
+    for project in projects:
+        if project['name'] == name:
+            return project
+        
+def get_project_files(name):
+    return get_project(name)['files']
 
-### WRITING A NEW USER
-
-
+def remove_project(name):
+    projects = read_all_projects(name)
+    for project in projects:
+        if project['name'] == name:
+            projects.remove(project)
+"""
 ### GETTING A SPESIFIC USER REGISTRY
 def get_user(file_name, name_req):
     users=read_users(file_name)
@@ -42,3 +44,5 @@ def get_user(file_name, name_req):
             return user
     return None
 """
+create_new_proj("Project 1")
+print(get_project("prj3"))
