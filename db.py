@@ -71,8 +71,3 @@ def remove_file_from_project(proj, path):
             return False
     return False
 
-#create_new_proj("Project 4")
-#add_file_to_project("Project 3", 'apsp.py')
-#remove_file_from_project("Project 3", 'apsp.py')
-#remove_project("Project 3")
-print(read_all_projects())
