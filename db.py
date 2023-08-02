@@ -70,3 +70,16 @@ def remove_file_from_project(proj, path):
                     return True
             return False
     return False
+
+
+def remove_file_from_project_no_slash(proj, path):
+    projects = read_all_projects()
+    for project in projects:
+        if project['name'] == proj:
+            for file in project['files']:
+                if file.replace('\\', '') == path:
+                    project['files'].remove(file)
+                    overwrite_db(projects)
+                    return True
+            return False
+    return False

@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect
-import db
+import db, os
 
 app = Flask(__name__)
 
@@ -22,6 +22,18 @@ def createproject():
 def view_project(project):
     return render_template('project.html', project=db.get_project(project), files=db.get_project_files(project))
 
+@app.route('/addfile', methods=['POST'])
+def add_file():
+    file = request.form.get('path')
+    project_name = request.form.get('project_name')
+    if file != "" and file is not None and os.path.isfile(file):
+        db.add_file_to_project(project_name, file)
+    return redirect('/viewproject/' + project_name)
+
+@app.route('/removefile/<filename>/<projectname>')
+def remove_file(filename, projectname):
+    db.remove_file_from_project_no_slash(projectname, filename)
+    return redirect('/viewproject/' + projectname)
 
 if __name__ == '__main__':
     app.run(debug=True)
