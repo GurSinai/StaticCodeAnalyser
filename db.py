@@ -5,15 +5,13 @@ def overwrite_db(projects):
     with open(DB_FILE, 'w') as out:
         json.dump(projects, out, indent=1)
 
-def create_new_proj(proj_name, lang=None, desc=None) -> bool:
+def create_new_proj(proj_name, lang="", desc="") -> bool:
     if get_project(proj_name) is not None:
         return False
     saved = []
     if os.path.isfile(DB_FILE):
         saved = read_all_projects()
     with open(DB_FILE, 'w') as out:
-        if lang == None: lang=""
-        if desc == None: desc=""
         myJson = json.loads('{"name":"' + proj_name + '", "files":[], "lang":"'+lang+'", "desc":"'+desc+'"}')
         saved.append(myJson)
         json.dump(saved, out, indent=1)
@@ -72,20 +70,3 @@ def remove_file_from_project(proj, path):
                     return True
             return False
     return False
-
-create_new_proj("Project 1", lang="Python", desc="Test project")
-create_new_proj("Project 2", desc="Test project")
-create_new_proj("Project 3", lang="Python")
-create_new_proj("Project 4")
-create_new_proj("Project 5", lang="Python", desc="Test project")
-create_new_proj("Project 6", desc="Test project")
-create_new_proj("Project 7", lang="Python")
-create_new_proj("Project 8")
-create_new_proj("Project 9", lang="Python", desc="Test project")
-create_new_proj("Project 10", desc="Test project")
-create_new_proj("Project 11", lang="Python")
-create_new_proj("Project 12")
-create_new_proj("Project 13", lang="Python", desc="Test project")
-create_new_proj("Project 14", desc="Test project")
-create_new_proj("Project 15", lang="Python")
-create_new_proj("Project 16")

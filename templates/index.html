@@ -4,7 +4,33 @@
 <div style="padding-left: 2rem; padding-top: 3rem" class="container-md">
   <div class="container-sm border-bottom" style="display:flex; align-items: center; justify-content: space-between">
     <p class="h1">My Projects</p>
-    <button style="margin-left: 1rem" type="button" class="btn btn-primary">Create new project</button>
+    <div class="modal fade" id="createproject" tabindex="-1" aria-labelledby="createprojectLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="createprojectLabel">Create a new project</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+
+          <form action="create_project" style="padding: 1rem" method="POST">
+            <label for="project_name" class="col-form-label" onchage="name_change">Project name</label>
+            <input type="text" class="form-control" name="project_name" id="project_name" maxlength="60" required>
+            <label for="project_lang" class="col-form-label">Project language(s)</label>
+            <input type="text" class="form-control" name="project_lang" id="project_lang">
+            <label for="project_desc" class="col-form-label">A short description</label>
+            <input type="text" class="form-control" name="project_desc" id="project_desc" maxlength="70">
+          <div class="modal-footer ">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary">Create project</button>
+          </div>
+        </form>
+
+
+        </div>
+      </div>
+    </div>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createproject" data-bs-whatever="@getbootstrap">Create new projects</button>
 
   </div>
   <br>
