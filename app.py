@@ -1,6 +1,12 @@
-import streamlit as st
-import pandas as pd
-import numpy as np
+from flask import Flask, render_template
+import db
+app = Flask(__name__)
 
-# Create a title for the app
-st.title("My Streamlit App")
+
+
+@app.route('/')
+def index():
+    return render_template('index.html', projects=db.read_all_projects())
+
+if __name__ == '__main__':
+    app.run(debug=True)
