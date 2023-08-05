@@ -15,8 +15,3 @@ class PylintImplementation(interface.StaticCodeAnylazer):
         results = Run([path], do_exit=False)
 
 
-if __name__ == "__main__":
-    file_path = "./ex1.py"
-    output_path = "./result.txt"
-    pylint_analyzer = PylintImplementation()
-    pylint_analyzer.scan_file(file_path, output_path)

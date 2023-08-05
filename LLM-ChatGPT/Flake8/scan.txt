@@ -1,0 +1,13 @@
+./db.py:1:10: E401 multiple imports on one line
+./db.py:4:1: E302 expected 2 blank lines, found 1
+./db.py:8:1: E302 expected 2 blank lines, found 1
+./db.py:8:57: E251 unexpected spaces around keyword / parameter equals
+./db.py:8:59: E251 unexpected spaces around keyword / parameter equals
+./db.py:15:80: E501 line too long (134 > 79 characters)
+./db.py:21:1: E302 expected 2 blank lines, found 1
+./db.py:31:1: E302 expected 2 blank lines, found 1
+./db.py:37:1: W293 blank line contains whitespace
+./db.py:38:1: E302 expected 2 blank lines, found 1
+./db.py:41:1: E302 expected 2 blank lines, found 1
+./db.py:49:1: E302 expected 2 blank lines, found 1
+./db.py:62:1: E302 expected 2 blank lines, found 1

@@ -15,7 +15,8 @@ def createproject():
     project_name = request.form.get('project_name')
     project_lang = request.form.get('project_lang')
     project_desc = request.form.get('project_desc')
-    db.create_new_proj(proj_name=project_name, desc=project_desc, lang=project_lang)
+    project_dir = request.form.get('project_dir')
+    db.create_new_proj(proj_name=project_name, desc=project_desc, lang=project_lang, basedir=project_dir)
     return redirect('/')
 
 @app.route('/viewproject/<project>')
@@ -37,3 +38,4 @@ def remove_file(filename, projectname):
 
 if __name__ == '__main__':
     app.run(debug=True)
+

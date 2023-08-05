@@ -5,14 +5,14 @@ def overwrite_db(projects):
     with open(DB_FILE, 'w') as out:
         json.dump(projects, out, indent=1)
 
-def create_new_proj(proj_name, lang="", desc="") -> bool:
+def create_new_proj(proj_name, lang="", desc="", basedir = "") -> bool:
     if get_project(proj_name) is not None:
         return False
     saved = []
     if os.path.isfile(DB_FILE):
         saved = read_all_projects()
     with open(DB_FILE, 'w') as out:
-        myJson = json.loads('{"name":"' + proj_name + '", "files":[], "lang":"'+lang+'", "desc":"'+desc+'"}')
+        myJson = json.loads('{"name":"' + proj_name + '", "files":[], "basedir":"'+basedir+'", "lang":"'+lang+'", "desc":"'+desc+'"}')
         saved.append(myJson)
         json.dump(saved, out, indent=1)
         out.close()

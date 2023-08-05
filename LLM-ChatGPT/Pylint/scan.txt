@@ -1,0 +1,23 @@
+************* Module db
+db.py:15:0: C0301: Line too long (134/100) (line-too-long)
+db.py:37:0: C0303: Trailing whitespace (trailing-whitespace)
+db.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+db.py:1:0: C0410: Multiple imports on one line (os, json) (multiple-imports)
+db.py:4:0: C0116: Missing function or method docstring (missing-function-docstring)
+db.py:5:9: W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
+db.py:8:0: C0116: Missing function or method docstring (missing-function-docstring)
+db.py:14:9: W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
+db.py:15:8: C0103: Variable name "myJson" doesn't conform to snake_case naming style (invalid-name)
+db.py:21:0: C0116: Missing function or method docstring (missing-function-docstring)
+db.py:24:9: W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
+db.py:31:0: C0116: Missing function or method docstring (missing-function-docstring)
+db.py:38:0: C0116: Missing function or method docstring (missing-function-docstring)
+db.py:41:0: C0116: Missing function or method docstring (missing-function-docstring)
+db.py:49:0: C0116: Missing function or method docstring (missing-function-docstring)
+db.py:57:17: W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
+db.py:62:0: C0116: Missing function or method docstring (missing-function-docstring)
+db.py:75:0: C0116: Missing function or method docstring (missing-function-docstring)
+
+------------------------------------------------------------------
+Your code has been rated at 7.60/10 (previous run: 7.60/10, +0.00)
+

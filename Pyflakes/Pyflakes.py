@@ -7,13 +7,13 @@ sys.path.append(parent_directory)
 import interface
  
 class PyflakesImplementation(interface.StaticCodeAnylazer):
-    def scan_file(directory_path, output_path):
+    def scan_file(self, file_name, output_path):
        
         report = pyflakes.api.Report()
 
         # Run Pyflakes on the specified directory
         try:
-            pyflakes.api.checkRecursive(directory_path, report)
+            pyflakes.api.check(file_name, report)
         except Exception as e:
             print(f"Error running Pyflakes: {e}")
             return False
@@ -28,19 +28,6 @@ class PyflakesImplementation(interface.StaticCodeAnylazer):
         except Exception as e:
             print(f"Error writing to output file: {e}")
             return False
-
-    if __name__ == "__main__":
-        directory_path = "./my_project"
-        output_path = "./pyflakes_results.txt"
-
-        success = scan_file(directory_path, output_path)
-        if not success:
-            print("Pyflakes analysis failed.")
-
-
-
-
-
 
 
 
