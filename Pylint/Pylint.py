@@ -1,4 +1,5 @@
 import os, subprocess, sys
+from LLM.LLM import get_local_name
 
 ### Import Interface Module
 parent_directory = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -16,7 +17,7 @@ class PylintImplementation(interface.StaticCodeAnylazer):
 
 
 if __name__ == "__main__":
-    file_path = "./ex1.py"
-    output_path = "./result.txt"
+    file_path = "./{get_local_name}/Pylint"
+    output_path = "./Pylint_result.txt"
     pylint_analyzer = PylintImplementation()
     pylint_analyzer.scan_file(file_path, output_path)

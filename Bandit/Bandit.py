@@ -1,4 +1,5 @@
 import os, subprocess, sys
+from LLM.LLM import get_local_name
 
 ### Import Interface Module
 parent_directory = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -22,7 +23,7 @@ class BanditImplementation(interface.StaticCodeAnylazer):
             print(f"Error running Bandit: {e.stderr}")
             return False
     if __name__ == "__main__":
-            directory_path = "./my_project"
+            directory_path = "./{get_local_name}/Bandit"
             output_path = "./bandit_results.txt"
 
             success = scan_file(directory_path, output_path)

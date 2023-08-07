@@ -1,4 +1,5 @@
 import os, subprocess, sys, pyflakes.api
+from LLM.LLM import get_local_name
 
 ### Import Interface Module
 parent_directory = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -30,7 +31,7 @@ class PyflakesImplementation(interface.StaticCodeAnylazer):
             return False
 
     if __name__ == "__main__":
-        directory_path = "./my_project"
+        directory_path = "./{get_local_name}/Pyflakes"
         output_path = "./pyflakes_results.txt"
 
         success = scan_file(directory_path, output_path)
