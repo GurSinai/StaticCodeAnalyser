@@ -1,4 +1,0 @@
-./ex1.py:106:14: f-string is missing placeholders
-./ex1.py:107:14: f-string is missing placeholders
-./ex1.py:106:14: f-string is missing placeholders
-./ex1.py:107:14: f-string is missing placeholders

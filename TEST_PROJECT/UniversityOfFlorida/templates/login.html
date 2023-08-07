@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<!-- saved from url=(0067)https://login.ufl.edu/idp/profile/SAML2/Redirect/SSO?execution=e1s1 -->
+<html lang="en" class=" js no-touch csstransforms csstransforms3d csstransitions csscalc cssvhunit"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Web Login Service - University of Florida</title>
+	<link rel="stylesheet" href="{{url_for('static', filename='./Web Login Service - University of Florida_files/style.css')}}">
+	<link rel="icon" href="https://login.ufl.edu/idp/img/favicon.ico">
+	<link rel="apple-touch-icon" href="https://login.ufl.edu/idp/img/favicon-180.png">
+	<meta name="msapplication-TileColor" content="#00529b">
+	<meta name="msapplication-TileImage" content="/img/favicon-144.png">
+	<style>
+		label {
+			font: 500 20px/1 "quadon", "Helvetica Neue", Helvetica, Arial, sans-serif;
+			color: rgba(51, 49, 50, 0.6);
+		}
+		.info {
+			border: 2px solid;
+			border-color: rgb(108, 154, 195);
+		}
+		.error {
+			border: 2px solid;
+			border-color: rgb(215, 24, 42);
+		}
+		.warning {
+			border: 2px solid;
+			border-color: rgb(252, 175, 23);
+		}
+		.success {
+			border: 2px solid;
+			border-color: rgb(94, 142, 63);
+		}
+		.info,
+		.error,
+		.warning,
+		.success {
+			padding: 10px;
+			border-left-width: 8px;
+			margin-bottom: 10px;
+			background-color: #fffdf5;
+		}
+		.info p,
+		.error p,
+		.warning p,
+		.success p {
+			margin: 0;
+		}
+		.messages {
+			margin-bottom: 40px;
+		}
+		@media (min-width: 768px) {
+			.messages {
+				padding-top: 26px;
+			}
+		}
+		@media (min-width: 1220px) {
+			.main-menu-wrap>ul>li {
+				width: calc(99.9% / 4);
+			}
+		}
+		::-webkit-input-placeholder {
+			color: rgba(51, 49, 50, 0.6);
+		}
+		:-moz-placeholder {
+			color: rgba(51, 49, 50, 0.6);
+		}
+		::-moz-placeholder {
+			color: rgba(51, 49, 50, 0.6);
+		}
+		:-ms-input-placeholder {
+			color: rgba(51, 49, 50, 0.6);
+		}
+		form input[type='password'],
+		form textarea {
+			background: #fff;
+			border: 2px solid transparent;
+			color: #f37021;
+			display: inline-block;
+			font: 500 20px/1 "quadon", "Helvetica Neue", Helvetica, Arial, sans-serif;
+			letter-spacing: 1px;
+			margin: 0 -2px;
+			padding: 17px 20px 16px;
+			vertical-align: top;
+			width: 100%;
+		}
+		form input[type='password']:focus,
+		form textarea:focus {
+			border-color: #f37021;
+			outline: none;
+		}
+		form input[type='password']:focus::-webkit-input-placeholder,
+		form textarea:focus::-webkit-input-placeholder {
+			color: #f37021;
+			line-height: 1.2;
+		}
+		form input[type='password']:focus::-moz-placeholder,
+		form textarea:focus::-moz-placeholder {
+			color: #f37021;
+			line-height: 1.2;
+		}
+		form input[type='password']:focus:-ms-input-placeholder,
+		form textarea:focus:-ms-input-placeholder {
+			color: #f37021;
+			line-height: 1.2;
+		}
+		form input[type='password']:focus::placeholder,
+		form textarea:focus::placeholder {
+			color: #f37021;
+			line-height: 1.2;
+		}
+		form input[type='password']::-webkit-input-placeholder,
+		form textarea::-webkit-input-placeholder {
+			color: rgba(51, 49, 50, 0.6);
+			line-height: 1.2;
+		}
+		form input[type='password']::-moz-placeholder,
+		form textarea::-moz-placeholder {
+			color: rgba(51, 49, 50, 0.6);
+			line-height: 1.2;
+		}
+		form input[type='password']:-ms-input-placeholder,
+		form textarea:-ms-input-placeholder {
+			color: rgba(51, 49, 50, 0.6);
+			line-height: 1.2;
+		}
+		form input[type='password']::placeholder,
+		form textarea::placeholder {
+			color: rgba(51, 49, 50, 0.6);
+			line-height: 1.2;
+		}
+		
+		.info img,
+		.error img,
+		.warning img,
+		.success img {
+			max-width: 80%;
+			max-height: 150px;
+			display: block;
+			margin: 0 auto;
+		}
+		input, button, textarea, select {
+			-webkit-appearance: none;
+			-webkit-border-radius:0;
+		}		
+	</style>
+</head>
+
+<body class="" data-new-gr-c-s-check-loaded="14.1108.0" data-gr-ext-installed="">
+	<a href="https://login.ufl.edu/idp/profile/SAML2/Redirect/SSO?execution=e1s1#main" id="skip-link" class="visuallyhidden focusable">Skip to main content</a>
+	<div class="header unit">
+		<a href="http://www.ufl.edu/" class="logo"><img src="{{url_for('static', filename='./Web Login Service - University of Florida_files/logo-uf.svg')}}" alt="logo-uf" style="width : -1px; height : -1px;" class="">
+			<span class="visuallyhidden">Logo</span>
+		</a>
+		<span class="logo mobile"><span class="icon-svg logo-unit"><img src="{{url_for('static', filename='/img/uf_logo.svg')}}" alt="logo">
+			<!--svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{url_for('static', filename='img/uf_logo.svg')}}"></use></svg--><span class="">UF Authentication - GatorLink Login</span></span></span>
+		<div class="menu-wrap">
+			<div class="main-menu-wrap">
+				<span class="icon-svg logo-unit">
+					<img src="{{url_for('static', filename='/img/uf_logo.png')}}" alt="logo" style="margin-top: 0.8em; height:1.75em">
+					<!--svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{url_for('static', filename='/img/uf_logo.svg')}}"></use></svg--><span class="visuallyhidden">UF Authentication - GatorLink Login</span></span>
+				<ul>
+					<li>
+						<a href="https://account.it.ufl.edu/glam/changepass" class="main-menu-link">
+							<span>
+								Change Password
+							</span>
+							<span class="icon-svg icon-caret">
+								<svg>
+									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#caret">
+									</use>
+								</svg>
+							</span>
+						</a>
+					</li>
+					<li>
+						<a href="https://account.it.ufl.edu/glam/reset" class="main-menu-link">
+							<span>
+								Forgot/Reset Password
+							</span>
+							<span class="icon-svg icon-caret">
+								<svg>
+									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#caret">
+									</use>
+								</svg>
+								
+							</span>
+						</a>
+					</li>
+					<li>
+						<a href="https://account.it.ufl.edu/glam/create" class="main-menu-link">
+							<span>
+								Create Account
+							</span>
+							<span class="icon-svg icon-caret">
+								<svg>
+									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#caret">
+									</use>
+								</svg>
+							</span>
+						</a>
+					</li>
+					<li>
+						<a href="http://helpdesk.ufl.edu/getting-help-for-gatorlink-log-in-issues" class="main-menu-link">
+							<span>
+								Trouble Signing On?
+							</span>
+							<span class="icon-svg icon-caret">
+								<svg>
+									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#caret">
+									</use>
+								</svg>
+							</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="aux-menu-wrap">
+				<ul class="aux-nav">
+					<li><a href="http://news.ufl.edu/">News</a>
+					</li>
+					<li><a href="http://calendar.ufl.edu/">Calendar</a>
+					</li>
+					<li><a href="http://www.ufl.edu/about/offices-services/">Offices &amp; Services</a>
+					</li>
+					<li><a href="https://directory.ufl.edu/">Directory</a>
+					</li>
+					<li><a href="http://uff.ufl.edu/Giving/WhyGive.asp">Giving</a>
+					</li>
+					<li><a href="http://ufhealth.org/">UF Health</a>
+					</li>
+					<li><a href="http://ifas.ufl.edu/">UF IFAS</a>
+					</li>
+				</ul>
+				<div class="audience-nav-wrap"><a href="https://login.ufl.edu/idp/profile/SAML2/Redirect/SSO?execution=e1s1#" class="cur-audience">Welcome to UF</a><span class="arw-right icon-svg"><svg><use xlink:href="#arw-down"></use></svg></span>
+					<ul>
+						<li><a href="http://www.ufl.edu/students/">Current Students</a>
+						</li>
+						<li><a href="http://www.ufl.edu/visitors/">Family &amp; Visitors</a>
+						</li>
+						<li><a href="http://www.ufl.edu/staff/">Faculty &amp; Staff</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<a href="https://login.ufl.edu/idp/profile/SAML2/Redirect/SSO?execution=e1s1#" class="btn-show-aux">
+				<span class="icon-svg icon-menu">
+							<svg>
+							<use xlink:href="#menu"></use>
+							</svg>
+							<span class="visuallyhidden">Open Menu</span>
+					</span>
+				<span class="icon-svg icon-close">
+							<svg>
+							<use xlink:href="#close"></use>
+							</svg>
+							<span class="visuallyhidden">Close Menu</span>
+					</span>
+			</a>
+			<a class="search-wrap" href="https://search.ufl.edu/">
+				<span class="btn-search">
+					<span class="icon-svg">
+						<svg>
+							<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#search"></use>
+						</svg>
+						<span class="visuallyhidden">Search</span>
+					</span>
+				</span>
+			</a>
+		</div>
+
+		<div class="mobile-dropdown-wrap"></div>
+
+			<a class="search-wrap mobile" href="https://search.ufl.edu/">
+				<span class="btn-search">
+					<span class="icon-svg">
+						<svg>
+							<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#search"></use>
+						</svg>
+						<span class="visuallyhidden">Search</span>
+					</span>
+				</span>
+			</a>
+
+		<a href="https://login.ufl.edu/idp/profile/SAML2/Redirect/SSO?execution=e1s1#" class="btn-menu">
+			<span class="icon-svg icon-menu">
+					<svg>
+					<use xlink:href="#menu"></use>
+					</svg>
+					<span class="visuallyhidden">Open Menu</span>
+			</span>
+			<span class="icon-svg icon-close">
+					<svg>
+					<use xlink:href="#close"></use>
+					</svg>
+					<span class="visuallyhidden">Close Menu</span>
+			</span>
+		</a>
+	</div>
+	<div id="main" class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="row">
+					<div class="col-sm-5 col-sm-push-7 messages">
+
+						<div class="info">
+							<p>You are logging in to a University of Florida (UF) information system and agree to comply with the UF Acceptable Use Policy and Guidelines. Unauthorized use of this system is prohibited and may subject the user to criminal and civil penalties. UF may monitor computer and network activities, and the user should have limited expectations of privacy.</p>
+						</div>
+					</div>
+					<div class="col-sm-7 col-sm-pull-5">
+						<form action="/login" method="post" name="loginForm">
+							<div class="row">
+								<div class="col-sm-12">
+									<label for="username">Username</label>
+									<input autocapitalize="off" autofocus="" id="username" name="username" placeholder="GatorLink Username" type="text" value="">
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-sm-12">
+									<label for="password">Password</label>
+									<input autocapitalize="off" id="password" name="password" placeholder="Password" type="password" value="">
+								</div>
+							</div>
+                                                        <input type="hidden" name="donotcache" value="0">
+                                                        <input id="_shib_idp_revokeConsent" type="hidden" name="_shib_idp_revokeConsent" value="false">
+							<button type="submit" id="submit" class="btn" value="Login" name="_eventId_proceed">Login</button>
+
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		function formfocus() {
+			document.getElementById('username').focus();
+		}
+		window.onload = formfocus;
+	</script>
+	<div class="footer-wrap">
+
+		<div class="footer-top">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+					</div>
+				</div>
+			</div>
+		</div>
+
+      <!--
+       RemoteHost: 147.235.214.254
+       RemoteAddr: 147.235.214.254
+       Node:       $request.getHeader('X-UF-SHIB-IDP')
+       -->
+
+		<div class="footer-bottom">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-md-4 col-md-push-8 footer-contact-wrap">
+						<a href="http://www.ufl.edu/" class="footer-logo icon-svg">
+							<svg>
+								<use xlink:href="#florida-logo-full"></use>
+							</svg><span class="visuallyhidden">University of Florida</span>
+						</a>
+						<ul class="social-nav">
+							<li>
+								<a href="http://www.facebook.com/uflorida/" class="btn-circle icon-svg icon-facebook">
+									<svg>
+										<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#facebook"></use>
+									</svg><span class="visuallyhidden">Facebook</span>
+								</a>
+							</li>
+							<li>
+								<a href="https://twitter.com/UF/" class="btn-circle icon-svg icon-twitter">
+									<svg>
+										<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#twitter"></use>
+									</svg><span class="visuallyhidden">Twitter</span>
+								</a>
+							</li>
+							<li>
+								<a href="https://instagram.com/uflorida/" class="btn-circle icon-svg icon-instagram">
+									<svg>
+										<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#instagram"></use>
+									</svg><span class="visuallyhidden">Instagram</span>
+								</a>
+							</li>
+							<li>
+								<a href="http://www.youtube.com/user/universityofflorida/" class="btn-circle icon-svg icon-youtube">
+									<svg>
+										<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#youtube"></use>
+									</svg><span class="visuallyhidden">YouTUbe</span>
+								</a>
+							</li>
+						</ul>
+						<p class="address">University of Florida
+							<br>Gainesville, FL 32611
+							<br>(352) 392-3261
+							<br><a href="https://assistive.usablenet.com/tt/login.ufl.edu">Text-only Version</a>
+						</p>
+					</div>
+
+					<div class="col-md-8 col-md-pull-4">
+						<div class="row">
+							<div class="col-md-4 col-sm-4 footer-menu">
+								<h2>Resources <span class="icon-svg icon-caret"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#caret"></use></svg></span></h2>
+								<ul>
+									<li><a href="https://one.uf.edu/">ONE.UF</a>
+									</li>
+									<li><a href="https://webmail.ufl.edu/">Webmail</a>
+									</li>
+									<li><a href="https://my.ufl.edu/ps/signon.html">myUFL</a>
+									</li>
+									<li><a href="https://lss.at.ufl.edu/">e-Learning</a>
+									</li>
+									<li><a href="https://directory.ufl.edu/">Directory</a>
+									</li>
+								</ul>
+							</div>
+							<div class="col-md-4 col-sm-4 footer-menu">
+								<h2>Campus <span class="icon-svg icon-caret"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#caret"></use></svg></span></h2>
+								<ul>
+									<li><a href="http://ufweather.org/">Weather</a>
+									</li>
+									<li><a href="http://campusmap.ufl.edu/">Campus Map</a>
+									</li>
+									<li><a href="http://virtualtour.ufl.edu/">Student Tours</a>
+									</li>
+									<li><a href="https://catalog.ufl.edu/ugrad/current/Pages/dates-and-deadlines.aspx">Academic Calendar</a>
+									</li>
+									<li><a href="http://calendar.ufl.edu/">Events</a>
+									</li>
+								</ul>
+							</div>
+							<div class="col-md-4 col-sm-4 footer-menu">
+								<h2>Website <span class="icon-svg icon-caret"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#caret"></use></svg></span></h2>
+								<ul>
+									<li><a href="http://www.ufl.edu/websites/">Website Listing</a>
+									</li>
+									<li><a href="http://accessibility.ufl.edu/">Accessibility</a>
+									</li>
+									<li><a href="http://privacy.ufl.edu/privacystatement.html">Privacy Policy</a>
+									</li>
+									<li><a href="http://regulations.ufl.edu/">Regulations</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<script>
+	</script>
+	<script src="{{url_for('static', filename='./Web Login Service - University of Florida_files/jquery.min.js.הורדה')}}"></script>
+	<script src="{{url_for('static', filename='./Web Login Service - University of Florida_files/velocity.min.js.הורדה')}}"></script>
+	<script src="{{url_for('static', filename='./Web Login Service - University of Florida_files/velocity.ui.min.js.הורדה')}}"></script>
+	<script>
+		var contextPath = "/idp";
+	</script>
+	<script type="text/javascript" src="{{url_for('static', filename='./Web Login Service - University of Florida_files/plugins.js.הורדה')}}"></script>
+	<script type="text/javascript" src="{{url_for('static', filename='./Web Login Service - University of Florida_files/scripts.js.הורדה')}}"></script>
+
+
+
+
+
+</body><!-- 4.0.1 IdP --><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+  div.grammarly-desktop-integration {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select:none;
+    user-select:none;
+  }
+
+  div.grammarly-desktop-integration:before {
+    content: attr(data-content);
+  }
+</style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>
+
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><symbol viewBox="-88 423.5 512 449.5" id="alert"><g fill="currentColor"><path d="M419.7 836.7L187.9 435c-4.1-7.1-11.7-11.5-19.9-11.5s-15.8 4.4-19.9 11.5l-233 403.5c-4.1 7.1-4.1 15.9 0 23S-73.2 873-65 873h466c12.7 0 23-10.3 23-23 0-5-1.6-9.6-4.3-13.3zM-25.1 827L168 492.6 361 827H-25.1z"/><path d="M144.9 595.4V698c0 12.7 10.3 23 23 23s23-10.3 23-23V595.4c0-12.7-10.3-23-23-23s-23 10.3-23 23zM167.9 741.3c-7.5 0-15 3-20.3 8.4-5.3 5.4-8.5 12.8-8.5 20.4 0 7.5 3.1 15 8.5 20.3 5.4 5.4 12.8 8.5 20.3 8.5 7.6 0 15-3.1 20.4-8.5 5.3-5.4 8.5-12.8 8.5-20.3 0-7.6-3.1-15-8.5-20.4-5.4-5.3-12.8-8.4-20.4-8.4z"/></g></symbol><symbol viewBox="-268.7 366.2 53.5 64.2" id="arw-down"><path fill="currentColor" d="M-216.7 397.8c-2-1.9-5.1-1.9-7.1 0l-13.1 13.3v-40c0-2.8-2.2-5-5-5s-5 2.2-5 5v40l-13.3-13.3c-1.9-2-5.1-2-7.1 0-2 1.9-2 5.1 0 7.1l25.4 25.5 25.2-25.5c2-1.9 2-5.1 0-7.1z"/></symbol><symbol viewBox="0 0 64.2 53.5" id="arw-right"><path fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-miterlimit="10" d="M35.2 5l21.9 21.7-21.9 21.8M57 26.7H5"/></symbol><symbol viewBox="-268.7 366.2 53.5 64.2" id="arw-up"><path fill="currentColor" d="M-267.2 398.7c2 1.9 5.1 1.9 7.1 0l13.1-13.3v40c0 2.8 2.2 5 5 5s5-2.2 5-5v-40l13.3 13.3c1.9 2 5.1 2 7.1 0 2-1.9 2-5.1 0-7.1l-25.4-25.5-25.2 25.5c-2 2-2 5.2 0 7.1z"/></symbol><symbol viewBox="0 0 34 53.5" id="caret"><path fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-miterlimit="10" d="M5 5l21.9 21.7L5 48.5"/></symbol><symbol viewBox="0 0 14 14" id="close"><title/><path d="M14 1.4L12.6 0 7 5.6 1.4 0 0 1.4 5.6 7 0 12.6 1.4 14 7 8.4l5.6 5.6 1.4-1.4L8.4 7 14 1.4z" fill="currentColor" fill-rule="evenodd"/></symbol><symbol viewBox="0 0 50 90" id="facebook"><path fill="currentColor" d="M50 15.6H35.7c-1.7 0-3.6 2.2-3.6 5.2v10.3H50v14.7H32.1V90H15.3V45.9H0V31.2h15.3v-8.7C15.3 10.1 23.9 0 35.7 0H50v15.6z"/></symbol><symbol viewBox="0 0 322.7 59.2" id="florida-logo"><path fill="#8C8C8C" d="M60 48.7V34.3h13.2v-9.5H60V11.4h14.5v5.2h9.6V2H45.7v9.4h3.6v37.3h-3.6v9.4h17.7v-9.4zM92.9 2h2.5v56.1h-2.5zM294.3 8h1.6l-1.8 9.1c-.5 2.5-.8 4.1-1.1 4.9-.1.4-.3.7-.5.8-.2.1-.4.2-.6.2-.2 0-.5-.1-.7-.3-.2-.2-.4-.4-.6-.8l-.4.1-.3 1.2c-.1.4-.3.9-.5 1.5.3.1.6.2.9.2.4 0 .8-.1 1.2-.3.8-.4 1.6-1.1 2.3-1.9.8-.9 1.4-1.9 1.8-3.1.5-1.2 1-3 1.7-5.7l1.3-5.8H301.7c.1-.4.2-.8.4-1.3l-.1-.3c-.3 0-.7.1-1.2.1-.9.1-1.4.1-1.6.1h-.3c.2-1.1.4-2.1.7-3.2.1-.4.2-.7.3-.9.1-.2.3-.3.4-.5.3-.1.5-.1.7-.1.3 0 .6.1.9.3.3.2.7.6 1 1.1l.4-.1c.1-1 .4-2 .7-3.1-.3-.1-.7-.2-1-.2-.5 0-.9.1-1.1.2-.3.1-.8.5-1.7 1.1-.9.6-1.6 1.3-2.4 1.9-.5.4-.8.8-1 1.2-.1.3-.3.7-.4 1.4-.1.3-.1.5-.2.6-.3.2-.8.3-1.3.5-.5.1-.9.3-1.2.4l-.2.7h.8m-11.2 2.8c.4-1.4.8-2.3 1.2-2.7.5-.5 1-.7 1.7-.7.6 0 1.1.2 1.5.7.4.4.6 1.2.6 2.1 0 1.2-.2 2.4-.5 3.7-.2.9-.5 1.6-.8 2.1-.3.5-.6.9-.9 1.1-.3.2-.7.3-1.2.3-.7 0-1.2-.2-1.6-.6-.4-.4-.6-1.1-.6-2.1.1-1.3.3-2.5.6-3.9m-3.1 5.8c.2.6.6 1.1 1.2 1.4.6.3 1.3.5 2.3.5.8 0 1.6-.1 2.2-.4.7-.2 1.3-.6 2-1.1.7-.5 1.2-.9 1.6-1.3.5-.6.9-1.4 1.2-2.4.4-1.1.5-2.1.5-3.2 0-.6-.1-1.1-.2-1.5-.1-.5-.4-.9-.6-1.2-.3-.3-.7-.6-1.3-.8-.6-.2-1.2-.3-1.9-.3-.8 0-1.6.2-2.4.5-.7.3-1.4.7-2 1.2-.6.5-1.1.9-1.3 1.2-.4.5-.8 1.3-1.1 2.3-.3 1.1-.5 2.1-.5 3.1 0 .7.1 1.4.3 2M301.4 31.8l5.4 13c-1.5.1-3.2.1-5.2.1s-3.8 0-5.4-.1l5.2-13zm-10.5 26.4l5.8.2v-2.1c-2-.1-3.2-.2-3.6-.4-.3-.2-.4-.4-.4-.8 0-.6.4-2 1.2-4.3l1.1-3h13l2.1 5.5c.4 1 .6 1.6.6 2 0 .3-.1.6-.4.7-.3.1-1.4.3-3.4.3v2.1l8.8-.2 7 .2v-2.1c-.5 0-.9-.1-1.1-.1-.8-.1-1.3-.1-1.5-.2-.2-.1-.4-.2-.5-.3-.2-.1-.3-.3-.5-.7l-1-2.3-1.6-3.4-11.2-26.2h-3.6l-2.2 5.7-6.5 16.1c-1.2 3.1-2.1 5.1-2.5 6.1-1 2.2-1.5 3.5-1.7 3.8-.2.3-.4.6-.6.8-.2.2-.4.3-.7.4-.3.1-1.1.2-2.4.3v2.1l5.8-.2zm-28.4-12.8v-5.8c0-6.6.1-11 .3-13.4 1.6-.2 3-.3 4.3-.3 3.4 0 6 .3 7.7.9 1.7.6 3.1 1.6 4.2 2.9s1.9 2.9 2.4 4.7c.5 1.8.7 3.6.7 5.5 0 2.1-.2 4-.7 5.8-.5 1.8-1.2 3.4-2 4.7-.9 1.3-1.8 2.3-2.7 3-1 .7-2.1 1.2-3.3 1.5-1.7.5-3.7.7-5.9.7-1.4 0-2.9-.1-4.5-.4-.4-1.6-.5-4.8-.5-9.8m-2.2 12.8l7.4.2c3.4 0 6.3-.4 8.6-1.1 2.4-.7 4.6-2 6.7-3.7 2-1.7 3.7-3.8 4.8-6.3 1.2-2.5 1.8-5.4 1.8-8.6 0-2.5-.4-4.8-1.2-6.9-.5-1.3-1.2-2.4-2.1-3.5-.9-1.1-2-2-3.3-2.8-1.3-.8-2.9-1.4-4.6-1.7-1.8-.4-4.1-.5-7.1-.5-1.3 0-3 0-5.1.1-3 .1-5 .1-6 .1l-9.1-.2v2c1.8.2 2.9.4 3.1.5.3.1.5.2.6.3.1.1.2.2.2.4.2.7.3 2.2.3 4.5.1 4.3.1 7.5.1 9.7v4.1c0 5-.1 8.7-.3 10.9-.5.4-1.1.8-1.7 1.1-.3.2-.6.3-.7.4v1.2l7.6-.2zm-19.4-34.8c-2.7 0-5.1-.1-7.3-.2v2.2c1.8.1 2.9.1 3.2.2.3.1.5.2.6.3.1.1.2.3.2.5.1.5.2 1.9.3 4 0 1 .1 3.1.1 6.4v10.5c0 1.7-.1 3.6-.2 5.6-.1 1.4-.2 2.2-.2 2.4 0 .2-.1.3-.2.4-.1.1-.4.2-.7.3-.3.1-1.3.1-3 .2v2.2c2.1-.1 4.5-.2 7.2-.2 3.1 0 6 .1 8.7.2v-2.2c-1.6 0-2.6-.1-3-.2-.3-.1-.6-.2-.8-.3-.2-.1-.3-.3-.3-.5-.2-.5-.3-1.6-.3-3.4l-.1-4.6V37.1c0-.3 0-2.5.1-6.7 0-1.2 0-2 .1-2.5 0-.8.1-1.3.3-1.6.1-.2.1-.3.3-.4.1-.1.4-.2.7-.3.3-.1 1.3-.1 3-.2v-2.2c-2.7.2-5.6.2-8.7.2m-40 2.4c.2.1.3.2.4.4.2.4.3 1.7.3 3.8l.1 5.3v9.3l-.2 7.3c-.1 1.3-.1 2.3-.2 3-.1.4-.1.6-.2.7-.1.1-.2.2-.4.3-.3.1-1.5.2-3.4.3v2.2c2.2-.1 4.6-.2 7.2-.2 2.9 0 5.8.1 8.7.2v-2.2c-1.6 0-2.6-.1-2.9-.2-.3-.1-.6-.2-.7-.3-.2-.1-.3-.2-.3-.4-.1-.3-.2-.9-.3-1.8 0-.5-.1-2.4-.2-5.9-.1-2.8-.1-5.5-.1-8 0-1.6.1-4.7.2-9.5.1-2.1.1-3.5.2-4.1.8-.1 1.6-.2 2.4-.2 1.8 0 3.1.1 3.8.4 1.1.4 2 1.1 2.7 2.1.7 1 1.1 2.3 1.1 3.8s-.4 2.9-1.1 4.1c-.7 1.2-1.6 2.1-2.6 2.6s-2.5.7-4.5.6l-.3.8c.5.4 1 .9 1.6 1.7 1.1 1.5 2.4 3.4 3.9 6l5.4 8.8c.3.6.5 1.1.6 1.4 1.3-.1 2.6-.1 4-.1 1.2 0 3 0 5.6.1v-2.2c-.8 0-1.3-.1-1.6-.2-.3-.1-.5-.3-.8-.6-.3-.3-1.1-1.3-2.3-2.9-.1-.1-.6-.9-1.7-2.5l-3.9-5.8c-.1-.2-.2-.3-.3-.5-.1-.2-.4-.6-.9-1.4-.5-.8-1-1.5-1.4-2.3 2.6-1 4.5-2.3 5.8-3.9 1.3-1.7 1.9-3.5 1.9-5.5 0-1.7-.5-3.2-1.4-4.3-.9-1.2-2-2-3.3-2.3-1.3-.4-3.3-.6-5.9-.6-1.4 0-3.1 0-5.1.1-1.3.1-2.8.1-4.5.1-2.1 0-3.6 0-4.8-.1-2.3-.1-3.6-.1-4-.1v2c1.8.4 3 .5 3.4.7m-32.8 6.5c.8-2.2 2-3.9 3.7-5.1 1.7-1.1 3.8-1.7 6.2-1.7 2.1 0 3.9.4 5.2 1.1 1.3.7 2.4 1.8 3.4 3.1 1 1.4 1.7 3 2.2 5 .5 1.9.8 4.1.8 6.4 0 3.4-.5 6.3-1.4 8.7-.9 2.4-2.2 4.1-3.9 5.1-1.7 1-3.5 1.5-5.7 1.5-2.3 0-4.2-.5-5.9-1.6-1.7-1.1-3-2.9-4.1-5.4-1.1-2.6-1.6-5.8-1.6-9.7 0-2.7.4-5.2 1.1-7.4m-6.5 18.8c1.5 2.7 3.7 4.7 6.4 6 2.7 1.4 5.9 2 9.7 2 3.5 0 6.6-.6 9.3-1.7 2-.8 3.7-2 5.3-3.6 1.5-1.6 2.7-3.3 3.5-5.3 1.1-2.7 1.6-5.6 1.6-8.8 0-1.9-.2-3.6-.6-5.1-.4-1.5-.9-2.9-1.7-4.2-.7-1.3-1.8-2.5-3.2-3.8-1.4-1.2-3-2.2-4.9-2.8-2.5-.9-5.2-1.3-8.3-1.3-3.1 0-5.9.4-8.5 1.3-2 .7-3.9 1.8-5.6 3.4-1.7 1.6-3 3.5-4 5.8-.9 2.3-1.4 4.9-1.4 8 .1 4.2.8 7.5 2.4 10.1m-21.7 7c1.1 0 3 0 5.8.1 3.6.1 5.6.1 5.9.1 2.1 0 3.7 0 4.7-.1.5-.1 1-.1 1.5-.3 0-.3.1-1.3.2-2.9l.6-5.1c0-.1 0-.4.1-.8h-2.1c-.3 1.6-.6 3.1-1 4.4-.2.5-.3.8-.4.9-.1.1-.5.2-1.2.3-1.9.3-4.1.4-6.6.4-.8 0-2.4-.1-4.7-.2v-4.3-7.1-7.2c0-2.8 0-5.1.1-7 .1-1.8.2-2.9.2-3.1.1-.2.2-.4.4-.5.4-.2 1.6-.4 3.5-.5V23c-2.7.1-5.6.2-8.6.2-2.7 0-5.1-.1-7.3-.2v2.2c2.2.1 3.5.3 3.8.5.2.1.3.3.4.5.2.5.3 2.2.3 5.4v9.8c0 3.6 0 6.7-.1 9.2-.1 2.6-.1 4.1-.2 4.5 0 .1-.1.2-.1.3-.1.1-.3.3-.7.5-.8.5-1.4.8-1.8 1v1.3c3.2 0 5.7-.1 7.3-.1M126 35.3h-2.2c0 1.5-.1 2.4-.3 2.9-.1.3-.3.5-.5.6-.6.2-1.9.3-4.1.3-.8 0-2.2-.1-4.3-.2v-3.5c0-4.3.1-7.3.3-9 .5 0 1.3-.1 2.6-.1s2.1-.1 2.4-.1c1.5 0 2.7.1 3.8.3 1.1.2 1.8.4 2.1.6.1.1.2.1.2.2.1.1.1.6.2 1.3.1 1.4.1 2.3.1 2.7h2c0-1.1.1-2.4.2-3.9s.3-2.7.5-3.6l-.2-.4c-1.5-.2-3.1-.3-4.8-.3l-12 .3-8.9-.2v2.1c1.6.1 2.6.2 3 .3.4.1.6.2.7.3.1.1.2.2.2.4.2.5.2 1.4.3 2.7.2 4.5.2 6.8.2 7v10.4c0 .9 0 2.3-.1 4.4-.1 2-.2 3.2-.2 3.6-.1.7-.2 1.1-.4 1.3-.1.1-.2.2-.4.3-.3.1-1.4.2-3.4.2v2.1c3.1-.1 5.3-.2 6.8-.2l9.9.2v-2c-2.3-.2-3.6-.3-3.9-.4-.3-.1-.5-.3-.6-.4-.2-.3-.3-1.2-.4-2.8-.1-1.6-.1-4.4-.1-8.3v-2.8h2c2.7 0 4.6.1 5.8.3.5.1.8.3.9.5.2.4.4 1.7.4 3.8h2.2V35.3zM261.5 6c-.5-1-1-1.9-1.5-2.6-.3-.5-.6-.9-.8-1-.2-.2-.5-.4-.9-.6l-1.2.3-2.2.4v.8c.5 0 .8 0 .9.1.1.1.4.3.7.7.5.6 1.1 1.3 1.7 2.3.8 1.2 1.5 2.4 2.1 3.6.3.5.4.8.4 1v2c0 .6 0 1.2-.1 2 0 .3-.1.6-.1.6s-.1.1-.3.2c-.1 0-.6.1-1.4.1v.9c1.1-.1 2.1-.1 3.2-.1s2.3 0 3.6.1v-.9c-.8 0-1.2 0-1.4-.1-.1 0-.3-.1-.3-.2-.1-.1-.1-.3-.2-.7 0-.4-.1-1.1-.1-1.9v-2-.8c.1-.2.2-.5.3-.8.2-.4.8-1.4 1.8-3 1-1.5 1.9-2.9 2.7-4V2H267c-.1.2-.3.6-.7 1.3-1.1 2-1.8 3.1-2 3.5L263 9l-1.5-3m-17.2 10.6c.9 0 2.1 0 3.4.1v-.9c-.8 0-1.3-.1-1.5-.2-.2-.1-.3-.2-.3-.4-.1-.3-.1-1.2-.1-2.7V6.2 3.3h1.5c.8 0 1.5 0 2.1.1.2 0 .3 0 .3.1.1 0 .1.2.1.5.1.5.1 1 .1 1.6h.9V3.3c0-.3.1-.7.1-1.1V2c-.3 0-.7.1-1 .1h-11.2c-.4 0-.7 0-1-.1l-.1.1c0 .4.1.7.1 1 0 .2 0 1 .1 2.4h.9c0-.6.1-1.2.2-1.6 0-.2.1-.3.1-.4 0 0 .2-.1.4-.1.6 0 1.2-.1 2-.1h1.5v9.2c0 1.5 0 2.4-.1 2.7-.1.2-.2.3-.3.4-.2.1-.7.1-1.5.2v.9c1.2-.1 2.3-.1 3.3-.1M229.7 2.1c-1.1 0-2.2 0-3-.1v.9c.8 0 1.2.1 1.3.1.1 0 .2.1.3.1 0 0 .1.1.1.2.1.2.1.8.1 1.7V12.1c0 .7 0 1.5-.1 2.3 0 .6-.1.9-.1 1 0 .1 0 .1-.1.2-.1 0-.2.1-.3.1-.1 0-.5 0-1.3.1v.9c.9-.1 1.9-.1 3-.1 1.3 0 2.5 0 3.7.1v-.9c-.7 0-1.1 0-1.3-.1-.1 0-.2-.1-.3-.1-.1-.1-.1-.1-.1-.2-.1-.2-.1-.7-.1-1.4V7.8 5 4c0-.3.1-.6.1-.7 0-.1.1-.1.1-.2.1 0 .2-.1.3-.1.1 0 .6-.1 1.3-.1V2c-1.1 0-2.3.1-3.6.1m-9.3 2c0-.4.1-.9.2-1.3l-.1-.3c-.5-.3-1.1-.4-1.8-.6-.7-.1-1.4-.2-2.2-.2-.7 0-1.4.1-2.1.2-.7.2-1.3.4-1.8.8s-1 .9-1.3 1.5c-.3.7-.5 1.4-.5 2.2 0 .6.1 1.1.3 1.6.2.5.5.9.8 1.2.4.3.9.6 1.5.8.4.1 1.2.3 2.5.6.9.2 1.5.4 1.9.6s.6.4.8.8c.2.3.2.7.2 1.1 0 .5-.1 1-.4 1.4-.2.4-.6.7-1.1 1-.5.2-1.1.4-1.8.4-.8 0-1.5-.2-2.1-.5-.6-.3-1.1-.7-1.4-1.1-.1-.8-.1-1.4-.1-1.9h-.9c0 1.6-.1 2.9-.3 3.7.8.4 1.5.7 2.2.8.7.2 1.4.2 2.3.2 1.2 0 2.2-.2 3-.5.5-.2 1-.5 1.5-1 .5-.4.9-.9 1.2-1.4.4-.7.6-1.5.6-2.4 0-.5-.1-1-.2-1.4-.1-.4-.3-.8-.5-1-.2-.3-.5-.5-.8-.7-.3-.2-.8-.4-1.4-.5-.2 0-.7-.1-1.4-.3-.7-.1-1.3-.2-1.7-.3-.5-.1-.9-.3-1.2-.5-.3-.2-.5-.4-.6-.7-.1-.3-.2-.7-.2-1.1 0-.6.3-1.2.8-1.7s1.3-.7 2.2-.7c.7 0 1.3.1 1.8.4.5.2.9.5 1.1.8.1.3.1.9.1 1.7h.9c-.1-.7-.1-1.3 0-1.7m-27.2-1c.1 0 .1.1.2.2.1.2.1.7.1 1.6l.1 2.2V11l-.1 3.1c0 .6-.1 1-.1 1.2 0 .1-.1.2-.1.3 0 0-.1.1-.2.1s-.6.1-1.4.1v.9c.9-.1 1.9-.1 3-.1 1.2 0 2.4 0 3.6.1v-.9c-.7 0-1.1 0-1.2-.1-.1 0-.2-.1-.3-.1-.1 0-.1-.1-.1-.2-.1-.1-.1-.4-.1-.8 0-.2 0-1-.1-2.5V8.8c0-.7 0-2 .1-4 0-.9 0-1.5.1-1.7.3-.1.7-.1 1-.1.8 0 1.3.1 1.6.2.5.2.8.5 1.1.9.3.4.5 1 .5 1.6 0 .6-.1 1.2-.4 1.7-.3.5-.7.9-1.1 1.1-.4.2-1.1.3-1.9.3l-.1.3.7.7c.4.6 1 1.4 1.6 2.5l2.2 3.7.3.6h4v-.9c-.3 0-.6 0-.7-.1-.1 0-.2-.1-.3-.3-.1-.1-.4-.5-1-1.2 0 0-.3-.4-.7-1l-1.6-2.4c0-.1-.1-.1-.1-.2s-.2-.3-.4-.6-.4-.6-.6-1c1.1-.4 1.9-1 2.4-1.7s.8-1.5.8-2.3c0-.7-.2-1.3-.6-1.8-.4-.5-.9-.8-1.4-1-.7-.1-1.5-.1-2.6-.1-.6 0-1.3 0-2.2.1h-3.9c-1 0-1.5-.1-1.7-.1v.9c.9 0 1.5.1 1.6.2m-13.8 13.5h5.1c.8 0 1.5 0 1.9-.1l.1-.1c0-.9.1-2 .2-3.4h-.9c-.1.9-.3 1.6-.4 1.9 0 .1-.1.2-.1.2-.1.1-.5.2-1.2.2-.6 0-1.3.1-2.1.1s-1.4 0-2-.1V9.7c.4-.1 1-.1 1.7-.1.8 0 1.4 0 1.9.1.2 0 .4.1.5.3.1.2.2.7.2 1.5h.9l-.1-2.3.1-2.3h-.9c0 .6-.1 1.1-.1 1.3 0 .1-.1.2-.2.2s-.3.1-.7.1h-1.7c-.5 0-1 0-1.5-.1V6.3c0-1.2 0-2.2.1-3 .6-.1 1.3-.1 1.9-.1.7 0 1.3 0 2 .1.5 0 .7.1.8.2.1 0 .1.1.1.2 0 .2.1.7.1 1.5h.8c.1-.9.1-1.4.1-1.5l.2-1.5-.1-.1c0-.1-.1-.1-.2-.1H175.3v.8c.8 0 1.3.1 1.5.2.1 0 .1.1.2.2.1.2.1.7.1 1.4v6.7c0 .5 0 1.4-.1 2.6 0 .7-.1 1.1-.1 1.4-.3.2-.6.4-1 .6v.6c2.2.1 3.3.1 3.5.1m-15.2.2c.4-1.2 1.2-3.2 2.4-6.1l1.4-3.4.7-1.7c.6-1.4 1-2.2 1.2-2.4.1-.1.5-.2 1.2-.2V2l-2.3.1-2.6-.1v.9c.3 0 .7 0 1.2.1.2 0 .3 0 .4.1.1 0 .1.1.2.1 0 .1.1.1.1.3v.3c-.1.3-.3.8-.6 1.7-.4 1.2-.7 1.9-.7 2l-2.3 5.8-2.7-6.5c0-.1-.1-.1-.1-.2s-.2-.4-.4-1c-.5-1.1-.7-1.8-.7-2 0-.1 0-.2.1-.3.1-.1.2-.1.3-.2.3-.1.7-.1 1.3-.1V2l-3.8.1c-.4 0-1.4 0-3.1-.1v.9c.7 0 1.1.1 1.3.2.1.1.3.4.6.9s1 2.2 2.2 5l1.5 3.6c.5 1.3 1.1 2.7 1.7 4.2h1.5zM147.4 2.1c-1.1 0-2.2 0-3-.1v.9c.8 0 1.2.1 1.3.1.1 0 .2.1.2.1s.1.1.1.2c0 .2.1.8.1 1.7V12.1c0 .7 0 1.5-.1 2.3 0 .6-.1.9-.1 1 0 .1 0 .1-.1.2-.1 0-.2.1-.3.1-.1 0-.5 0-1.3.1v.9c.9-.1 1.9-.1 3-.1 1.3 0 2.5 0 3.7.1v-.9c-.7 0-1.1 0-1.3-.1-.1 0-.2-.1-.3-.1-.1-.1-.1-.1-.1-.2-.1-.2-.1-.7-.1-1.4V7.8 5 4c0-.3.1-.6.1-.7 0-.1.1-.1.1-.2.1 0 .2-.1.3-.1.1 0 .6-.1 1.3-.1V2c-1 0-2.2.1-3.5.1m-24.2 14.6c1.2-.1 2.1-.1 2.8-.1h2.3v-.9h-.2c-.2 0-.5 0-1-.1-.2 0-.3-.1-.4-.1-.1-.1-.1-.1-.1-.2-.1-.2-.1-.7-.1-1.5 0-1.2-.1-2.3-.1-3.4V5.3c4.2 5.1 7.4 8.9 9.6 11.4l1.8.3.1-.1c-.1-1-.1-3.8-.1-8.5V5.6c0-1.3.1-2.1.2-2.4 0-.1.1-.1.1-.2.2-.1.7-.2 1.5-.2V2c-1.1.1-2 .1-2.7.1-.7 0-1.5 0-2.4-.1v.9c.9 0 1.5.1 1.6.2.1.1.2.2.2.5.1.7.1 2.9.1 6.7v2.4c-1-1-2.2-2.4-3.7-4.2-2.1-2.5-3.8-4.6-5.2-6.5H125c-.4 0-1.1 0-2-.1v.9c.7 0 1.2.1 1.3.1.2 0 .3.1.3.2.1.1.1.2.2.3 0 .2.1.5.1 1l.1 3.1v5.8c-.1 1-.1 1.7-.2 1.9 0 .2-.1.3-.1.4s-.1.1-.2.1-.6.1-1.4.1v.9zM104.5 3l.3.3c.1.1.1.4.1.7 0 .8.1 1.7.1 2.6v4.7c0 1.1 0 1.8.1 2 0 .4.2.8.4 1.3.2.4.6.8 1 1.2.4.4 1 .6 1.7.8.9.3 1.9.4 3 .4.9 0 1.7-.1 2.4-.3.7-.2 1.3-.5 1.8-.9s.9-.8 1.2-1.3c.3-.5.5-1.1.6-1.7.1-.7.1-1.3.1-2V8.4c0-.7 0-1.7.1-3 0-1.3.1-2 .1-2.1.1-.2.1-.3.2-.3.2-.1.6-.2 1.2-.2V2h-2.8c-.2 0-1 0-2.3-.1v.9c.8 0 1.3.1 1.5.2.1.1.2.1.2.3.1.2.1.7.1 1.6v5.5c0 1.5-.1 2.5-.4 3-.2.5-.7 1-1.2 1.3-.6.3-1.4.5-2.3.5-.8 0-1.5-.1-2.1-.4s-1-.6-1.2-1c-.3-.4-.4-.9-.5-1.6V6.3c0-1.5 0-2.4.1-2.9 0-.2.1-.3.2-.4.2-.1.7-.2 1.4-.2V2h-6.5v.9l1.4.1z"/><path fill="#8C8C8C" d="M60 48.7V34.3h13.2v-9.5H60V11.4h14.5v5.2h9.6V2H45.7v9.4h3.6v37.3h-3.6v9.4h17.7v-9.4zM40.7 36.9V11.4h3.5V2H26.5v9.4H30v22.3c0 9.4-1.1 13.9-7.8 13.9s-7.8-4.5-7.8-13.9V11.4h3.4V2H0v9.4h3.5v25.5c0 5.6 0 10.1 2.6 14.2 2.9 4.6 8.3 7.6 16 7.6 13.7.1 18.6-7.1 18.6-21.8"/></symbol><symbol viewBox="0 0 194.8 35.8" id="florida-logo-full"><path fill="#F37123" d="M56.1 1.2v33.9h1.5V1.2h-1.5z"/><path fill="#005596" d="M169.1 10c.1.4.4.6.7.8.3.2.8.3 1.4.3.5 0 .9-.1 1.3-.2s.8-.4 1.2-.7c.4-.3.7-.5.9-.8.3-.3.5-.8.7-1.5.2-.6.3-1.3.3-1.9 0-.3 0-.6-.1-.9-.1-.3-.2-.5-.4-.7-.2-.2-.4-.4-.8-.5-.3-.1-.7-.2-1.2-.2s-1 .1-1.4.3c-.4.2-.9.4-1.2.7-.4.3-.6.5-.8.7-.2.3-.5.8-.7 1.4-.2.7-.3 1.3-.3 1.9.2.5.3.9.4 1.3zm1.8-3.5c.2-.8.5-1.4.7-1.7.3-.3.6-.4 1-.4s.7.1.9.4c.2.3.4.7.4 1.3 0 .7-.1 1.4-.3 2.2-.1.5-.3.9-.5 1.2-.2.3-.4.5-.6.7-.2.1-.4.2-.7.2-.4 0-.7-.1-1-.4-.2-.3-.3-.7-.3-1.3.1-.6.2-1.4.4-2.2zm6.8-1.7h1l-1.1 5.5c-.3 1.5-.5 2.5-.7 3-.1.2-.2.4-.3.5-.1.1-.2.1-.4.1-.1 0-.3-.1-.4-.2-.1-.1-.2-.3-.3-.5h-.2c-.1.3-.1.5-.2.7-.1.2-.2.5-.3.9.2.1.4.1.6.1.2 0 .5-.1.7-.2.5-.2.9-.6 1.4-1.2.5-.5.8-1.2 1.1-1.9.3-.7.6-1.8 1-3.4l.8-3.5h1.8c0-.2.1-.5.2-.8l-.1-.1c-.1.2-.3.2-.7.2h-1.2c.1-.6.3-1.3.4-1.9.1-.2.1-.4.2-.5l.3-.3c.1-.1.2-.1.4-.1s.3.1.5.2.4.3.6.7h.2c.1-.6.2-1.2.4-1.9-.1-.2-.3-.2-.5-.2-.3 0-.5 0-.7.1-.2.1-.5.3-1 .7-.5.4-1 .8-1.4 1.2-.3.3-.5.5-.6.8-.1.2-.2.4-.3.9 0 .2-.1.3-.1.4-.2.1-.5.2-.8.3-.3.1-.6.2-.7.2l-.1.4c.1-.2.3-.2.5-.2zM76.1 21.3h-1.3c0 .9-.1 1.5-.2 1.7-.1.2-.2.3-.3.3-.3.1-1.2.2-2.5.2-.5 0-1.3 0-2.6-.1v-2.1c0-2.6.1-4.4.2-5.4.3 0 .8 0 1.6-.1h1.4c.9 0 1.7.1 2.3.2.7.1 1.1.2 1.3.4.1 0 .1.1.1.1 0 .1.1.4.1.8.1.8.1 1.4.1 1.6h1.2c0-.7.1-1.4.1-2.3.1-.9.2-1.6.3-2.2l-.1-.2c-.9-.1-1.9-.2-2.9-.2l-7.3.1-5.4-.1v1.3c1 .1 1.6.1 1.8.2.2.1.4.1.4.2.1.1.1.1.1.2.1.3.1.9.2 1.7.1 2.7.1 4.1.1 4.2V28c0 .5 0 1.4-.1 2.6-.1 1.2-.1 2-.1 2.2-.1.4-.1.7-.2.8l-.2.2c-.2.1-.9.1-2 .1v1.2c1.9-.1 3.2-.1 4.1-.1l5.9.1V34c-1.4-.1-2.2-.2-2.4-.2-.2-.1-.3-.2-.4-.3-.1-.2-.2-.7-.2-1.7-.1-1-.1-2.6-.1-5v-1.7h1.2c1.6 0 2.8.1 3.5.2.3.1.5.2.5.3.1.3.2 1 .3 2.3h1.3c.2-2.7.2-4.9.2-6.6zm8.4 13.8c.7 0 1.8 0 3.5.1 2.2.1 3.4.1 3.6.1 1.3 0 2.2 0 2.9-.1.3 0 .6-.1.9-.2 0-.2.1-.8.1-1.7l.4-3.1v-.5h-1.2c-.2 1-.4 1.9-.6 2.6-.1.3-.2.5-.3.6-.2.1-.4.1-.8.2-1.1.2-2.5.3-4 .3-.5 0-1.5 0-2.8-.1v-2.6-4.3V22c0-1.7 0-3.1.1-4.2 0-1.1.1-1.7.1-1.9 0-.1.1-.2.2-.3.3-.1.9-.2 2.1-.3V14c-1.6.1-3.4.1-5.2.1-1.6 0-3.1 0-4.4-.1v1.3c1.3.1 2.1.2 2.3.3.1.1.2.2.2.3.1.3.2 1.4.2 3.3v5.9c0 2.2 0 4-.1 5.6 0 1.6-.1 2.5-.1 2.7 0 .1 0 .1-.1.2s-.2.2-.4.3c-.5.3-.8.5-1.1.6v.8c2-.2 3.5-.2 4.5-.2zm13-4.2c.9 1.6 2.2 2.8 3.8 3.6 1.6.8 3.6 1.2 5.8 1.2 2.1 0 4-.3 5.6-1 1.2-.5 2.3-1.2 3.2-2.2.9-.9 1.6-2 2.1-3.2.7-1.6 1-3.4 1-5.3 0-1.1-.1-2.1-.3-3.1-.2-.9-.6-1.8-1-2.6s-1.1-1.5-1.9-2.3c-.9-.7-1.8-1.3-2.9-1.7-1.5-.5-3.2-.8-5-.8-1.8 0-3.5.3-5.1.8-1.2.4-2.3 1.1-3.4 2.1-1 1-1.8 2.1-2.4 3.5-.6 1.4-.8 3-.8 4.8 0 2.6.4 4.6 1.3 6.2zm4-11.4c.5-1.4 1.2-2.4 2.3-3.1 1-.7 2.3-1 3.8-1 1.3 0 2.3.2 3.1.7.8.4 1.5 1.1 2 1.9.6.8 1 1.8 1.3 3 .3 1.2.5 2.5.5 3.9 0 2.1-.3 3.8-.9 5.3-.6 1.4-1.4 2.5-2.4 3.1-1 .6-2.1.9-3.4.9-1.4 0-2.6-.3-3.6-1-1-.6-1.8-1.7-2.5-3.3-.6-1.5-1-3.5-1-5.8.1-1.8.3-3.3.8-4.6zm19.8-3.9c.1.1.2.1.2.3.1.3.2 1 .2 2.3l.1 3.2V27l-.1 4.4c0 .8-.1 1.4-.2 1.8 0 .2-.1.4-.1.4-.1.1-.1.1-.3.2-.2.1-.9.1-2 .2v1.3c1.3-.1 2.8-.1 4.4-.1 1.8 0 3.5 0 5.2.1V34c-1 0-1.6 0-1.8-.1-.2 0-.3-.1-.4-.2-.1-.1-.2-.1-.2-.2-.1-.2-.1-.5-.2-1.1 0-.3-.1-1.5-.1-3.5v-4.8c0-1 0-2.9.1-5.7 0-1.3.1-2.1.1-2.5.5-.1 1-.1 1.4-.1 1.1 0 1.8.1 2.3.2.7.2 1.2.7 1.7 1.3.4.6.7 1.4.7 2.3 0 .9-.2 1.7-.6 2.5-.4.7-.9 1.3-1.6 1.5-.6.3-1.5.4-2.7.4l-.2.5c.3.2.6.6.9 1l2.4 3.6 3.2 5.3c.2.4.3.6.4.9.8 0 1.6-.1 2.4-.1.7 0 1.8 0 3.4.1V34c-.5 0-.8 0-1-.1-.2-.1-.3-.2-.5-.4s-.6-.8-1.4-1.8c-.1-.1-.4-.6-1-1.5l-2.3-3.5c-.1-.1-.1-.2-.2-.3-.1-.1-.2-.4-.6-.9-.3-.5-.6-.9-.9-1.4 1.6-.6 2.7-1.4 3.5-2.4.8-1 1.1-2.1 1.1-3.3 0-1-.3-1.9-.8-2.6-.6-.7-1.2-1.2-2-1.4-.8-.2-2-.3-3.6-.3-.8 0-1.9 0-3.1.1-.8 0-1.7.1-2.7.1h-2.9c-1.4 0-2.2-.1-2.4-.1v1.2c1.2 0 2 .1 2.2.2zm24.2-1.5c-1.6 0-3.1 0-4.4-.1v1.3c1.1 0 1.7.1 1.9.1.2 0 .3.1.4.2.1.1.1.2.1.3.1.3.1 1.1.2 2.4v10.2c0 1 0 2.2-.1 3.4-.1.8-.1 1.3-.1 1.4 0 .1-.1.2-.1.2-.1.1-.2.1-.4.2-.2 0-.8.1-1.8.1v1.3c1.3-.1 2.7-.1 4.4-.1 1.9 0 3.6 0 5.3.1v-1.3c-1 0-1.6-.1-1.8-.1-.2 0-.4-.1-.5-.2-.1-.1-.2-.2-.2-.3-.1-.3-.2-1-.2-2V22.3c0-.2 0-1.5.1-4v-1.5c0-.5.1-.8.2-1 0-.1.1-.2.2-.2.1-.1.2-.1.4-.2.2 0 .8-.1 1.8-.1V14c-1.8.1-3.6.1-5.4.1zm11.7 21l4.5.1c2 0 3.8-.2 5.2-.7 1.4-.5 2.8-1.2 4-2.2 1.2-1 2.2-2.3 2.9-3.8.7-1.5 1.1-3.2 1.1-5.2 0-1.5-.2-2.9-.7-4.2-.3-.8-.7-1.5-1.2-2.1-.5-.7-1.2-1.2-2-1.7s-1.7-.8-2.8-1c-1.1-.2-2.5-.3-4.3-.3-.8 0-1.8 0-3.1.1-1.8.1-3 .1-3.6.1l-5.5-.1v1.2c1.1.1 1.7.2 1.9.3s.3.1.4.2c.1.1.1.1.1.2.1.4.2 1.3.2 2.7.1 2.6.1 4.5.1 5.9V27c0 3-.1 5.2-.2 6.6-.3.2-.7.5-1 .7-.2.1-.3.2-.4.2v.7l4.4-.1zm1.3-7.7v-3.5c0-4 .1-6.7.2-8.1.9-.1 1.8-.2 2.6-.2 2.1 0 3.6.2 4.6.5 1 .4 1.9.9 2.5 1.8.7.8 1.1 1.7 1.4 2.8.3 1.1.4 2.2.4 3.3 0 1.3-.1 2.4-.4 3.5-.3 1.1-.7 2-1.2 2.8-.5.8-1.1 1.4-1.7 1.8-.6.4-1.2.7-2 .9-1 .3-2.2.4-3.6.4-.9 0-1.8-.1-2.7-.2-.1-.8-.1-2.8-.1-5.8zm17.2 7.7l3.5.1V34c-1.2 0-1.9-.1-2.2-.3-.2-.1-.2-.3-.2-.5 0-.3.3-1.2.8-2.6l.7-1.8h7.8l1.3 3.3c.2.6.3 1 .3 1.2 0 .2-.1.3-.2.4-.2.1-.8.2-2.1.2v1.2l5.3-.1 4.2.1V34c-.3 0-.5-.1-.7-.1-.5 0-.8-.1-.9-.1-.1 0-.2-.1-.3-.2-.1-.1-.2-.2-.3-.4l-.6-1.4-.9-2.1-6.8-15.8h-2.2l-1.3 3.4-3.9 9.8c-.7 1.8-1.3 3.1-1.5 3.7-.6 1.3-.9 2.1-1 2.3-.1.2-.2.4-.3.5-.1.1-.2.2-.4.2s-.6.1-1.5.2v1.2l3.4-.1zm6.3-15.9l3.2 7.8H178.9l3.1-7.8zM63.1 1.8l.2.2c0 .1.1.2.1.4V8c0 .2.1.5.2.8.1.3.3.5.6.7.3.2.6.4 1 .5.6.2 1.2.3 1.8.3.6 0 1-.1 1.5-.2.4-.1.8-.3 1.1-.5.3-.2.5-.5.7-.8.2-.3.3-.6.3-1 .1-.4.1-.8.1-1.2V5.1 3.3c0-.8.1-1.2.1-1.3 0-.1.1-.2.1-.2.1-.1.3-.1.7-.1v-.5h-3v.5c.5 0 .8.1.9.1.1 0 .1.1.1.2s.1.4.1 1v3.3c0 .9-.1 1.5-.2 1.8-.1.3-.4.6-.7.8-.3.2-.8.3-1.4.3-.5 0-.9-.1-1.3-.2-.3-.2-.6-.3-.7-.6-.2-.2-.3-.6-.3-1V3.8c0-.9 0-1.5.1-1.7 0-.1.1-.2.1-.2.1-.1.4-.1.9-.1v-.6h-4.1v.5l1 .1zm11.3 8.3H77.5v-.6h-.1c-.1 0-.3 0-.6-.1-.1 0-.2 0-.2-.1l-.1-.1c0-.1-.1-.4-.1-.9V3.2c2.5 3.1 4.4 5.4 5.8 6.9.4.1.7.1 1.1.2l.1-.1c-.1-.6-.1-2.3-.1-5.1V3.4c0-.8.1-1.2.1-1.5 0 0 0-.1.1-.1.1-.1.4-.1.9-.1v-.5h-3v.5c.6 0 .9.1 1 .1.1 0 .1.1.1.3.1.4.1 1.7.1 4v1.5c-.6-.6-1.3-1.4-2.2-2.5-1.2-1.5-2.3-2.8-3.2-3.9h-2.7v.5c.4 0 .7.1.8.1.1 0 .2.1.2.1s.1.1.1.2V7.9c0 .6-.1 1-.1 1.2 0 .1 0 .2-.1.2l-.1.1c-.1 0-.4 0-.9.1v.6zM89 1.2h-1.8v.6c.5 0 .7 0 .8.1.1 0 .1 0 .2.1 0 0 0 .1.1.1 0 .1.1.5.1 1V7.4c0 .4 0 .9-.1 1.4v.6s0 .1-.1.1c0 0-.1.1-.2.1h-.8v.6h4v-.7h-.8c-.1 0-.2 0-.2-.1l-.1-.1c0-.1-.1-.4-.1-.9V4.7 3v-.6c0-.2 0-.3.1-.4 0 0 0-.1.1-.1 0 0 .1-.1.2-.1h.8v-.6H89zm10.1 8.9c.3-.7.8-2 1.5-3.7l.9-2 .5-1.1c.4-.9.6-1.4.7-1.4.1-.1.3-.1.7-.1v-.6h-3v.6H101.3s.1 0 .1.1v.4c0 .2-.2.5-.3 1-.3.7-.4 1.1-.5 1.2L99.2 8l-1.6-4v-.1l-.3-.6c-.3-.7-.4-1.1-.4-1.2 0-.1 0-.1.1-.2 0 0 .1-.1.2-.1.2 0 .4-.1.8-.1v-.5H93.8v.6c.4 0 .7 0 .8.1.1 0 .2.2.4.6.2.3.6 1.3 1.3 3l.9 2.2c.3.8.7 1.6 1 2.5h.9v-.1zm9.2-.1h4.3l.1-.1c0-.5 0-1.2.1-2.1h-.5c-.1.6-.2.9-.2 1.2 0 .1-.1.1-.1.1-.1.1-.3.1-.7.1h-2.5V5.8h1c.5 0 .8 0 1.1.1.1 0 .2.1.3.2.1.1.1.4.1.9h.5V4.2h-.5c0 .4 0 .6-.1.8 0 .1-.1.1-.1.1h-2.3V3.8c0-.7 0-1.4.1-1.8h1.2c.4 0 .8 0 1.2.1.3 0 .5.1.5.1l.1.1c0 .1 0 .4.1.9h.5c0-.5.1-.9.1-.9l.1-.9v-.1H106.1v.5c.5 0 .8.1.9.1l.1.1c0 .1.1.4.1.9V7c0 .3 0 .9-.1 1.6 0 .4 0 .7-.1.9-.2.1-.4.2-.6.4v.3c1.1-.2 1.8-.2 1.9-.2zm8.4-8.2l.1.1c0 .1.1.4.1 1v3.7l-.1 1.9c0 .3 0 .6-.1.7 0 .1 0 .1-.1.2l-.1.1c-.1 0-.4.1-.9.1v.6h4v-.7h-.7c-.1 0-.1 0-.2-.1l-.1-.1c0-.1-.1-.2-.1-.5V7.3v-2-2.4-1c.2 0 .4-.1.6-.1.5 0 .8 0 1 .1.3.1.5.3.7.5.2.3.3.6.3 1s-.1.7-.3 1c-.2.3-.4.5-.7.6-.3.1-.6.2-1.1.2l-.1.2c.1.1.3.2.4.4.3.4.6.9 1 1.5l1.4 2.2c.1.1.1.3.2.4h2.4v-.4c-.2 0-.3 0-.4-.1-.1 0-.1-.1-.2-.2s-.3-.3-.6-.7c0 0-.2-.2-.4-.6l-1-1.5s0-.1-.1-.1l-.2-.4c-.1-.2-.3-.4-.4-.6.7-.2 1.1-.6 1.5-1 .3-.4.5-.9.5-1.4 0-.4-.1-.8-.3-1.1-.2-.3-.5-.5-.8-.6-.3-.1-.8-.1-1.5-.1H115.8v.5c.5.2.8.2.9.2zm16.4.7c0-.3.1-.5.1-.8l-.1-.2c-.3-.2-.7-.3-1.1-.3-.4-.1-.9-.1-1.3-.1s-.9 0-1.3.1-.8.3-1.1.5c-.3.2-.6.5-.8.9-.2.4-.3.8-.3 1.3 0 .3.1.7.2.9.1.3.3.5.5.8.2.2.5.4.9.5.2.1.7.2 1.5.3.5.1.9.2 1.1.4.2.1.4.3.5.5.1.2.1.4.1.7 0 .3-.1.6-.2.9s-.4.4-.7.6c-.3.1-.7.2-1.1.2-.5 0-.9-.1-1.3-.3-.4-.2-.7-.4-.8-.7-.1-.5-.1-.8-.1-1.1h-.5c0 1-.1 1.7-.2 2.2.5.2.9.4 1.3.5.4.1.9.1 1.4.1.7 0 1.3-.1 1.8-.3.3-.1.6-.3.9-.6.3-.3.5-.5.7-.8.2-.4.3-.9.3-1.4 0-.3 0-.6-.1-.8-.1-.2-.2-.5-.3-.6-.1-.2-.3-.3-.5-.4-.2-.1-.5-.2-.8-.3-.1 0-.4-.1-.9-.2-.4-.1-.8-.1-1-.2-.3-.1-.6-.2-.7-.3-.2-.1-.3-.2-.4-.4-.1-.2-.1-.4-.1-.7 0-.4.2-.7.5-1 .3-.3.8-.4 1.3-.4.4 0 .8.1 1.1.2.3.1.6.3.7.5 0 .2.1.5.1 1h.5c.1-.6.1-1 .2-1.2zm5.6-1.3h-1.8v.6c.5 0 .7 0 .8.1.1 0 .1 0 .2.1 0 0 0 .1.1.1 0 .1.1.5.1 1V7.4c0 .4 0 .9-.1 1.4v.6s0 .1-.1.1c0 0-.1.1-.2.1h-.8v.6h4v-.7h-.8c-.1 0-.2 0-.2-.1l-.1-.1c0-.1-.1-.4-.1-.9V4.7 3v-.6c0-.2 0-.3.1-.4 0 0 0-.1.1-.1 0 0 .1-.1.2-.1h.8v-.6h-2.2zm8.8 8.8c.6 0 1.3 0 2.1.1v-.5c-.5 0-.8-.1-.9-.1-.1-.1-.2-.1-.2-.2 0-.2-.1-.7-.1-1.6V3.8 2.1h.9c.5 0 .9 0 1.3.1h.2s.1.1.1.3c0 .3.1.6.1.9h.5V2c0-.2 0-.4.1-.7l-.1-.1h-8l-.1.1c0 .2 0 .4.1.6v1.5h.5c0-.4 0-.7.1-1 0-.1 0-.2.1-.2 0 0 .1 0 .2-.1h2.1v5.5c0 .9 0 1.5-.1 1.6 0 .1-.1.2-.2.3-.1.1-.4.1-.9.1v.5c.9-.1 1.6-.1 2.2-.1zm10.4-6.4c-.3-.6-.6-1.1-.9-1.6-.2-.3-.4-.5-.5-.6-.1-.1-.3-.2-.6-.4-.2.1-.5.1-.7.2l-1.3.3V2h.6c.1 0 .2.2.5.4.3.3.7.8 1 1.4.5.7.9 1.4 1.3 2.2.2.3.2.5.2.6V9c0 .2 0 .3-.1.4 0 0-.1.1-.2.1s-.4 0-.8.1v.6h4.1v-.7c-.5 0-.8 0-.8-.1-.1 0-.2-.1-.2-.1 0-.1-.1-.2-.1-.4V6.7v-.5c0-.1.1-.3.2-.5.1-.3.5-.9 1.1-1.8.6-.9 1.1-1.7 1.7-2.4v-.3h-1c-.1.1-.2.4-.4.8-.7 1.2-1.1 1.9-1.2 2.1l-.8 1.3c-.3-.2-.6-.8-1.1-1.8z"/><g fill="#005596"><path d="M36.2 29.4v-8.7h8V15h-8V6.9H45V10h5.8V1.2H27.6v5.7h2.2v22.5h-2.2v5.7h10.7v-5.7h-2.1zM24.6 22.3V6.9h2.1V1.2H16v5.7h2.1v13.5c0 5.7-.7 8.4-4.7 8.4S8.7 26 8.7 20.4V6.9h2.1V1.2H0v5.7h2.1v15.4c0 3.4 0 6.1 1.6 8.6 1.8 2.8 5 4.6 9.7 4.6 8.2 0 11.2-4.3 11.2-13.2z"/></g><path fill="#005596" d="M169.1 10c.1.4.4.6.7.8.3.2.8.3 1.4.3.5 0 .9-.1 1.3-.2s.8-.4 1.2-.7c.4-.3.7-.5.9-.8.3-.3.5-.8.7-1.5.2-.6.3-1.3.3-1.9 0-.3 0-.6-.1-.9-.1-.3-.2-.5-.4-.7-.2-.2-.4-.4-.8-.5-.3-.1-.7-.2-1.2-.2s-1 .1-1.4.3c-.4.2-.9.4-1.2.7-.4.3-.6.5-.8.7-.2.3-.5.8-.7 1.4-.2.7-.3 1.3-.3 1.9.2.5.3.9.4 1.3zm1.8-3.5c.2-.8.5-1.4.7-1.7.3-.3.6-.4 1-.4s.7.1.9.4c.2.3.4.7.4 1.3 0 .7-.1 1.4-.3 2.2-.1.5-.3.9-.5 1.2-.2.3-.4.5-.6.7-.2.1-.4.2-.7.2-.4 0-.7-.1-1-.4-.2-.3-.3-.7-.3-1.3.1-.6.2-1.4.4-2.2zm6.8-1.7h1l-1.1 5.5c-.3 1.5-.5 2.5-.7 3-.1.2-.2.4-.3.5-.1.1-.2.1-.4.1-.1 0-.3-.1-.4-.2-.1-.1-.2-.3-.3-.5h-.2c-.1.3-.1.5-.2.7-.1.2-.2.5-.3.9.2.1.4.1.6.1.2 0 .5-.1.7-.2.5-.2.9-.6 1.4-1.2.5-.5.8-1.2 1.1-1.9.3-.7.6-1.8 1-3.4l.8-3.5h1.8c0-.2.1-.5.2-.8l-.1-.1c-.1.2-.3.2-.7.2h-1.2c.1-.6.3-1.3.4-1.9.1-.2.1-.4.2-.5l.3-.3c.1-.1.2-.1.4-.1s.3.1.5.2.4.3.6.7h.2c.1-.6.2-1.2.4-1.9-.1-.2-.3-.2-.5-.2-.3 0-.5 0-.7.1-.2.1-.5.3-1 .7-.5.4-1 .8-1.4 1.2-.3.3-.5.5-.6.8-.1.2-.2.4-.3.9 0 .2-.1.3-.1.4-.2.1-.5.2-.8.3-.3.1-.6.2-.7.2l-.1.4c.1-.2.3-.2.5-.2z"/></symbol><symbol viewBox="0 0 149 149" id="icon-pencil"><g fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10"><path d="M25.6 107.4L20.7 132l25.3-4.2M125.8 47.7l-79.7 79.7-2.3-8-7.9-2.2-1.4-7-8.8-3.2 79.7-79.7"/><path d="M112.778 20l20.577 20.576-7 7L105.777 27z" stroke-width="1.99998"/><path d="M113.3 19.8l5.3-5.3c2.1-2.1 5.6-1.9 7.9.4L138.6 27c2.3 2.3 2.5 5.8.4 7.9l-5.3 5.3M110.9 33.3l-77 77M119.4 41.7l-77.1 77.1M22.8 124.2l6.4 6.3"/></g><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M7.3 104.2C3.2 95.2 1 85.1 1 74.5 1 33.9 33.9 1 74.5 1c7.6 0 15 1.2 21.9 3.3M146.7 60.9c.8 4.4 1.3 9 1.3 13.6 0 40.6-32.9 73.5-73.5 73.5-6.4 0-12.7-.8-18.7-2.4"/></symbol><symbol viewBox="0 0 86 86" id="instagram"><path fill="currentColor" d="M69 43c0 14.4-11.6 26-26 26S17 57.4 17 43c0-1.7.2-3.4.5-5H0v34.6C0 80 6 86 13.4 86h59.1C80 86 86 80 86 72.6V38H68.5c.3 1.6.5 3.3.5 5zm3.6-43H13.4C6 0 0 6 0 13.4V28h21.8c4.7-6.7 12.5-11 21.2-11 8.8 0 16.5 4.3 21.2 11H86V13.4C86 6 80 0 72.6 0zm6.5 16.6c0 1.3-1.1 2.4-2.4 2.4h-7.2c-1.3 0-2.4-1.1-2.4-2.4V9.4c0-1.3 1.1-2.4 2.4-2.4h7.2c1.3 0 2.4 1.1 2.4 2.4v7.2zM59 43c0-8.8-7.2-16-16-16s-16 7.2-16 16 7.2 16 16 16 16-7.2 16-16z"/></symbol><symbol viewBox="0 0 192 46.3" id="logo-herbert"><path fill="#F47836" d="M42.5.3v43.1h1.1V.3h-1.1z"/><g fill="currentColor"><path d="M27.4 21.6V15h6.1v-4.3h-6.1V4.6h6.7v2.3h4.4V.3H20.9v4.3h1.6v17h-1.6v4.3H29v-4.3h-1.6zM18.6 16.2V4.6h1.6V.3h-8.1v4.3h1.6v10.2c0 4.3-.5 6.3-3.6 6.3S6.5 19 6.5 14.8V4.6h1.6V.3H0v4.3h1.6v11.7c0 2.5 0 4.6 1.2 6.5 1.3 2.1 3.8 3.5 7.3 3.5 6.3-.1 8.5-3.3 8.5-10.1z"/></g><g fill="currentColor"><path d="M47.8 10.1v-.6h.8c.1 0 .2 0 .2-.1s.1-.1.1-.1c0-.1.1-.5.1-1V2.4c0-.5 0-.8-.1-1 0-.1 0-.1-.1-.1 0 0-.1-.1-.2-.1h-.8V.5h4.4v.6c-.5 0-.8 0-.9.1-.1 0-.1.1-.2.1 0 0-.1.2-.1.5 0 .5-.1 1.1-.1 2v.8h4.6v-.9-1.4c0-.6-.1-.9-.1-1 0-.1 0-.1-.1-.1 0 0-.1-.1-.2-.1s-.4 0-.9-.1V.5h4.4v.6h-.8c-.1 0-.2 0-.2.1l-.1.1c0 .1-.1.5-.1 1V8.2c0 .5 0 .8.1 1 0 .1.1.1.1.2 0 0 .1.1.2.1h.8v.6h-4.4v-.6c.5 0 .8 0 .9-.1.1 0 .1-.1.2-.1 0 0 .1-.2.1-.5 0-.5.1-1.1.1-2V5.4H51v2.8c0 .6.1 1 .1 1 0 .1 0 .1.1.1 0 0 .1.1.2.1s.4 0 .9.1v.6h-2c-1-.1-1.8-.1-2.5 0zM65.2 9l-.3.7c-.4.2-.8.4-1.2.5-.3.1-.6.1-1 .1-.5 0-.8-.1-1.2-.2-.3-.1-.6-.2-.9-.4-.2-.2-.5-.4-.6-.7-.2-.3-.3-.6-.4-.9-.1-.3-.1-.7-.1-1.1 0-.6.1-1.1.2-1.6.1-.3.2-.6.4-.7.1-.1.3-.3.7-.5.4-.3.7-.4.8-.5.3-.1.7-.2 1.1-.2.6 0 1.1.1 1.5.4.4.3.7.6.8 1 .2.4.2.9.2 1.4v.4c-.1 0-.3.1-.5.1-.3.1-.5.1-.6.1h-3c0 .7.3 1.3.7 1.7.4.4.9.6 1.5.6.3 0 .5 0 .7-.1.3 0 .6-.1 1-.3l.2.2zm-1.7-2.8c0-.7-.1-1.2-.3-1.5-.2-.3-.5-.4-.8-.4-.4 0-.6.1-.9.4-.2.3-.3.8-.3 1.5.3 0 .7.1 1.3.1.4-.1.8-.1 1-.1zM70 9.5v.5H66.1v-.5c.4 0 .6 0 .7-.1.1 0 .1-.1.1-.1.1 0 .1-.2.1-.4v-.6-1.6-1.5-.4l-.1-.1c-.1 0-.3-.1-.8-.1v-.5c.8-.1 1.4-.2 1.6-.3l.9-.3.2.1V5c.3-.3.5-.6.7-.8.2-.3.4-.5.5-.5.2-.1.4-.2.6-.2.2 0 .3 0 .5.1v1.9l-.3.1c-.1-.2-.2-.3-.3-.3-.3-.2-.4-.3-.6-.3-.3 0-.5.1-.7.2s-.3.3-.3.5v3.4c0 .1.1.1.1.2.1 0 .2.1.5.1l.5.1zM71.2 1.1V.6c1-.1 1.9-.3 2.6-.6.1 0 .2.1.2.1v4.6l.8-.7c.2-.2.5-.3.7-.4.2-.1.5-.1.8-.1.8 0 1.4.2 1.9.7.5.5.7 1.1.7 1.9 0 .5-.1 1-.3 1.4-.2.5-.4.8-.7 1.1 0 0-.4.3-1 .7-.6.4-1 .7-1 .7-.3.1-.6.2-1 .2-.3 0-.5 0-.8-.1-.3-.1-.6-.2-.9-.4l-.6.5-.3-.1c.1-1.4.1-3.1.1-5s0-3.1-.1-3.6c0-.2-.1-.3-.1-.3-.2 0-.5-.1-1-.1zM74 5.4v3.2l.5.5c.3.1.6.2.9.2.3 0 .6-.1.9-.3.2-.2.4-.5.6-.9.1-.3.1-.7.1-1.2 0-.7-.2-1.3-.5-1.6-.3-.4-.7-.6-1.2-.6-.3 0-.6.1-.8.2-.2.2-.4.3-.5.5zM85.7 9l-.3.7c-.4.2-.8.4-1.2.5-.3.1-.6.1-1 .1-.5 0-.8-.1-1.2-.2-.3-.1-.6-.2-.9-.4-.2-.2-.5-.4-.6-.7-.2-.3-.3-.6-.4-.9 0-.3-.1-.7-.1-1.1 0-.6.1-1.1.2-1.6.1-.3.2-.6.4-.7.1-.1.3-.3.7-.5.4-.3.7-.4.8-.5.3-.1.7-.2 1.1-.2.6 0 1.1.1 1.5.4.4.3.7.6.8 1 .2.4.2.9.2 1.4v.4c-.1 0-.3.1-.5.1-.3.1-.5.1-.6.1h-3c0 .7.3 1.3.7 1.7.4.4.9.6 1.5.6.3 0 .5 0 .7-.1.2-.1.5-.2.9-.4l.3.3zm-1.6-2.8c0-.7-.1-1.2-.3-1.5-.2-.3-.5-.4-.8-.4-.4 0-.7.1-.9.4-.2.3-.3.8-.3 1.5.3 0 .7.1 1.3.1.4-.1.7-.1 1-.1zM90.6 9.5v.5H86.7v-.5c.4 0 .6 0 .7-.1.1 0 .1-.1.1-.1 0-.1.1-.2.1-.5v-.6-1.5-1.5c0-.3 0-.5-.1-.5l-.1-.1c-.1 0-.3-.1-.8-.1v-.4c.8-.1 1.4-.2 1.6-.3l.9-.3.2.1V5c.3-.3.5-.6.7-.8.2-.3.4-.5.5-.5.2-.1.4-.2.6-.2.2 0 .3 0 .5.1v1.9l-.3.1c-.1-.2-.2-.3-.3-.3-.2-.2-.4-.3-.6-.3-.3 0-.5.1-.7.2-.2.2-.3.3-.3.5v3.4c0 .1.1.1.1.2.1 0 .2.1.5.1l.6.1zM91.9 4.9v-.3l.6-.4c.1-.1.2-.2.3-.2V3c0-.3 0-.7-.1-1.2.4-.1.7-.2.9-.3 0 0 .3-.1.9-.4l.2.1-.1.8v.8L94.4 4h.2c.6 0 1.1 0 1.4-.1l-.1.9H94.3v3.5c0 .2.1.4.2.5.3.2.5.2.8.2h.7l.1.3-.2.2-.5.5c-.2.1-.3.1-.5.2h-.4c-.5 0-.9-.1-1.3-.4-.3-.3-.5-.6-.5-1v-4h-.2c-.2 0-.4 0-.6.1zM106.8.4h.6c.2.5.3.9.5 1.3.7 1.8 1.1 2.9 1.3 3.3l.8 2 .8-3.1c.3-1.2.5-2 .5-2.2v-.2c0-.1 0-.2-.1-.2 0-.1-.1-.1-.2-.1 0 0-.3 0-.9-.1V.5h3.1v.6h-.2c-.3 0-.5 0-.5.1-.1 0-.1.1-.2.2s-.2.6-.5 1.4c-.3.8-.6 2.2-1.1 4.1-.5 1.9-.8 3-.8 3.3h-1l-.7-2-1.9-4.7c-.2.4-.9 2.1-2.1 4.9l-.7 1.8h-1L101 2.8c-.2-.8-.3-1.3-.4-1.4 0-.1-.1-.2-.2-.2-.1-.1-.3-.1-.7-.1V.5h4.1v.6h-.7c-.1 0-.2.1-.3.1-.1.1-.1.1-.1.2v.2c0 .1.1.3.1.8.2.9.3 1.5.4 1.9l.6 2.8c0-.1.2-.6.6-1.4l.9-2 1.1-2.6c.2-.2.3-.5.4-.7zM119.6 9l-.3.7c-.4.2-.8.4-1.2.5-.3.1-.6.1-1 .1-.5 0-.8-.1-1.2-.2-.3-.1-.6-.2-.9-.4-.2-.2-.5-.4-.6-.7-.2-.3-.3-.6-.4-.9-.1-.3-.1-.7-.1-1.1 0-.6.1-1.1.2-1.6.1-.3.2-.6.4-.7.1-.1.3-.3.7-.5.4-.3.7-.4.8-.5.3-.1.7-.2 1.1-.2.6 0 1.1.1 1.5.4s.7.6.8 1c.2.4.2.9.2 1.4v.4c-.1 0-.3.1-.5.1-.3.1-.5.1-.6.1h-3c0 .7.3 1.3.7 1.7.4.4.9.6 1.5.6.3 0 .5 0 .7-.1.2-.1.5-.2.9-.4l.3.3zM118 6.2c0-.7-.1-1.2-.3-1.5-.2-.3-.5-.4-.8-.4-.4 0-.6.1-.9.4-.2.3-.3.8-.3 1.5.3 0 .7.1 1.3.1.4-.1.7-.1 1-.1zM124.5 9.5v.5H120.6v-.5c.4 0 .6 0 .7-.1.1 0 .1-.1.1-.1 0-.1.1-.2.1-.5v-.6-1.5-1.5c0-.3 0-.5-.1-.5l-.1-.1c-.1 0-.3-.1-.8-.1v-.4c.8-.1 1.4-.2 1.6-.3l.9-.3.2.1V5c.3-.3.5-.6.7-.8.2-.3.4-.5.5-.5.2-.1.4-.2.6-.2.2 0 .3 0 .5.1v1.9l-.3.1c-.1-.2-.2-.3-.3-.3-.2-.1-.4-.1-.6-.1-.3 0-.5.1-.7.2-.2.2-.3.3-.3.5v3.4c0 .1.1.1.1.2.1 0 .2.1.5.1l.6-.1zM125.8 4.9v-.3l.6-.4c.1-.1.2-.1.3-.2V3c0-.3 0-.7-.1-1.2.4-.1.7-.2.9-.3 0 0 .3-.1.9-.4l.2.1-.1.8v.8l-.1 1.2h.2c.6 0 1.1 0 1.4-.1l-.1.9H128.3v3.5c0 .2.1.4.2.5.1.1.3.2.6.2h.4c.1 0 .2 0 .4-.1l.1.3-.2.2-.5.5c-.2.1-.3.1-.5.2h-.4c-.5 0-.9-.1-1.3-.4-.3-.3-.5-.6-.5-1V4.8h-.2c-.2 0-.4 0-.6.1zM138.2 9.5v.5h-2.7l-.1-.1.1-1.4V6.3c0-.6-.1-1.1-.3-1.3-.2-.2-.5-.4-.9-.4-.3 0-.5.1-.7.2-.2.1-.4.3-.5.6 0 .1-.1.3-.1.6v3.3c0 .1 0 .1.1.1l.1.1c.1 0 .2.1.3.1h.5v.5h-3.8v-.6c.4 0 .6 0 .7-.1.1 0 .1 0 .2-.1l.1-.1c0-.1.1-.6.1-1.3V3.8c0-.7 0-1.4-.1-2 0-.3 0-.5-.1-.5 0 0 0-.1-.1-.1 0 0-.1-.1-.3-.1h-.6V.6c.6-.1 1.1-.1 1.4-.2.3-.1.7-.2 1.2-.4l.2.1.1 1.6v3l1.2-1c.3-.1.6-.2 1-.2s.7.1 1 .2c.3.1.5.3.7.5.2.2.3.4.3.6.1.2.1.5.1.9v3.7c0 .1.1.2.2.2 0-.1.3-.1.7-.1zM144.7 9l-.3.7c-.4.2-.8.4-1.2.5-.3.1-.6.1-1 .1-.5 0-.8-.1-1.2-.2-.3-.1-.6-.2-.9-.4-.2-.2-.5-.4-.6-.7-.2-.3-.3-.6-.4-.9 0-.3-.1-.7-.1-1.1 0-.6.1-1.1.2-1.6.1-.3.2-.6.4-.7.1-.1.3-.3.7-.5.4-.3.7-.4.8-.5.3-.1.7-.2 1.1-.2.6 0 1.1.1 1.5.4.4.3.7.6.8 1 .2.4.2.9.2 1.4v.4c-.1 0-.3.1-.5.1-.3.1-.5.1-.6.1h-3c0 .7.3 1.3.7 1.7.4.4.9.6 1.5.6.3 0 .5 0 .7-.1.2-.1.5-.2.9-.4l.3.3zm-1.6-2.8c0-.7-.1-1.2-.3-1.5-.2-.3-.5-.4-.8-.4-.4 0-.6.1-.9.4-.2.3-.3.8-.3 1.5.3 0 .7.1 1.3.1.4-.1.7-.1 1-.1zM145.7 10.1v-.5c.5 0 .8-.1.9-.1.1 0 .1-.1.1-.2 0-.3.1-.9.1-1.9 0-1.4 0-2.2-.1-2.4 0-.1 0-.2-.1-.2-.1-.1-.4-.1-.9-.1V4c.7-.1 1.2-.1 1.6-.2.4-.1.7-.2 1.1-.4l.2.1c-.1.7-.1 1.4-.1 2v2.3c0 .8 0 1.3.1 1.4 0 .1.1.1.1.2.1.1.4.1.9.1v.5h-2.1c-.7 0-1.3.1-1.8.1zm1.9-9.9c.3 0 .5.1.7.3.2.2.3.5.3.7 0 .3-.1.5-.3.7-.2.2-.4.3-.7.3-.3 0-.5-.1-.7-.3-.2-.2-.3-.5-.3-.7 0-.3.1-.5.3-.7.2-.2.4-.3.7-.3zM150.2 10.1v-.6c.4 0 .6 0 .7-.1.1 0 .1-.1.1-.1 0-.1.1-.2.1-.5v-.6-1.5-1.5c0-.3 0-.5-.1-.5l-.1-.1c-.1 0-.3-.1-.8-.1v-.4c.8-.1 1.4-.2 1.6-.3l.9-.3.2.1v1.1l1.2-1c.1-.1.3-.1.4-.1h.4c.5 0 1 .1 1.2.3.3.2.5.5.7.9l1.2-1c.1-.1.3-.1.4-.1h.4c.5 0 .8.1 1.1.2.2.1.5.3.6.5.2.2.3.4.3.6.1.2.1.6.1 1v3.3c0 .2.1.3.1.4.1.1.2.1.4.1h.4v.5H159l-.1-.1.1-1.2V6.9c0-.8 0-1.3-.1-1.5-.1-.2-.2-.4-.4-.5-.2-.1-.4-.2-.6-.2-.3 0-.5.1-.7.2-.2.1-.3.3-.4.4 0 .1-.1.4-.1.7v3.3c0 .1.1.1.1.1s.1 0 .3.1c.3 0 .4.1.6.1v.5H154v-.6h.3c.2 0 .3 0 .4-.1.1 0 .1-.1.1-.2V6.3c0-.5 0-.8-.1-1-.1-.2-.2-.4-.3-.5-.2-.1-.4-.2-.7-.2-.3 0-.6.1-.8.2-.2.2-.3.3-.4.5V9c0 .2 0 .3.1.3 0 0 .1.1.2.1s.3 0 .6.1v.5h-1.8c-.3 0-.9.1-1.4.1zM57 24.8l-.3.7c-.6.3-1.1.5-1.5.6-.5.1-1 .2-1.7.2-1 0-1.8-.2-2.6-.5-.6-.2-1.1-.6-1.5-1-.4-.4-.7-.8-.9-1.3-.3-.7-.5-1.5-.5-2.3 0-1.4.5-2.6 1.5-3.5 1-.9 2.4-1.4 4.2-1.4.6 0 1.2 0 1.7.1s1.1.3 1.7.5v.1c-.1.2-.1.5-.2.8-.1.5-.1 1-.1 1.4h-.5c0-.5 0-.9-.1-1.2-.3-.3-.6-.6-1-.7-.4-.2-.9-.2-1.5-.2-1.1 0-1.9.3-2.6 1-.6.7-1 1.6-1 2.8 0 .7.1 1.4.3 1.9.2.5.5 1 .9 1.4.4.4.7.6 1.1.8.5.2 1.1.3 1.8.3.5 0 .9-.1 1.3-.2s.9-.3 1.4-.5l.1.2zM57.8 22.8c0-.8.1-1.4.4-1.9.3-.5.7-.9 1.2-1.1.5-.3 1.1-.4 1.8-.4 1.1 0 1.9.3 2.4.8.5.6.8 1.4.8 2.4 0 .6-.1 1.1-.2 1.6-.2.5-.4.8-.6 1.1-.3.3-.6.5-.8.6-.5.2-1.1.4-1.7.4-1 0-1.8-.3-2.4-.9-.6-.6-.9-1.4-.9-2.6zm1.9-.3c0 1.2.2 2.1.5 2.6.2.3.6.5 1 .5s.7-.1.9-.4c.3-.3.4-1 .4-2 0-.7-.1-1.3-.2-1.8s-.3-.8-.5-1c-.2-.2-.5-.3-.8-.3-.3 0-.5.1-.7.2-.2.1-.4.4-.5.7 0 .4-.1.9-.1 1.5zM69.2 25.5v.5H65.3v-.5c.4 0 .7 0 .8-.1.1 0 .1 0 .2-.1 0 0 .1-.1.1-.2s.1-.6.1-1.3V19.6v-2c0-.3 0-.5-.1-.6 0 0 0-.1-.1-.1s-.1-.1-.3-.1h-.6v-.5c.6-.1 1-.1 1.4-.2.3-.1.8-.2 1.4-.4l.1.1-.1 1.4v8.1s0 .1.1.1c0 0 .1.1.2.1h.7zM73.7 25.5v.5H69.8v-.5c.4 0 .7 0 .8-.1.1 0 .1 0 .2-.1 0 0 .1-.1.1-.2s.1-.6.1-1.3V19.6v-2c0-.3 0-.5-.1-.6 0 0 0-.1-.1-.1s-.1-.1-.3-.1h-.6v-.5c.6-.1 1-.1 1.4-.2.3-.1.8-.2 1.4-.4l.1.1-.1 1.4v8.1s0 .1.1.1c0 0 .1.1.2.1h.7zM80.3 25l-.3.7c-.4.2-.8.4-1.2.5-.3.1-.6.1-1 .1-.5 0-.8-.1-1.2-.2-.3-.1-.6-.2-.9-.4-.2-.2-.5-.4-.6-.7-.2-.3-.3-.6-.4-.9-.1-.3-.1-.7-.1-1.1 0-.6.1-1.1.2-1.6.1-.3.2-.6.4-.7.1-.1.3-.3.7-.5.4-.3.7-.4.8-.5.3-.1.7-.2 1.1-.2.6 0 1.1.1 1.5.4.4.3.7.6.8 1 .2.4.2.9.2 1.4v.4c-.1 0-.3.1-.5.1-.3.1-.5.1-.6.1h-3c0 .7.3 1.3.7 1.7.4.4.9.6 1.5.6.3 0 .5 0 .7-.1.2-.1.5-.2.9-.4l.3.3zm-1.6-2.8c0-.7-.1-1.2-.3-1.5-.2-.3-.5-.4-.8-.4-.4 0-.6.1-.9.4-.2.3-.3.8-.3 1.5.3 0 .7.1 1.3.1.4-.1.7-.1 1-.1zM82.2 24.5l1-.7c-.3-.1-.6-.3-.8-.4-.2-.2-.4-.4-.5-.6-.1-.3-.2-.6-.2-.9 0-.4.1-.8.3-1.2.2-.4.6-.7 1-.9.5-.2 1-.3 1.7-.3.4 0 .8 0 1.2.1.4.1.7.2.9.4h1.6l-.1.8h-1.1c.1.2.1.4.1.7 0 .5-.1.9-.4 1.3-.3.4-.6.7-1.1.9-.5.2-1 .3-1.5.3h-.6l-.3.3c-.1.1-.1.2-.1.3 0 .1 0 .2.1.2.1.1.1.1.3.1h2.8c.5 0 .9.1 1.1.2.3.1.5.3.6.5.1.2.2.5.2.9 0 .6-.1 1.1-.4 1.5-.3.5-.7.8-1.2 1.1-.7.4-1.5.6-2.4.6-.7 0-1.3-.1-1.8-.3-.5-.2-.8-.4-1-.7-.2-.3-.3-.6-.3-.9 0-.2 0-.4.1-.5.1-.2.1-.3.2-.3.1-.1.2-.2.5-.3.4-.2.7-.4.7-.4-.2 0-.5-.1-.7-.3-.2-.2-.3-.4-.3-.6 0-.1 0-.2.1-.4s.2-.4.3-.5zm1.4 1.7c-.4.2-.6.5-.7.7-.1.2-.2.4-.2.7 0 .4.2.8.5 1 .3.3.8.4 1.5.4s1.3-.2 1.6-.5c.4-.3.6-.8.6-1.3 0-.2 0-.4-.1-.6l-.3-.3c-.1-.1-.3-.1-.6-.1h-2.3zm-.3-4.7c0 .6.1 1.1.3 1.3.2.3.5.4.9.4s.7-.2.9-.5c.1-.2.2-.6.2-1 0-.6-.1-1.1-.3-1.3-.2-.3-.5-.4-.9-.4-.3 0-.6.1-.8.3-.2.3-.3.7-.3 1.2zM94.8 25l-.3.7c-.4.2-.8.4-1.2.5-.3.1-.6.1-1 .1-.5 0-.8-.1-1.2-.2-.3-.1-.6-.2-.9-.4-.2-.2-.5-.4-.6-.7-.2-.3-.3-.6-.4-.9-.1-.3-.1-.7-.1-1.1 0-.6.1-1.1.2-1.6.1-.3.2-.6.4-.7.1-.1.3-.3.7-.5.4-.3.7-.4.8-.5.3-.1.7-.2 1.1-.2.6 0 1.1.1 1.5.4.4.3.7.6.8 1 .2.4.2.9.2 1.4v.4c-.1 0-.3.1-.5.1-.3.1-.5.1-.6.1h-3c0 .7.3 1.3.7 1.7.4.4.9.6 1.5.6.3 0 .5 0 .7-.1.2-.1.5-.2.9-.4l.3.3zm-1.6-2.8c0-.7-.1-1.2-.3-1.5-.2-.3-.5-.4-.8-.4-.4 0-.6.1-.9.4-.2.3-.3.8-.3 1.5.3 0 .7.1 1.3.1.4-.1.7-.1 1-.1zM99.3 22.8c0-.8.1-1.4.4-1.9.3-.5.7-.9 1.2-1.1.5-.3 1.1-.4 1.8-.4 1.1 0 1.9.3 2.4.8.5.6.8 1.4.8 2.4 0 .6-.1 1.1-.2 1.6-.2.5-.4.8-.6 1.1-.3.3-.6.5-.8.6-.5.2-1.1.4-1.7.4-1 0-1.8-.3-2.4-.9-.7-.6-.9-1.4-.9-2.6zm1.9-.3c0 1.2.2 2.1.5 2.6.2.3.6.5 1 .5s.7-.1.9-.4c.3-.3.4-1 .4-2 0-.7-.1-1.3-.2-1.8s-.3-.8-.5-1c-.2-.2-.5-.3-.8-.3-.3 0-.5.1-.7.2-.2.1-.4.4-.5.7-.1.4-.1.9-.1 1.5zM106.8 26.1v-.5c.5 0 .9-.1 1-.2.1-.1.1-.1.1-.3 0-.2.1-1 .1-2.2v-2.1h-1.1v-.3c.6-.3.9-.5.9-.5.1 0 .1-.1.1-.2V19c0-.3.1-.5.1-.7 0-.1.1-.3.2-.4l1-1 .8-.7c.1-.1.3-.2.5-.3.2-.1.4-.1.6-.1.2 0 .5 0 .7.1-.1.5-.1.9-.1 1.4l-.3.1c-.1-.1-.3-.2-.4-.3-.1 0-.3-.1-.5-.1-.3 0-.5.1-.6.1-.1.1-.2.2-.2.3-.1.2-.1.6-.1 1.4V20h1.8l.1.1c0 .1 0 .2-.1.2l-.1.6h-1.7v3.5c0 .4 0 .7.1.8 0 .1.1.1.1.2 0 0 .1.1.2.1 0 0 .3 0 .9.1v.5h-2.3c-.2-.1-.8-.1-1.8 0zM115.8 26.1v-.4c.3-.1.5-.3.7-.4 0-.2 0-.5.1-.9 0-.8.1-1.4.1-1.7v-3.1-1.3c0-.5 0-.8-.1-.9l-.1-.1c-.1-.1-.5-.1-1-.1v-.5h7.2v.1l-.1 1c0 .1 0 .4-.1 1h-.5c0-.5 0-.9-.1-1 0-.1 0-.1-.1-.1s-.2-.1-.5-.1c-.5-.1-.9-.1-1.3-.1h-1.2c-.1.5-.1 1.2-.1 2v1.4h2.5l.1-.1c.1-.2.1-.5.1-.9h.6v3h-.6c0-.5 0-.9-.1-1-.1-.1-.2-.1-.3-.2-.3-.1-.7-.1-1.2-.1h-1.1v3.7h2.7c.4 0 .7-.1.8-.1l.1-.1c.1-.2.2-.6.3-1.2h.6c-.1.9-.2 1.6-.2 2.2l-.1.1h-4.5c-.4-.2-1.2-.2-2.6-.1zM131.7 25.6v.5H129l-.1-.1c0-.1 0-.5.1-1.2v-1.6c0-.8 0-1.3-.1-1.6-.1-.3-.2-.5-.4-.6-.2-.2-.4-.2-.8-.2-.3 0-.6.1-.8.2-.2.2-.3.3-.4.5V24.9c0 .2 0 .4.1.4l.1.1c.1 0 .2.1.3.1.1 0 .2 0 .6.1v.5h-3.7v-.5c.4 0 .6 0 .7-.1.1 0 .1-.1.1-.1 0-.1.1-.2.1-.5v-.6-1.5-1.5c0-.3 0-.5-.1-.5l-.1-.1c-.1 0-.3-.1-.8-.1v-.5c.8-.1 1.4-.2 1.6-.3l.9-.3.2.1v1.1l1.2-1c.2-.1.3-.1.4-.1h.4c.5 0 .9.1 1.1.2.2.1.4.3.6.5.2.2.3.4.4.6.1.2.1.6.1 1v3.3c0 .2.1.3.1.4.1.1.2.1.4.1.2-.2.3-.2.5-.1zM133.2 24.5l1-.7c-.3-.1-.6-.3-.8-.4-.2-.2-.4-.4-.5-.6-.1-.3-.2-.6-.2-.9 0-.4.1-.8.3-1.2.2-.4.6-.7 1-.9.5-.2 1-.3 1.7-.3.4 0 .8 0 1.2.1.4.1.7.2.9.4h1.6l-.1.8h-1.1c.1.2.1.4.1.7 0 .5-.1.9-.4 1.3-.3.4-.6.7-1.1.9-.5.2-1 .3-1.5.3h-.6l-.3.3c-.1.1-.1.2-.1.3 0 .1 0 .2.1.2.1.1.1.1.3.1h2.8c.5 0 .9.1 1.1.2.3.1.5.3.6.5.1.2.2.5.2.9 0 .6-.1 1.1-.4 1.5-.3.5-.7.8-1.2 1.1-.7.4-1.5.6-2.4.6-.7 0-1.3-.1-1.8-.3-.5-.2-.8-.4-1-.7-.2-.3-.3-.6-.3-.9 0-.2 0-.4.1-.5.1-.2.1-.3.2-.3.1-.1.2-.2.5-.3.4-.2.7-.4.7-.4-.2 0-.5-.1-.7-.3-.2-.2-.3-.4-.3-.6 0-.1 0-.2.1-.4s.2-.4.3-.5zm1.4 1.7c-.4.2-.6.5-.7.7-.1.2-.2.4-.2.7 0 .4.2.8.5 1 .3.3.8.4 1.5.4s1.3-.2 1.6-.5c.4-.3.6-.8.6-1.3 0-.2 0-.4-.1-.6l-.3-.3c-.1-.1-.3-.1-.6-.1h-2.3zm-.3-4.7c0 .6.1 1.1.3 1.3.2.3.5.4.9.4s.7-.2.9-.5c.1-.2.2-.6.2-1 0-.6-.1-1.1-.3-1.3-.2-.3-.5-.4-.9-.4-.3 0-.6.1-.8.3-.2.3-.3.7-.3 1.2zM139.9 26.1v-.5c.5 0 .8-.1.9-.1.1 0 .1-.1.1-.2 0-.3.1-.9.1-1.9 0-1.4 0-2.2-.1-2.4 0-.1 0-.2-.1-.2-.1-.1-.4-.1-.9-.1V20c.7-.1 1.2-.1 1.6-.2.4-.1.7-.2 1.1-.4l.2.1c-.1.7-.1 1.4-.1 2v2.3c0 .8 0 1.3.1 1.4 0 .1.1.1.1.2.1.1.4.1.9.1v.5h-2.1c-.7 0-1.3.1-1.8.1zm1.9-9.9c.3 0 .5.1.7.3.2.2.3.5.3.7 0 .3-.1.5-.3.7-.2.2-.4.3-.7.3-.3 0-.5-.1-.7-.3-.2-.2-.3-.5-.3-.7 0-.3.1-.5.3-.7.2-.2.4-.3.7-.3zM152.3 25.6v.5h-2.7l-.1-.1c0-.1 0-.5.1-1.2v-1.6c0-.8 0-1.3-.1-1.6-.1-.3-.2-.5-.4-.6-.2-.2-.4-.2-.8-.2-.3 0-.6.1-.8.2-.2.2-.3.3-.4.5V24.9c0 .2 0 .4.1.4l.1.1c.1 0 .2.1.3.1.1 0 .2 0 .6.1v.5h-3.7v-.5c.4 0 .6 0 .7-.1.1 0 .1-.1.1-.1 0-.1.1-.2.1-.5v-.6-1.5-1.5c0-.3 0-.5-.1-.5l-.1-.1c-.1 0-.3-.1-.8-.1v-.5c.8-.1 1.4-.2 1.6-.3l.9-.3.2.1v1.1l1.2-1c.2-.1.3-.1.4-.1h.4c.5 0 .9.1 1.1.2.2.1.4.3.6.5.2.2.3.4.4.6.1.2.1.6.1 1v3.3c0 .2.1.3.1.4.1.1.2.1.4.1.1-.2.3-.2.5-.1zM158.7 25l-.3.7c-.4.2-.8.4-1.2.5-.3.1-.6.1-1 .1-.5 0-.8-.1-1.2-.2-.3-.1-.6-.2-.9-.4-.2-.2-.5-.4-.6-.7-.2-.3-.3-.6-.4-.9-.1-.3-.1-.7-.1-1.1 0-.6.1-1.1.2-1.6.1-.3.2-.6.4-.7.1-.1.3-.3.7-.5.4-.3.7-.4.8-.5.3-.1.7-.2 1.1-.2.6 0 1.1.1 1.5.4.4.3.7.6.8 1 .2.4.2.9.2 1.4v.4c-.1 0-.3.1-.5.1-.3.1-.5.1-.6.1h-3c0 .7.3 1.3.7 1.7.4.4.9.6 1.5.6.3 0 .5 0 .7-.1.2-.1.5-.2.9-.4l.3.3zm-1.6-2.8c0-.7-.1-1.2-.3-1.5-.2-.3-.5-.4-.8-.4-.4 0-.6.1-.9.4-.2.3-.3.8-.3 1.5.3 0 .7.1 1.3.1.4-.1.7-.1 1-.1zM165.6 25l-.3.7c-.4.2-.8.4-1.2.5-.3.1-.6.1-1 .1-.5 0-.8-.1-1.2-.2-.3-.1-.6-.2-.9-.4-.2-.2-.5-.4-.6-.7-.2-.3-.3-.6-.4-.9-.1-.3-.1-.7-.1-1.1 0-.6.1-1.1.2-1.6.1-.3.2-.6.4-.7.1-.1.3-.3.7-.5.4-.3.7-.4.8-.5.3-.1.7-.2 1.1-.2.6 0 1.1.1 1.5.4.4.3.7.6.8 1 .2.4.2.9.2 1.4v.4c-.1 0-.3.1-.5.1-.3.1-.5.1-.6.1h-3c0 .7.3 1.3.7 1.7.4.4.9.6 1.5.6.3 0 .5 0 .7-.1.2-.1.5-.2.9-.4l.3.3zm-1.6-2.8c0-.7-.1-1.2-.3-1.5-.2-.3-.5-.4-.8-.4-.4 0-.6.1-.9.4-.2.3-.3.8-.3 1.5.3 0 .7.1 1.3.1.4-.1.7-.1 1-.1zM170.5 25.5v.5H166.6v-.5c.4 0 .6 0 .7-.1.1 0 .1-.1.1-.1 0-.1.1-.2.1-.5v-.6-1.5-1.5c0-.3 0-.5-.1-.5l-.1-.1c-.1 0-.3-.1-.8-.1V20c.8-.1 1.4-.2 1.6-.3l.9-.3.2.1v1.4c.3-.3.5-.6.7-.8.2-.3.4-.5.5-.5.2-.1.4-.2.6-.2.2 0 .3 0 .5.1v1.9l-.3.1c-.1-.2-.2-.3-.3-.3-.2-.1-.4-.1-.6-.1-.3 0-.5.1-.7.2-.2.2-.3.3-.3.5v3.4c0 .1.1.1.1.2.1 0 .2.1.5.1h.6zM171.9 26.1v-.5c.5 0 .8-.1.9-.1.1 0 .1-.1.1-.2 0-.3.1-.9.1-1.9 0-1.4 0-2.2-.1-2.4 0-.1 0-.2-.1-.2-.1-.1-.4-.1-.9-.1V20c.7-.1 1.2-.1 1.6-.2.4-.1.7-.2 1.1-.4l.2.1c-.1.7-.1 1.4-.1 2v2.3c0 .8 0 1.3.1 1.4 0 .1.1.1.1.2.1.1.4.1.9.1v.5h-2.1c-.7 0-1.3.1-1.8.1zm1.9-9.9c.3 0 .5.1.7.3.2.2.3.5.3.7 0 .3-.1.5-.3.7-.2.2-.4.3-.7.3-.3 0-.5-.1-.7-.3-.2-.2-.3-.5-.3-.7 0-.3.1-.5.3-.7.1-.2.4-.3.7-.3zM184.2 25.6v.5h-2.7l-.1-.1c0-.1 0-.5.1-1.2v-1.6c0-.8 0-1.3-.1-1.6-.1-.3-.2-.5-.4-.6-.2-.2-.4-.2-.8-.2-.3 0-.6.1-.8.2-.2.2-.3.3-.4.5V24.9c0 .2 0 .4.1.4l.1.1c.1 0 .2.1.3.1.1 0 .2 0 .6.1v.5h-3.7v-.5c.4 0 .6 0 .7-.1.1 0 .1-.1.1-.1 0-.1.1-.2.1-.5v-.6-1.5-1.5c0-.3 0-.5-.1-.5l-.1-.1c-.1 0-.3-.1-.8-.1v-.5c.8-.1 1.4-.2 1.6-.3l.9-.3.2.1v1.1l1.2-1c.2-.1.3-.1.4-.1h.4c.5 0 .9.1 1.1.2.2.1.4.3.6.5.2.2.3.4.4.6.1.2.1.6.1 1v3.3c0 .2.1.3.1.4.1.1.2.1.4.1.2-.2.3-.2.5-.1zM185.7 24.5l1-.7c-.3-.1-.6-.3-.8-.4-.2-.2-.4-.4-.5-.6-.1-.3-.2-.6-.2-.9 0-.4.1-.8.3-1.2.2-.4.6-.7 1-.9.5-.2 1-.3 1.7-.3.4 0 .8 0 1.2.1.4.1.7.2.9.4h1.6l-.1.8h-1.1c.1.2.1.4.1.7 0 .5-.1.9-.4 1.3-.3.4-.6.7-1.1.9-.5.2-1 .3-1.5.3h-.6l-.3.3c-.1.1-.1.2-.1.3 0 .1 0 .2.1.2.1.1.1.1.3.1h2.8c.5 0 .9.1 1.1.2.3.1.5.3.6.5.1.2.2.5.2.9 0 .6-.1 1.1-.4 1.5-.3.5-.7.8-1.2 1.1-.7.4-1.5.6-2.4.6-.7 0-1.3-.1-1.8-.3-.5-.2-.8-.4-1-.7-.2-.3-.3-.6-.3-.9 0-.2 0-.4.1-.5.1-.2.1-.3.2-.3.1-.1.2-.2.5-.3.4-.2.7-.4.7-.4-.2 0-.5-.1-.7-.3-.2-.2-.3-.4-.3-.6 0-.1 0-.2.1-.4.2-.2.2-.4.3-.5zm1.4 1.7c-.4.2-.6.5-.7.7-.1.2-.2.4-.2.7 0 .4.2.8.5 1 .3.3.8.4 1.5.4s1.3-.2 1.6-.5c.4-.3.6-.8.6-1.3 0-.2 0-.4-.1-.6l-.3-.3c-.1-.1-.3-.1-.6-.1h-2.3zm-.2-4.7c0 .6.1 1.1.3 1.3.2.3.5.4.9.4s.7-.2.9-.5c.1-.2.2-.6.2-1 0-.6-.1-1.1-.3-1.3-.2-.3-.5-.4-.9-.4-.3 0-.6.1-.8.3-.2.3-.3.7-.3 1.2zM47.6 36.2v-.4h3.3v.4c-.4 0-.6 0-.7.1-.1 0-.1.1-.1.2-.1.2-.1.7-.1 1.5v3c0 .3.1.6.3.8.1.2.3.4.6.5.3.1.6.2 1.1.2.5 0 .9-.1 1.2-.3.3-.2.5-.4.6-.7.1-.3.2-.8.2-1.6V39v-1.7c0-.5 0-.7-.1-.8 0-.1-.1-.1-.1-.1-.1-.1-.4-.1-.8-.1v-.4h2.5v.4c-.3 0-.5 0-.6.1 0 0-.1.1-.1.2s-.1.4-.1 1.1v2.8c0 .3 0 .7-.1 1 0 .3-.1.6-.3.9-.1.2-.3.5-.6.7-.3.2-.6.3-.9.4-.4.1-.8.2-1.2.2-.5 0-1.1-.1-1.5-.2-.3-.1-.6-.3-.8-.4-.2-.2-.4-.4-.5-.6-.1-.2-.2-.4-.2-.6v-3.4-1.4c0-.2 0-.3-.1-.3l-.1-.1-.8-.5zM56.3 42.8c.4 0 .7 0 .7-.1 0 0 .1 0 .1-.1 0 0 0-.1.1-.2 0-.1 0-.5.1-1v-4.5-.5c0-.1 0-.1-.1-.2 0 0-.1-.1-.2-.1s-.3 0-.7-.1v-.5h2.3c.7 1 1.6 2.1 2.7 3.3.8.9 1.4 1.6 1.9 2.1V40c0-1.9 0-3.1-.1-3.4 0-.1 0-.2-.1-.3-.1-.1-.4-.1-.8-.1v-.5H64.8v.5c-.4 0-.7 0-.8.1l-.1.1c-.1.2-.1.6-.1 1.2V39c0 2.4 0 3.8.1 4.3h-.1c-.3-.1-.6-.1-.9-.1-1.3-1.2-2.9-3.2-5-5.8v4.4c0 .4 0 .7.1.8 0 0 0 .1.1.1 0 0 .1 0 .2.1h.6v.4H56.3v-.4zM68.9 35.8v.5h-.6c-.1 0-.1 0-.1.1 0 0 0 .1-.1.1 0 .1 0 .2-.1.3v5.1c0 .4 0 .6.1.7 0 .1 0 .1.1.1 0 0 .1 0 .2.1h.6v.5h-3.4v-.5h.6c.1 0 .1 0 .2-.1 0 0 0-.1.1-.1v-.5V38.7v-1.4c0-.5 0-.7-.1-.9 0 0 0-.1-.1-.1 0 0-.1 0-.1-.1h-.7v-.5h1.6c.6.1 1.3.1 1.8.1zM73.3 43.3c-.3-.8-.6-1.5-.9-2.1l-.8-1.8c-.6-1.4-1-2.3-1.1-2.6-.1-.3-.2-.4-.3-.5-.1-.1-.3-.1-.7-.1v-.5H73v.5c-.3 0-.5 0-.7.1-.1 0-.1 0-.2.1v.1c0 .1.1.4.4 1 .1.3.2.5.2.5v.1l1.4 3.3 1.2-3c0-.1.2-.4.4-1 .2-.4.3-.7.3-.9v-.1-.1s0-.1-.1-.1h-.8v-.5H77.7v.5c-.3 0-.5.1-.6.1-.1.1-.3.5-.6 1.2l-.4.9-.7 1.7c-.6 1.5-1 2.5-1.3 3.1h-.8zM78.5 43.3V43c.2-.1.4-.2.5-.3 0-.2 0-.4.1-.7v-3.7-1c0-.4 0-.7-.1-.7 0 0 0-.1-.1-.1s-.4-.1-.8-.1V36h5.6v.1l-.1.8c0 .1 0 .3-.1.8h-.4v-.8c0-.1 0-.1-.1-.1 0 0-.2-.1-.4-.1-.4 0-.7-.1-1-.1h-1c0 .4-.1.9-.1 1.6v1.1h2l.1-.1c0-.1.1-.4.1-.7h.4v2.4h-.4c0-.4 0-.7-.1-.8 0-.1-.1-.1-.2-.1-.2 0-.6-.1-1-.1h-.9v2.9h2.1c.3 0 .5-.1.6-.1l.1-.1c.1-.2.1-.5.2-1h.4c.1.5.1 1.1.1 1.6l-.1.1h-3.7c0-.1-.6-.1-1.7 0zM85 36.2v-.4h4c.6 0 1 0 1.3.1.3.1.5.2.7.5.2.3.3.6.3.9 0 .4-.1.8-.4 1.2-.3.4-.7.6-1.2.8.1.2.2.3.3.5.1.2.2.3.2.3s0 .1.1.1l.8 1.2c.2.3.3.5.4.5.3.4.4.6.5.6.1.1.1.1.2.1h.3v.5h-2.1c0-.1-.1-.2-.1-.3L89 41.1c-.3-.5-.6-1-.8-1.3-.1-.2-.2-.3-.3-.4l.1-.2c.4 0 .8 0 1-.1.2-.1.4-.3.6-.5s.2-.6.2-.9c0-.3-.1-.6-.2-.8-.2-.2-.4-.4-.6-.5-.2-.1-.4-.1-.8-.1h-.5V42.2c0 .2 0 .3.1.4 0 0 0 .1.1.1 0 0 .1 0 .2.1h.6v.5h-3.5v-.5c.4 0 .6 0 .7-.1 0 0 .1 0 .1-.1v-.2c0-.1 0-.4.1-.6v-4.7c0-.4 0-.7-.1-.8 0 0 0-.1-.1-.1-.2.1-.5 0-.9 0zM98 37.7h-.5c0-.4 0-.7-.1-.9-.1-.2-.3-.3-.6-.4-.3-.1-.6-.2-.9-.2-.5 0-.9.1-1.1.4-.3.2-.4.5-.4.9 0 .2 0 .4.1.6.1.1.2.3.3.3.1.1.3.2.6.2.2 0 .5.1.9.2s.6.1.7.1c.3.1.5.2.7.3.2.1.3.2.4.4.1.1.2.3.3.5.1.2.1.4.1.7 0 .5-.1.9-.3 1.2-.1.3-.3.5-.6.7-.3.2-.5.4-.8.5-.4.2-.9.3-1.5.3-.4 0-.8 0-1.2-.1-.3-.1-.7-.2-1.1-.4.1-.4.2-1 .2-1.9h.5c0 .3 0 .6.1 1 .1.2.4.4.7.6.3.2.7.3 1.1.3.3 0 .6-.1.9-.2.3-.1.5-.3.6-.5.1-.2.2-.5.2-.7 0-.2 0-.4-.1-.6-.1-.2-.2-.3-.4-.4-.2-.1-.5-.2-.9-.3-.6-.1-1.1-.2-1.3-.3-.3-.1-.6-.2-.7-.4-.2-.2-.3-.4-.4-.6-.1-.2-.1-.5-.1-.8 0-.4.1-.8.3-1.1.2-.3.4-.6.7-.8.3-.2.6-.3.9-.4.3-.1.7-.1 1.1-.1.4 0 .7 0 1.1.1.4.1.7.2.9.3v.1c-.1.2-.1.5-.1.7-.2.1-.2.4-.3.7zM102.9 35.8v.5h-.6c-.1 0-.1 0-.1.1 0 0 0 .1-.1.1 0 .1 0 .2-.1.3v5.1c0 .4 0 .6.1.7 0 .1 0 .1.1.1 0 0 .1 0 .2.1h.6v.5h-3.4v-.5h.6c.1 0 .1 0 .2-.1 0 0 0-.1.1-.1v-.5V38.7v-1.4c0-.5 0-.7-.1-.9 0 0 0-.1-.1-.1 0 0-.1 0-.1-.1h-.7v-.5h1.6c.6.1 1.3.1 1.8.1zM105.2 43.3v-.4c.4 0 .7 0 .8-.1.1 0 .1-.1.2-.2 0-.2.1-.6.1-1.4V38v-1.5h-2s0 .1-.1.2c0 .3-.1.5-.1.8h-.4v-1.2c0-.2 0-.3-.1-.5v-.1h6.8l.1.1c0 .2-.1.4-.1.6v1.2h-.4c0-.3 0-.5-.1-.8 0-.1 0-.2-.1-.2h-2.1v4.7c0 .8 0 1.2.1 1.4 0 .1.1.2.2.2s.3.1.8.1v.4H107c-.5-.2-1.1-.2-1.8-.1zM115 39.3l.7-1.1c.1-.2.5-.8 1-1.8.2-.3.3-.6.4-.7h.9v.3c-.4.6-.9 1.3-1.4 2.1-.5.8-.8 1.3-.9 1.5-.1.2-.1.3-.2.4v2.3c0 .2.1.3.1.4 0 0 .1.1.2.1h.7v.5H113v-.5h.7c.1 0 .1 0 .1-.1 0 0 0-.1.1-.3v-2c0-.1-.1-.3-.2-.5-.3-.6-.7-1.2-1.1-1.8-.3-.5-.6-.9-.9-1.2-.2-.2-.3-.3-.4-.3h-.5V36l1.1-.2c.2 0 .4-.1.6-.1.2.1.4.2.5.3.1.1.2.3.4.5.3.4.5.8.8 1.3.4.8.7 1.3.8 1.5zM120.8 41.7c0-.4.1-.9.2-1.4.1-.5.3-.8.5-1 .1-.1.3-.3.6-.5s.6-.4.9-.5c.3-.1.7-.2 1-.2.3 0 .6 0 .8.1.3.1.4.2.6.4.1.1.2.3.3.5.1.2.1.4.1.7 0 .5-.1.9-.2 1.4-.2.5-.3.8-.5 1.1-.1.2-.4.4-.7.6-.3.2-.6.4-.9.5-.3.1-.6.2-1 .2s-.8-.1-1-.2c-.2-.2-.4-.4-.5-.6-.1-.5-.2-.7-.2-1.1zm1.3 0c0 .4.1.8.2.9.2.2.4.3.7.3.2 0 .4 0 .5-.1.1-.1.3-.3.4-.5.1-.2.2-.5.3-.9.2-.6.2-1.1.2-1.6 0-.4-.1-.8-.3-.9-.2-.2-.4-.3-.7-.3-.3 0-.5.1-.7.3-.2.2-.4.6-.5 1.2 0 .6-.1 1.1-.1 1.6zM126.9 38.8v-.3c.1 0 .3-.1.5-.2s.4-.1.6-.2c0-.1 0-.1.1-.3.1-.3.1-.5.2-.6.1-.2.2-.4.4-.6.3-.3.7-.6 1-.8.4-.3.6-.4.8-.5.1-.1.3-.1.5-.1.1 0 .3 0 .4.1-.1.5-.2.9-.3 1.4h-.2c-.2-.2-.3-.4-.4-.5-.1-.1-.3-.1-.4-.1-.1 0-.2 0-.3.1l-.2.2c0 .1-.1.2-.1.4-.1.5-.2 1-.3 1.4H130c.2 0 .4 0 .5-.1l.1.1c-.1.2-.1.4-.2.6h-1.3l-.6 2.6c-.3 1.2-.5 2-.7 2.5-.2.5-.5 1-.8 1.4-.3.4-.7.7-1 .9-.2.1-.4.1-.5.1-.1 0-.3 0-.4-.1.1-.3.2-.5.2-.6 0-.2.1-.3.1-.5h.2c.1.2.2.3.2.4.1.1.2.1.3.1.1 0 .2 0 .3-.1.1-.1.2-.2.2-.4.1-.3.3-1.1.5-2.2l.8-4h-.7c-.1-.1-.2-.1-.3-.1zM138.7 40.7h-.5c0-.4 0-.7-.1-.8 0 0-.1-.1-.2-.1-.3 0-.7-.1-1.3-.1h-.4v2.4c0 .4 0 .5.1.6l.1.1c.1 0 .3.1.8.1v.4h-3.5v-.4h.7s.1 0 .1-.1c0 0 .1-.1.1-.3v-.8-3.1-1.5c0-.3 0-.5-.1-.6 0 0 0-.1-.1-.1 0 0-.1 0-.2-.1-.1 0-.3 0-.6-.1v-.5h4.5c.4 0 .7 0 1 .1v.1c0 .2-.1.5-.1.8v.8h-.4v-.6-.3-.1c-.1 0-.2-.1-.4-.1s-.5-.1-.8-.1h-1.1c0 .4-.1 1-.1 1.9v.7h.9c.5 0 .8 0 .9-.1l.1-.1c0-.1.1-.3.1-.6h.5v2.6zM140.3 43.3V43c.1 0 .2-.1.4-.2.1 0 .1-.1.1-.1v-.1-1-2-2.1c0-.7 0-1.1-.1-1.2 0 0 0-.1-.1-.1-.1-.1-.4-.1-.8-.1v-.5h3.5v.5c-.4 0-.7.1-.7.1l-.1.1s0 .3-.1.7v5.5h1c.5 0 1 0 1.4-.1.1 0 .2 0 .3-.1 0 0 .1-.1.1-.2.1-.3.1-.6.2-.9h.4v.2l-.1 1.1v.6c-.1 0-.2 0-.3.1h-3.5c-.3 0-.9 0-1.6.1zM146.4 39.6c0-.7.1-1.2.3-1.7.2-.5.5-.9.9-1.2.4-.3.8-.6 1.2-.7.6-.2 1.2-.3 1.8-.3.7 0 1.2.1 1.8.3.4.1.7.3 1 .6.3.3.5.5.7.8.2.3.3.6.4.9.1.3.1.7.1 1.1 0 .7-.1 1.3-.3 1.9-.2.4-.4.8-.8 1.1-.3.3-.7.6-1.1.8-.6.2-1.2.4-2 .4s-1.5-.1-2.1-.4c-.6-.3-1-.7-1.4-1.3-.3-.7-.5-1.5-.5-2.3zm1.7-.3c0 .8.1 1.5.3 2.1.2.5.5.9.9 1.2.4.2.8.3 1.3.3s.9-.1 1.2-.3c.4-.2.6-.6.8-1.1.2-.5.3-1.1.3-1.9 0-.5-.1-1-.2-1.4-.1-.4-.3-.8-.5-1.1-.2-.3-.4-.5-.7-.7-.3-.2-.6-.2-1.1-.2-.5 0-1 .1-1.3.4-.4.2-.6.6-.8 1.1-.1.5-.2 1-.2 1.6zM154.8 36.2v-.4h4c.6 0 1 0 1.3.1.3.1.5.2.7.5.2.3.3.6.3.9 0 .4-.1.8-.4 1.2-.3.4-.7.6-1.2.8.1.2.2.3.3.5.1.2.2.3.2.3s0 .1.1.1l.8 1.2c.2.3.3.5.4.5.3.4.4.6.5.6.1.1.1.1.2.1h.3v.5h-2.1c0-.1-.1-.2-.1-.3l-1.1-1.9c-.3-.5-.6-1-.8-1.3-.1-.2-.2-.3-.3-.4l.1-.2c.4 0 .8 0 1-.1.2-.1.4-.3.6-.5.2-.3.2-.6.2-.9 0-.3-.1-.6-.2-.8-.2-.2-.4-.4-.6-.5-.2-.1-.4-.1-.8-.1h-.5V42c0 .2 0 .3.1.4 0 0 0 .1.1.1 0 0 .1 0 .2.1h.6v.5h-3.5v-.5c.4 0 .6 0 .7-.1 0 0 .1 0 .1-.1v-.2c0-.1 0-.4.1-.6v-4.7c0-.4 0-.7-.1-.8 0 0 0-.1-.1-.1-.4.3-.7.2-1.1.2zM166.2 35.8v.5h-.6c-.1 0-.1 0-.1.1 0 0 0 .1-.1.1 0 .1 0 .2-.1.3v5.1c0 .4 0 .6.1.7 0 .1 0 .1.1.1 0 0 .1 0 .2.1h.6v.5h-3.4v-.5h.6c.1 0 .1 0 .2-.1 0 0 0-.1.1-.1v-.5V38.7v-1.4c0-.5 0-.7-.1-.9 0 0 0-.1-.1-.1 0 0-.1 0-.1-.1h-.7v-.5h1.6c.6.1 1.3.1 1.8.1zM167.3 43.3V43s.1 0 .1-.1c.1-.1.3-.2.4-.2 0-.5.1-1.3.1-2.3v-.9-2.1c0-.5 0-.8-.1-1v-.1s-.1 0-.1-.1c-.1 0-.3 0-.7-.1v-.4H171.3c.6 0 1.1 0 1.5.1.4.1.7.2 1 .4.3.2.5.4.7.6.2.2.3.5.4.8.2.5.3.9.3 1.5 0 .7-.1 1.3-.4 1.8-.2.5-.6 1-1 1.3-.4.4-.9.6-1.4.8-.5.2-1.1.2-1.9.2h-1.6l-1.6.1zm2.1-.7c.3.1.7.1 1 .1.5 0 .9 0 1.3-.2.3-.1.5-.2.7-.3.2-.1.4-.4.6-.6.2-.3.3-.6.4-1 .1-.4.2-.8.2-1.3 0-.4-.1-.8-.2-1.2-.1-.4-.3-.7-.5-1-.2-.3-.5-.5-.9-.6-.4-.1-.9-.2-1.6-.2-.3 0-.6 0-.9.1 0 .5-.1 1.5-.1 2.9v3.3zM174.7 43.3v-.4c.3 0 .5 0 .5-.1.1 0 .1 0 .1-.1 0 0 .1-.1.1-.2s.2-.3.4-.8c.1-.2.3-.7.5-1.3l1.4-3.5.5-1.2h.8l2.4 5.6.3.7.2.5c0 .1.1.1.1.1l.1.1h.5v.4h-3.4v-.4c.4 0 .7 0 .7-.1.1 0 .1-.1.1-.2s0-.2-.1-.4l-.5-1.2h-2.8l-.2.6c-.2.5-.3.8-.3.9 0 .1 0 .1.1.2.1 0 .3.1.8.1v.4h-1.2l-1.1.3zm2.4-2.9h2.2l-1.1-2.8-1.1 2.8z"/></g></symbol><symbol viewBox="0 0 22.5 18" id="menu"><path fill="none" stroke="currentColor" stroke-width="2" d="M0 1h22.5M0 9h22.5M0 17h22.5"/></symbol><symbol viewBox="0 0 17 18" id="search"><circle fill="none" stroke="#FFF" stroke-width="2.292" cx="7" cy="7" r="5.8"/><path fill="none" stroke="#FFF" stroke-width="2.292" d="M10.5 11.4l5.7 5.8"/></symbol><symbol viewBox="0 0 92 74.8" id="twitter"><path fill="currentColor" d="M92 8.8c-3.4 1.5-7 2.5-10.8 3 3.9-2.3 6.9-6 8.3-10.4-3.6 2.2-7.7 3.7-12 4.6-3.5-3.7-8.4-6-13.8-6-10.4 0-18.9 8.5-18.9 18.9 0 1.5.2 2.9.5 4.3-15.7-.8-29.6-8.3-38.9-19.7-1.6 2.8-2.6 6-2.6 9.5 0 6.5 3.3 12.3 8.4 15.7-3.1-.1-6-.9-8.5-2.4v.2c0 9.1 6.5 16.8 15.1 18.5-1.6.4-3.2.7-5 .7-1.2 0-2.4-.1-3.6-.3 2.4 7.5 9.4 13 17.6 13.1-6.5 5.1-14.6 8.1-23.4 8.1-1.5 0-3-.1-4.5-.3 8.4 5.4 18.3 8.5 28.9 8.5 34.7 0 53.7-28.8 53.7-53.7 0-.8 0-1.6-.1-2.4 3.9-2.7 7.1-6.1 9.6-9.9z"/></symbol><symbol viewBox="0 0 61 42.9" id="youtube"><path fill="currentColor" d="M60.4 9.3s-.6-4.2-2.4-6.1C55.7.8 53.1.8 51.9.6 43.3 0 30.5 0 30.5 0S17.7 0 9.2.6C7.9.8 5.4.8 3 3.2 1.2 5 .6 9.3.6 9.3S0 14.2 0 19.1v4.6c0 4.9.6 9.9.6 9.9s.6 4.2 2.4 6.1c2.3 2.4 5.4 2.4 6.7 2.6 4.9.5 20.7.6 20.7.6s12.8 0 21.3-.6c1.2-.1 3.8-.2 6.1-2.6 1.8-1.9 2.4-6.1 2.4-6.1s.6-4.9.6-9.9v-4.6c.2-4.9-.4-9.8-.4-9.8zm-36.2 20V12.2l16.5 8.6-16.5 8.5z"/></symbol></svg>

