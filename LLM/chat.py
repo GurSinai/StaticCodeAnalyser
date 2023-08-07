@@ -12,7 +12,7 @@ PylintI = PylintImplementation()
 BanditI = BanditImplementation()
 FlakeI = Flake8Implementation()
 flakesI = PyflakesImplementation()
-Scan_basedir = './LLM-ChatGPT'
+Scan_basedir = './LLM'
 STA = []
 OUT_Paths = []
 STA.append(BanditI)
@@ -37,12 +37,13 @@ def list_directory_recursive(directory_path):
     return files
 
 def get_normalized_path(path):
-    return path[::-1].replace('.', '', 1)[::-1].replace('\\', '/').replace('/', '-') + '.txt'
+    return path[::-1].replace('.', '', 1)[::-1].replace('\\', '/').replace(':', '').replace(' ', '').replace('/', '-') + '.txt'
 
 def scan_file(file_path):
     for i, sta in enumerate(STA):
-        temp = get_normalized_path(file_path)
-        os.popen(f'echo  > {OUT_Paths[i]}/{temp}')
+        temp = get_normalized_path(file_path)#./LLM-ChatGPT/Bandit/
+        os.popen(f'echo  "" > {OUT_Paths[i]}{temp}')#'C-Users-gurgu-OneDrive-שולחןהעבודה-תכנות-שנה5-CyberB-Task1-UniversityOfFlorida-apppy.txt'
+
         time.sleep(1)
         sta.scan_file(file_path, OUT_Paths[i] + f'/{temp}')
 
@@ -51,6 +52,3 @@ def scan_project(project_path):
     for file in files:
         if file[-2:] == 'py':
             scan_file(file)
-    
-
-scan_project("TEST_PROJECT")

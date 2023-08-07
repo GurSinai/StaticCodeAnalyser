@@ -1,7 +1,7 @@
-LLM-ChatGPT/Bandit
-LLM-ChatGPT/Flake8
-LLM-ChatGPT/PyFlakes
-LLM-ChatGPT/Pylint
+LLM/Bandit
+LLM/Flake8
+LLM/PyFlakes
+LLM/Pylint
 venv
 __pycache__
 result.txt

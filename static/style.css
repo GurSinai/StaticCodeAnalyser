@@ -1,0 +1,9 @@
+.link-wait-hover{
+    color: gray;
+    text-decoration: none;
+    margin-right: 0.7rem
+}
+
+.link-wait-hover:hover{
+    color: white;
+}

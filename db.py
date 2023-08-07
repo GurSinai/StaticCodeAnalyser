@@ -1,4 +1,5 @@
 import os, json
+from LLM.chat import list_directory_recursive
 DB_FILE = 'PROJECTS.JSON'
 
 def overwrite_db(projects):
@@ -9,14 +10,21 @@ def create_new_proj(proj_name, lang="", desc="", basedir = "") -> bool:
     if get_project(proj_name) is not None:
         return False
     saved = []
+    basedir = basedir.replace('\\', '/')
     if os.path.isfile(DB_FILE):
         saved = read_all_projects()
     with open(DB_FILE, 'w') as out:
-        myJson = json.loads('{"name":"' + proj_name + '", "files":[], "basedir":"'+basedir+'", "lang":"'+lang+'", "desc":"'+desc+'"}')
+        myJson = json.loads('{"name":"'+proj_name+'", "files":[], "basedir":"'+basedir+'", "lang":"'+lang+'", "desc":"'+desc+'"}')
         saved.append(myJson)
         json.dump(saved, out, indent=1)
         out.close()
+    if basedir == "":
+        return True
+    files = list_directory_recursive(basedir)
+    for file in files:
+        add_file_to_project(proj_name, file.replace('\\', '/').removeprefix(basedir))
     return True
+
 
 def read_all_projects() -> list:
     if not os.path.isfile(DB_FILE):
@@ -77,7 +85,7 @@ def remove_file_from_project_no_slash(proj, path):
     for project in projects:
         if project['name'] == proj:
             for file in project['files']:
-                if file.replace('\\', '') == path:
+                if file.replace('\\', '').replace('/', '') == path:
                     project['files'].remove(file)
                     overwrite_db(projects)
                     return True
