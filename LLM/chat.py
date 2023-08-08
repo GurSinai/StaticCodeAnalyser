@@ -92,7 +92,6 @@ def scan_project(project_path):
 
 
 def find_files_with_string(directory, string):
-    matching_files = []
     typesofA = ['/Pylint/', '/Flake8/', '/Bandit/', '/Pyflakes/']
     vara = ""
     for root, _, filenames in os.walk(directory):
@@ -102,19 +101,12 @@ def find_files_with_string(directory, string):
                     vara=i
                     break
  
-    if(i=='/Pylint/'):
+    if(vara=='/Pylint/'):
      return 'Pylint'
-    if(i=='/Flake8/'):
+    if(vara=='/Flake8/'):
      return 'Flake8'  
-    if(i=='/Bandit/'):
+    if(vara=='/Bandit/'):
      return 'Bandit'
-    if(i=='/Pyflakes/'):
+    if(vara=='/Pyflakes/'):
      return 'Pyflakes'
     return "cant find which analyzer use!!"
-directory_to_search = '/path/to/search'
-string_to_find = '/Pylint/'
-
-matching_files = find_files_with_string(directory_to_search, string_to_find)
-for filename in matching_files:
-    print(filename)
-
