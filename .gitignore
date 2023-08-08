@@ -1,3 +1,7 @@
+LLM/Bandit
+LLM/Flake8
+LLM/PyFlakes
+LLM/Pylint
 venv
 __pycache__
 result.txt
