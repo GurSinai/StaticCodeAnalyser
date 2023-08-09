@@ -20,13 +20,13 @@ response = openai.Completion.create(engine="text-davinci-002", prompt=prompt, ma
 
 # Get the generated text from the response
 generated_text = response['choices'][0]['text']
+Fix_basedir = './LLM/Fix'
 
 # Print the generated text
 if __name__ == "__main__":
-            directory_path = "./Fixx"
-            output_path = "./Fix_results.txt"
+            directory_path = Fix_basedir
+            output_path = Fix_basedir+"/Fix_results/"
             file_path=os.path.join(directory_path, "Fix_First")
             with open(file_path,"w") as file:
                 file.write(generated_text)
         
-
