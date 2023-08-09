@@ -12,14 +12,14 @@ def read_file_to_string(file_path):
     return file_content
 
 
-api_key = "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"
-openai.api_key = api_key
 
 
 
 
 from analyzers import BanditImplementation, Flake8Implementation, PylintImplementation, PyflakesImplementation
 file_ts = './ex1.py'
+api_key = "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"
+openai.api_key = api_key
 PylintI = PylintImplementation()
 BanditI = BanditImplementation()
 FlakeI = Flake8Implementation()
