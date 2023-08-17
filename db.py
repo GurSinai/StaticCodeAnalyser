@@ -6,7 +6,7 @@ def overwrite_db(projects):
     with open(DB_FILE, 'w') as out:
         json.dump(projects, out, indent=1)
 
-def create_new_proj(proj_name, lang="", desc="", basedir = "") -> bool:
+def create_new_proj(proj_name, lang="", desc="", basedir = "", add_files=True) -> bool:
     if get_project(proj_name) is not None:
         return False
     saved = []
@@ -20,10 +20,11 @@ def create_new_proj(proj_name, lang="", desc="", basedir = "") -> bool:
         out.close()
     if basedir == "":
         return True
-    files = list_directory_recursive(basedir)
-    for file in files:
-        if file[-3:] == '.py':
-            add_file_to_project(proj_name, file.replace('\\', '/').removeprefix(basedir))
+    if add_files:
+        files = list_directory_recursive(basedir)
+        for file in files:
+            if file[-3:] == '.py' and not file.__contains__('venv'):
+                add_file_to_project(proj_name, file.replace('\\', '/').removeprefix(basedir))
     return True
 
 
@@ -55,10 +56,10 @@ def remove_project(name):
             projects.remove(project)
     overwrite_db(projects)
 
-def add_file_to_project(proj, path):
+def add_file_to_project(proj_name, path):
     projects = read_all_projects()
     for project in projects:
-        if project['name'] == proj:
+        if project['name'] == proj_name:
             for file in project['files']:
                 if file == path:
                     return False

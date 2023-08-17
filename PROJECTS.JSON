@@ -1,90 +1,15 @@
 [
  {
-  "name": "Project 3",
+  "name": "Static code anylizer",
   "files": [
+   "/analyzers.py",
    "/app.py",
-   "/static/fonts/rene_bieder_-_gentona_bold-webfont.woff",
-   "/static/fonts/rene_bieder_-_gentona_light-webfont.woff",
-   "/static/fonts/rene_bieder_-_quadon_medium-webfont.woff",
-   "/static/img/bg-texture-dark.png",
-   "/static/img/bg-texture.png",
-   "/static/img/logo-uf.svg",
-   "/static/img/main-menu-hover.png",
-   "/static/img/spritemap.svg",
-   "/static/img/uf_logo.png",
-   "/static/img/uf_logo.svg",
-   "/static/Web Login Service - University of Florida_files/jquery.min.js.\u05d4\u05d5\u05e8\u05d3\u05d4",
-   "/static/Web Login Service - University of Florida_files/logo-uf.svg",
-   "/static/Web Login Service - University of Florida_files/plugins.js.\u05d4\u05d5\u05e8\u05d3\u05d4",
-   "/static/Web Login Service - University of Florida_files/scripts.js.\u05d4\u05d5\u05e8\u05d3\u05d4",
-   "/static/Web Login Service - University of Florida_files/spritemap.svg",
-   "/static/Web Login Service - University of Florida_files/style.css",
-   "/static/Web Login Service - University of Florida_files/velocity.min.js.\u05d4\u05d5\u05e8\u05d3\u05d4",
-   "/static/Web Login Service - University of Florida_files/velocity.ui.min.js.\u05d4\u05d5\u05e8\u05d3\u05d4",
-   "/static/Web Login Service - University of Florida_files/wordmark.gif",
-   "/templates/login.html",
-   "/__pycache__/app.cpython-310.pyc",
-   "/__pycache__/models.cpython-310.pyc"
+   "/db.py",
+   "/interface.py",
+   "/LLM/chat.py"
   ],
-  "basedir": "C:/Users/gurgu/OneDrive/\u05e9\u05d5\u05dc\u05d7\u05df \u05d4\u05e2\u05d1\u05d5\u05d3\u05d4/\u05ea\u05db\u05e0\u05d5\u05ea/\u05e9\u05e0\u05d4 5/Cyber B/Task 1/UniversityOfFlorida",
-  "lang": "",
-  "desc": ""
- },
- {
-  "name": "Project with errors",
-  "files": [
-   "/Description.txt",
-   "/ex1.py",
-   "/requirements.txt",
-   "/UniversityOfFlorida/app.py",
-   "/UniversityOfFlorida/static/fonts/rene_bieder_-_gentona_bold-webfont.woff",
-   "/UniversityOfFlorida/static/fonts/rene_bieder_-_gentona_light-webfont.woff",
-   "/UniversityOfFlorida/static/fonts/rene_bieder_-_quadon_medium-webfont.woff",
-   "/UniversityOfFlorida/static/img/bg-texture-dark.png",
-   "/UniversityOfFlorida/static/img/bg-texture.png",
-   "/UniversityOfFlorida/static/img/logo-uf.svg",
-   "/UniversityOfFlorida/static/img/main-menu-hover.png",
-   "/UniversityOfFlorida/static/img/spritemap.svg",
-   "/UniversityOfFlorida/static/img/uf_logo.png",
-   "/UniversityOfFlorida/static/img/uf_logo.svg",
-   "/UniversityOfFlorida/static/Web Login Service - University of Florida_files/jquery.min.js.\u05d4\u05d5\u05e8\u05d3\u05d4",
-   "/UniversityOfFlorida/static/Web Login Service - University of Florida_files/logo-uf.svg",
-   "/UniversityOfFlorida/static/Web Login Service - University of Florida_files/plugins.js.\u05d4\u05d5\u05e8\u05d3\u05d4",
-   "/UniversityOfFlorida/static/Web Login Service - University of Florida_files/scripts.js.\u05d4\u05d5\u05e8\u05d3\u05d4",
-   "/UniversityOfFlorida/static/Web Login Service - University of Florida_files/spritemap.svg",
-   "/UniversityOfFlorida/static/Web Login Service - University of Florida_files/style.css",
-   "/UniversityOfFlorida/static/Web Login Service - University of Florida_files/velocity.min.js.\u05d4\u05d5\u05e8\u05d3\u05d4",
-   "/UniversityOfFlorida/static/Web Login Service - University of Florida_files/velocity.ui.min.js.\u05d4\u05d5\u05e8\u05d3\u05d4",
-   "/UniversityOfFlorida/static/Web Login Service - University of Florida_files/wordmark.gif",
-   "/UniversityOfFlorida/templates/login.html",
-   "/UniversityOfFlorida/__pycache__/app.cpython-310.pyc",
-   "/UniversityOfFlorida/__pycache__/models.cpython-310.pyc",
-   "/wd.py"
-  ],
-  "basedir": "C:/Users/gurgu/OneDrive/\u05e9\u05d5\u05dc\u05d7\u05df \u05d4\u05e2\u05d1\u05d5\u05d3\u05d4/\u05ea\u05db\u05e0\u05d5\u05ea/\u05e9\u05e0\u05d4 5/Cyber B/Task 2",
-  "lang": "",
-  "desc": ""
- },
- {
-  "name": "Project test",
-  "files": [
-   "/ex1.py",
-   "/UniversityOfFlorida/app.py",
-   "/wd.py"
-  ],
-  "basedir": "C:/Users/gurgu/OneDrive/\u05e9\u05d5\u05dc\u05d7\u05df \u05d4\u05e2\u05d1\u05d5\u05d3\u05d4/\u05ea\u05db\u05e0\u05d5\u05ea/\u05e9\u05e0\u05d4 5/Cyber B/Task 2",
-  "lang": "",
-  "desc": ""
- },
- {
-  "name": "Project test 2",
-  "files": [
-   "/ex1.py",
-   "/UniversityOfFlorida/app.py",
-   "/wd.py"
-  ],
-  "basedir": "C:/Users/gurgu/OneDrive/\u05e9\u05d5\u05dc\u05d7\u05df \u05d4\u05e2\u05d1\u05d5\u05d3\u05d4/\u05ea\u05db\u05e0\u05d5\u05ea/\u05e9\u05e0\u05d4 5/Cyber B/Task 2",
-  "lang": "",
-  "desc": ""
+  "basedir": "C:/Users/gurgu/OneDrive/\u05e9\u05d5\u05dc\u05d7\u05df \u05d4\u05e2\u05d1\u05d5\u05d3\u05d4/\u05ea\u05db\u05e0\u05d5\u05ea/\u05e9\u05e0\u05d4 5/Cyber B/Project-StaticCodeAnalysor",
+  "lang": "Python, html, js",
+  "desc": "Nahh"
  }
 ]

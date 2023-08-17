@@ -7,7 +7,7 @@ function fill_file_table(fileContainer, projectname, filename, errors, fixes){
         if (!fixes[i]){
             html_addition += "<td id=\"" + id + "\">No fix Available </td>"
         }else{
-            html_addition += "<td id=\""+ id +"\">"+fixes[i]+"</td>"
+            html_addition += "<td id=\""+ id +"\">"+atob(fixes[i])+"</td>"
         }
         html_addition += "<td> <a onclick=\"generatefix(\'"+projectname+"\',\'" + mod_filename + "\',\'" + i + "\')\" type=\"a\" class=\"btn btn-info\">Request fix</a></td>"
         html_addition += '\n </tr>'
@@ -38,7 +38,7 @@ function generatefix(projectname, filename, erroridx){
         .then(fix => {
             id = projectname+"/"+filename+"/"+erroridx
             container = document.getElementById(id)
-            container.textContent = fix
+            container.textContent = atob(fix)
             console.log(fix)
         })
         .catch(error => console.error('Error getting fix:', error));

@@ -1,4 +1,4 @@
-import openai, os, sys, json
+import openai, os, sys, json, base64
 import time
 
 parent_directory = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -47,7 +47,7 @@ def add_fix(file, fix, fix_idx):
     if os.path.isfile(file):
         saved = read_all_db_json(file)    
     with open(file, 'w') as out:
-        json_obj = json.loads(r'{"'+str(fix_idx)+'":"'+fix+'"}')
+        json_obj = json.loads(r'{"'+str(fix_idx)+'":"'+base64.b64encode(bytes(fix, encoding='utf-8')).decode()+'"}')
         saved = {**saved, **json_obj}
         json.dump(saved, out, indent=1)
         out.close()
@@ -131,7 +131,6 @@ def generate_prompt(sta_name, error):
 def request_file_fix(norm_path, error_idx):
     scan = read_all_db(scan_summaries_dir + '/' + norm_path)
     fix = chat_with_gpt3(generate_prompt(scan[int(error_idx)-1], scan[int(error_idx)])).replace(':', "-").replace("\"", "\'").replace("\\", '<BACKSLASH>')
-    #fix = 'Use the `shlex` module to safely parse command-line arguments, avoiding potential shell injection vulnerabilities.'
     add_fix(chat_fix_dir + '/' + norm_path, fix, error_idx)
     return read_all_db(chat_fix_dir + '/' + norm_path)
 
