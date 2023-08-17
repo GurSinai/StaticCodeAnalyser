@@ -41,6 +41,7 @@ def list_directory_recursive(directory_path):
 def get_normalized_path(path):
     return path[::-1].replace('.', '', 1)[::-1].replace('\\', '/').replace('//', '/').replace(':', '').replace('/', '-') + '.txt'
 
+################## ADD MULTITHREDING LOCKING TO ENTIRE METHODS FROM HERE ################
 def add_fix(file, fix, fix_idx):
     saved = {}
     if os.path.isfile(file):
@@ -85,6 +86,8 @@ def read_all_db(file) -> list:
             return []
         json_obj = json.loads(read_data)
         return json_obj
+
+##################### TO HEREEEEEE ###########
 
 def scan_file(file_path):
     for i, sta in enumerate(STA):
