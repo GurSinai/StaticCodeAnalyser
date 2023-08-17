@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, jsonify
 import db, os
-from LLM.chat import scan_project, scan_file, get_normalized_path, Scan_basedir, OUT_Paths
+from LLM.chat import scan_project, get_normalized_path, scan_summaries_dir, request_file_fix, read_all_db, read_all_db_json, chat_fix_dir
 app = Flask(__name__)
 
 
@@ -24,14 +24,26 @@ def view_project(project):
     return render_template('project.html', project=db.get_project(project), files=db.get_project_files(project))
 
 @app.route('/getscan/<project_name>/<file>')
-def getfile(project_name, file):
+def get_file(project_name, file):
     project = db.get_project(project_name)
-    nor = get_normalized_path(project['basedir'] + '/' + file)
-    output = ""
-    for path in OUT_Paths:
-        with open(path + '/' + nor) as f:
-            output += f.read()
+    nor = get_normalized_path(project['basedir'] + file)
+    output = read_all_db(scan_summaries_dir + '/' + nor)
+    for i, scan in enumerate(output):
+        output[i] = scan.replace('\\', '/')
     return jsonify(output)
+
+@app.route('/generatefix/<project_name>/<file>/<error_index>', methods=['GET'])
+def generate_fix(project_name, file, error_index):
+    project = db.get_project(project_name)
+    norm = get_normalized_path(project['basedir'] + file)
+    request_file_fix(norm, error_index)
+    return jsonify(read_all_db_json(chat_fix_dir + '/' + norm)[error_index])
+
+@app.route('/getfixes/<project_name>/<file>')
+def getfixes(project_name, file):
+    project = db.get_project(project_name)
+    norm = get_normalized_path(project['basedir'] + file)
+    return jsonify(read_all_db_json(chat_fix_dir + '/' + norm))
 
 @app.route('/addfile', methods=['POST'])
 def add_file():
@@ -52,9 +64,10 @@ def remove_file(filename, projectname):
 @app.route('/scan/<proj_name>')
 def scan_proj(proj_name):
     basedir = db.get_project(proj_name)['basedir']
-    scan_project(basedir)
-    return redirect('/viewproject/' + proj_name)
+    files = db.get_project(proj_name)['files']
+    scan_project(basedir, files)
+    return redirect("/viewproject/" + proj_name)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
 

@@ -1,39 +1,67 @@
-import os, sys
-
-### Import Interface Module
-parent_directory = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-# Add the parent directory path to sys.path
-sys.path.append(parent_directory)
-import interface
- 
+import os
 from pylint.lint import Run
 
-class PylintImplementation(interface.StaticCodeAnylazer):
-    def scan_file(self, path, output_path):
-        sys.stdout = open(output_path, 'w')
-        results = Run([path], do_exit=False)
+class PylintImplementation( ):
+    def get_name(self):
+        return "Pylint"
 
-class PyflakesImplementation(interface.StaticCodeAnylazer):
-    def scan_file(self, file_name, output_path):
-        if not os.path.isfile(file_name) or not os.path.isfile(output_path):
+    def scan_file(self, path, output_path):
+        if not os.path.isfile(path):
             return
-        os.popen(f'echo "" > {output_path}')
-        os.popen(f'pyflakes {file_name} >> {output_path}')
+
+        os.popen(f'Pylint \"{path}\" > \"{output_path}\"')
+
+    def split_output(self, content):
+        errors = content.split('------------------------------------------------------------------')[0]
+        errors = content.split('\n')
+        errors = errors[1:-5]
+        return errors
+
+
+class PyflakesImplementation( ):
+    def get_name(self):
+        return "Pyflakes"
+    
+    def scan_file(self, file_name, output_path):
+        if not os.path.isfile(file_name):
+            return
+        os.popen(f'pyflakes \"{file_name}\" >> \"{output_path}\"')
+
+    def split_output(self, content):
+        errors = content.split('\n')
+        errors = errors[0:-1]
+        return errors
     
  
-class Flake8Implementation(interface.StaticCodeAnylazer):
+class Flake8Implementation( ):
+    def get_name(self):
+        return "Flake8"
+    
     def scan_file(self, file_path, output_path):
-        if not os.path.isfile(file_path) or not os.path.isfile(output_path):
+        if not os.path.isfile(file_path):
             return
-        os.popen(f'echo "" > {output_path}')
-        os.popen(f'flake8 {file_path} --output-file {output_path}')
-        
+        os.popen(f'flake8 \"{file_path}\" --format pylint --output-file \"{output_path}\"')
+    
+    def split_output(self, content):
+        errors = content.split('\n')
+        errors = errors[0:-1]
+        return errors
 
-class BanditImplementation(interface.StaticCodeAnylazer):
+class BanditImplementation( ):
+    def get_name(self):
+        return "Bandit"
+
     def scan_file(self, file_path, output_path):
-        if not os.path.isfile(file_path) or not os.path.isfile(output_path):
+        if not os.path.isfile(file_path):
             return
-        os.popen('bandit ' + file_path + '-f txt -o ' + output_path)
+        os.popen('bandit \"' + file_path + '\" -f custom --msg-template "Line {line}: {test_id}. Severity: {severity} {msg}" -o \"' + output_path + '\"')
+
+    def split_output(self, content):
+        if content.__contains__('No issues identified.'):
+            return []
+        content = content.split('\n')
+        content = content[0:-1]
+        return content
 
         
 

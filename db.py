@@ -22,7 +22,8 @@ def create_new_proj(proj_name, lang="", desc="", basedir = "") -> bool:
         return True
     files = list_directory_recursive(basedir)
     for file in files:
-        add_file_to_project(proj_name, file.replace('\\', '/').removeprefix(basedir))
+        if file[-3:] == '.py':
+            add_file_to_project(proj_name, file.replace('\\', '/').removeprefix(basedir))
     return True
 
 

@@ -1,30 +1,20 @@
-import openai, os, sys ,fnmatch
+import openai, os, sys, json
 import time
-
 
 parent_directory = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Add the parent directory path to sys.path
 sys.path.append(parent_directory)
 
-def read_file_to_string(file_path):
-    with open(file_path, 'r') as file:
-        file_content = file.read()
-    return file_content
-
-
-
-
-
-
 from analyzers import BanditImplementation, Flake8Implementation, PylintImplementation, PyflakesImplementation
-file_ts = './ex1.py'
-api_key = "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"
+api_key = "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"
 openai.api_key = api_key
 PylintI = PylintImplementation()
 BanditI = BanditImplementation()
 FlakeI = Flake8Implementation()
 flakesI = PyflakesImplementation()
 Scan_basedir = './LLM'
+scan_summaries_dir = './LLM/scans_summary'
+chat_fix_dir = './LLM/fixes'
 STA = []
 OUT_Paths = []
 STA.append(BanditI)
@@ -49,64 +39,106 @@ def list_directory_recursive(directory_path):
     return files
 
 def get_normalized_path(path):
-    return path[::-1].replace('.', '', 1)[::-1].replace('\\', '/').replace(':', '').replace(' ', '').replace('/', '-') + '.txt'
+    return path[::-1].replace('.', '', 1)[::-1].replace('\\', '/').replace('//', '/').replace(':', '').replace('/', '-') + '.txt'
+
+def add_fix(file, fix, fix_idx):
+    saved = {}
+    if os.path.isfile(file):
+        saved = read_all_db_json(file)    
+    with open(file, 'w') as out:
+        json_obj = json.loads(r'{"'+str(fix_idx)+'":"'+fix+'"}')
+        saved = {**saved, **json_obj}
+        json.dump(saved, out, indent=1)
+        out.close()
+
+def read_all_db_json(file) -> list:
+    if not os.path.isfile(file):
+        return {}
+    with open(file, 'r') as openfile:
+        read_data = openfile.read()
+        if read_data == '':
+            return {}
+        json_obj = json.loads(read_data)
+        return json_obj
+
+def reset_scans_file(file):
+    saved = []
+    with open(file, 'w') as out:
+        json.dump(saved, out, indent=1)
+        out.close()
+    
+def append_to_scans(file, str) -> bool:
+    saved = []
+    if os.path.isfile(file):
+        saved = read_all_db(file)    
+    with open(file, 'w') as out:
+        saved.append(str)
+        json.dump(saved, out, indent=1)
+        out.close()
+
+def read_all_db(file) -> list:
+    if not os.path.isfile(file):
+        return []
+    with open(file, 'r') as openfile:
+        read_data = openfile.read()
+        if read_data == '':
+            return []
+        json_obj = json.loads(read_data)
+        return json_obj
 
 def scan_file(file_path):
     for i, sta in enumerate(STA):
-        temp = get_normalized_path(file_path)#./LLM-ChatGPT/Bandit/
-        os.popen(f'echo  "" > {OUT_Paths[i]}{temp}')#'C-Users-gurgu-OneDrive-שולחןהעבודה-תכנות-שנה5-CyberB-Task1-UniversityOfFlorida-apppy.txt'
-
-        time.sleep(1)
+        temp = get_normalized_path(file_path)
+        f = open(OUT_Paths[i] + f'/{temp}', 'w')
+        f.close()
+        time.sleep(0.1)
         sta.scan_file(file_path, OUT_Paths[i] + f'/{temp}')
+    time.sleep(0.1)
+    summarize_fixes(file_path)
 
-def scan_project(project_path):
-    files = list_directory_recursive(project_path)
+def scan_project(project_path, files):
     for file in files:
-        if file[-2:] == 'py':
-            scan_file(file)
+        scan_file(project_path + '/' + file)
+
+def summarize_fixes(abs_file_path):
+    norm_path = get_normalized_path(abs_file_path)
+    reset_scans_file(scan_summaries_dir+ '/' + norm_path)
+    for i, sta in enumerate(STA):
+        path = OUT_Paths[i] + norm_path
+        time.sleep(0.5)
+        try:
+            f = open(path, encoding='utf-8')
+            content = f.read()
+        except UnicodeDecodeError:
+            f = open(path,'r')
+            content = f.read() 
+        errors = sta.split_output(content)
+        for error in errors:
+            append_to_scans(scan_summaries_dir + '/' + norm_path, sta.get_name())
+            append_to_scans(scan_summaries_dir + '/' + norm_path, error)
+    f = open(chat_fix_dir + '/' + norm_path, 'w')
+    f.close()
+
+def generate_prompt(sta_name, error):
+    prompt = f"using the Static code anylizer \"{sta_name}\" i got this error:\n" + error \
+            + "Give me a short and informed explanation on how to fix it. No more than 100 chars" \
+            + "DO NOT USE \':\'"
+    return prompt
+
+def request_file_fix(norm_path, error_idx):
+    scan = read_all_db(scan_summaries_dir + '/' + norm_path)
+    fix = chat_with_gpt3(generate_prompt(scan[int(error_idx)-1], scan[int(error_idx)])).replace(':', "-").replace("\"", "\'").replace("\\", '<BACKSLASH>')
+    #fix = 'Use the `shlex` module to safely parse command-line arguments, avoiding potential shell injection vulnerabilities.'
+    add_fix(chat_fix_dir + '/' + norm_path, fix, error_idx)
+    return read_all_db(chat_fix_dir + '/' + norm_path)
 
 
-
-
-def find_type_analyzer(directory):
-    typesofA = ['/Pylint/', '/Flake8/', '/Bandit/', '/Pyflakes/']
-    vara = ""
-    for root, _, filenames in os.walk(directory):
-        for filename in filenames:
-            for i in typesofA:
-                if fnmatch.fnmatch(filename, f'*{i}*'):
-                    vara=i
-                    break
- 
-    if(vara=='/Pylint/'):
-     return "Pylint"
-    if(vara=='/Flake8/'):
-     return "Flake8"  
-    if(vara=='/Bandit/'):
-     return "Bandit"
-    if(vara=='/Pyflakes/'):
-     return "Pyflakes"
-    return "cant find which analyzer use!!"
 
 def chat_with_gpt3(prompt):
-    response = openai.Completion.create(
-        engine="gpt-3.5",  # Use GPT-3.5 engine
-        prompt=prompt,
-        max_tokens=400  # Adjust as needed to control the response length
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[
+                {"role": "system", "content": prompt},
+            ]
     )
-    return response['choices'][0]['text']
-
-if __name__ == "__main__":
-    # Prompt to send to GPT-3.5
-    askcode="" 
-    response = []
-    response_file_path=[]
-    for i in OUT_Paths:
-            filess= list_directory_recursive(i)
-            for j in filess:
-                askcode = "fix this problem code from " + find_type_analyzer(i) +" usinig minimum words "  + read_file_to_string(j) ###change read my file!!!
-                chat_prompt = f"You: {askcode}\nChatGPT: " #send the responde to website
-                response.append(chat_with_gpt3(chat_prompt))# save the responde
-                response_file_path.append(j)##Tis save the file path that i save the ans.
-              
-            
+    return response['choices'][0]['message']['content']

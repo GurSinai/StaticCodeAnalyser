@@ -2,6 +2,8 @@ LLM/Bandit
 LLM/Flake8
 LLM/PyFlakes
 LLM/Pylint
+LLM/fixes
+LLM/scans_summary
 venv
 __pycache__
 result.txt
