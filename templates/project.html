@@ -30,7 +30,7 @@
                 <form action="/edit_project" style="padding: 1rem" method="POST">
                     <input type="hidden" name="current_name" value="{{project['name']}}">
                     <label for="project_name" class="col-form-label" onchage="name_change">Project name</label>
-                    <input type="text" class="form-control" name="project_name" id="project_name" maxlength="60" required value="{{project['name']}}">
+                    <input pattern="[A-Za-z0-9 ]+" title="Please only use alphanumeric characters" type="text" class="form-control" name="project_name" id="project_name" maxlength="60" required value="{{project['name']}}">
                     <label for="project_dir" class="col-form-label">Project directory</label>
                     <input type="text" class="form-control" name="project_dir" id="project_dir" maxlength="250" value="{{project['basedir']}}">
                     <label for="project_lang" class="col-form-label">Project language(s)</label>

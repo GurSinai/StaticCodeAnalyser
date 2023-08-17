@@ -15,7 +15,7 @@
 
           <form action="create_project" style="padding: 1rem" method="POST">
             <label for="project_name" class="col-form-label" onchage="name_change">Project name</label>
-            <input type="text" class="form-control" name="project_name" id="project_name" maxlength="60" required>
+            <input pattern="[A-Za-z0-9 ]+" title="Please only use alphanumeric characters" type="text" class="form-control" name="project_name" id="project_name" maxlength="60" required>
             <label for="project_dir" class="col-form-label">Project directory</label>
             <input type="text" class="form-control" name="project_dir" id="project_dir" maxlength="250">
             <label for="project_lang" class="col-form-label">Project language(s)</label>
