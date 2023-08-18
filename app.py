@@ -83,11 +83,13 @@ def createproject():
     project_lang = request.form.get('project_lang')
     project_desc = request.form.get('project_desc')
     project_dir = request.form.get('project_dir')
+    ignores = request.form.get('project_ignore')    
     result = db.create_new_proj(
         proj_name=project_name,
         desc=project_desc,
         lang=project_lang,
-        basedir=project_dir
+        basedir=project_dir,
+        ignores=ignores.split(', ')
         )
     if not result:
         return render_template(
@@ -223,4 +225,4 @@ def request_scan_file():
     return redirect('/viewproject/' +project_name)
 
 if __name__ == '__main__':
-    app.run()
+        app.run()

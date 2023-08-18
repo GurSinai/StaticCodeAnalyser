@@ -124,13 +124,12 @@ def summarize_fixes(abs_file_path):
 
 def generate_prompt(sta_name, error):
     prompt = f"using the Static code anylizer \"{sta_name}\" i got this error:\n" + error \
-            + "Give me a short and informed explanation on how to fix it. No more than 100 chars" \
-            + "DO NOT USE \':\'"
+            + "Give me a short and informed explanation on how to fix it. No more than 200 chars"
     return prompt
 
 def request_file_fix(norm_path, error_idx):
     scan = read_all_db(scan_summaries_dir + '/' + norm_path)
-    fix = chat_with_gpt3(generate_prompt(scan[int(error_idx)-1], scan[int(error_idx)])).replace(':', "-").replace("\"", "\'").replace("\\", '<BACKSLASH>')
+    fix = chat_with_gpt3(generate_prompt(scan[int(error_idx)-1], scan[int(error_idx)]))
     add_fix(chat_fix_dir + '/' + norm_path, fix, error_idx)
     return read_all_db(chat_fix_dir + '/' + norm_path)
 

@@ -13,15 +13,30 @@
           </div>
 
 
-          <form action="create_project" style="padding: 1rem" method="POST">
+          <form action="create_project" id="project-creation-form" style="padding: 1rem" method="POST">
             <label for="project_name" class="col-form-label" onchage="name_change">Project name</label>
             <input pattern="[A-Za-z0-9 ]+" title="Please only use alphanumeric characters" type="text" class="form-control" name="project_name" id="project_name" maxlength="60" required>
             <label for="project_dir" class="col-form-label">Project directory</label>
             <input type="text" class="form-control" name="project_dir" id="project_dir" maxlength="250">
+            <div id="formhelp" class="form-text" style="font-size:0.7rem">
+              Maximum automated file inclusion: 500
+            </div>
             <label for="project_lang" class="col-form-label">Project language(s)</label>
             <input type="text" class="form-control" name="project_lang" id="project_lang">
             <label for="project_desc" class="col-form-label">A short description</label>
             <input type="text" class="form-control" name="project_desc" id="project_desc" maxlength="70">
+            <label for="project_ignore_0" class="col-form-label">folder paths to ignore when adding files</label>
+            <div id="formhelp" class="form-text" style="font-size:0.7rem">
+              An entry starting with '/' will be treated as a full path to ingore.<br>
+              An entry without '/' at the start will be treated as a string, Such that if a relative file path contains it, it will be ignored.
+            </div>
+            <input type="text" class="form-control" name="project_ignore" id="project_desc" maxlength="250" value="/venv, __pycache__, .git">
+            <br>
+            <div class="alert alert-info" role="alert">
+              Note: At this time, this application only handels .py files. <Br>Every .py file from the base-directory you mentioned above will be added to the project.
+                (without the ignored directories)
+            </div>
+            <br>
           <div class="modal-footer ">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
             <button type="submit" class="btn btn-primary">Create project</button>

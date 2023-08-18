@@ -17,6 +17,10 @@ function fill_file_table(fileContainer, projectname, filename, errors, fixes){
     fileContainer.innerHTML = html_addition
 }
 
+function requestProjectScan(projectname){
+    
+}
+
 function getscan(projectname, filename){
     mod_filename = filename.replaceAll('/', '-')
     fetch('/getscan/'+projectname+'/'+mod_filename)
@@ -43,4 +47,3 @@ function generatefix(projectname, filename, erroridx){
         })
         .catch(error => console.error('Error getting fix:', error));
 }
-

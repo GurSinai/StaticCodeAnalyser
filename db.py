@@ -11,7 +11,7 @@ def is_alphanumeric_with_spaces(s):
     return all(c.isalnum() or c.isspace() for c in s)
 
 
-def create_new_proj(proj_name, lang="", desc="", basedir = "", add_files=True) -> bool:
+def create_new_proj(proj_name, lang="", desc="", basedir = "", add_files=True, ignores = []) -> bool:
     if not is_alphanumeric_with_spaces(proj_name) or not os.path.isdir(basedir) or basedir == "":
         return False
     if get_project(proj_name) is not None:
@@ -28,12 +28,26 @@ def create_new_proj(proj_name, lang="", desc="", basedir = "", add_files=True) -
     if basedir == "":
         return True
     if add_files:
+        file_counter = 0
         files = list_directory_recursive(basedir)
         for file in files:
-            if file[-3:] == '.py' and not file.__contains__('venv'):
+            file = file.replace('\\', '/').removeprefix(basedir)
+            file_counter += 1
+            if file_counter > 500:
+                break;
+            if file[-3:] == '.py' and not check_excluded(ignores, file):
                 add_file_to_project(proj_name, file.replace('\\', '/').removeprefix(basedir))
     return True
 
+def check_excluded(ignores, file):
+    for ignore in ignores:
+        if ignore[0:1] == '/':
+            if file[0:len(ignore)] == ignore:
+                return True
+        else:
+            if file.__contains__(ignore):
+                return True
+    return False
 
 def read_all_projects() -> list:
     if not os.path.isfile(DB_FILE):
