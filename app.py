@@ -24,8 +24,10 @@ def edit_project():
     project_dir = request.form.get('project_dir')
     keep_files = request.form.get('keepfiles')
     get_new_files = request.form.get('getnewfiles')
+
     if get_new_files is not None:
         get_new_files = True
+        
     current_project = db.get_project(request.form.get('current_name'))
     new_files = current_project['files']
 
@@ -41,12 +43,12 @@ def edit_project():
     if keep_files is None:
         new_files = []
     
-    if db.get_project(project_name) and project_name != current_project['name']:
+    if (db.get_project(project_name) and project_name != current_project['name']) or project_dir == "":
         return render_template(
         'project.html',
         project=current_project,
         files=current_project['files'],
-        alerts=['Something went wrong... Check if you have a project with that name.']
+        alerts=['Something went wrong... Check if you have a project with that name or a bad folder-path']
         )
     db.remove_project(current_project['name'])
     result = db.create_new_proj(
@@ -56,7 +58,13 @@ def edit_project():
         basedir=project_dir,
         add_files=get_new_files
         )
-
+    if not result:
+        return render_template(
+        'project.html',
+        project=current_project,
+        files=current_project['files'],
+        alerts=['Something went wrong... Check if you have a project with that name or a bad folder-path']
+        )
     for file in new_files:
         db.add_file_to_project(project_name, file)
         
@@ -75,11 +83,17 @@ def createproject():
     project_lang = request.form.get('project_lang')
     project_desc = request.form.get('project_desc')
     project_dir = request.form.get('project_dir')
-    db.create_new_proj(
+    result = db.create_new_proj(
         proj_name=project_name,
         desc=project_desc,
         lang=project_lang,
         basedir=project_dir
+        )
+    if not result:
+        return render_template(
+            'index.html',
+            projects = db.read_all_projects(),
+            alerts=['Something went wrong... Check if you have a project with that name or a bad folder-path']
         )
     return redirect('/')
 

@@ -6,7 +6,14 @@ def overwrite_db(projects):
     with open(DB_FILE, 'w') as out:
         json.dump(projects, out, indent=1)
 
+
+def is_alphanumeric_with_spaces(s):
+    return all(c.isalnum() or c.isspace() for c in s)
+
+
 def create_new_proj(proj_name, lang="", desc="", basedir = "", add_files=True) -> bool:
+    if not is_alphanumeric_with_spaces(proj_name) or not os.path.isdir(basedir) or basedir == "":
+        return False
     if get_project(proj_name) is not None:
         return False
     saved = []

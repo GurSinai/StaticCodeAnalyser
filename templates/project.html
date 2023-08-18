@@ -1,12 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 <div style="padding-left: 2rem; padding-top: 3rem" class="container-md">
-    {% for alert in alerts: %}
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        {{alert}}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    {%endfor%}
     <div class="d-flex border-bottom" style="justify-content:space-between; flex-direction:row; align-items:center">
     <div>
     <p class="h1" >
