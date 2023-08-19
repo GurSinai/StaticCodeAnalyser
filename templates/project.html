@@ -5,14 +5,14 @@
     <div>
     <p class="h1" >
         {{project['name']}}</p><br>
-        <p>Base directory: {{project['basedir']}}</p>
+        <p><span class="h6">Base directory:</span><br><i>{{project['basedir']}}</i></p>
     </div>
         <div>
             <div class="btn-group" role="group" aria-label="Basic example">
                 <a href="/edit/{{project['name']}}" data-bs-toggle="modal" data-bs-target="#editmodal" class="btn btn-primary">Edit Project</a>
                 <a href="/scan/{{project['name']}}" class="btn btn-primary">Scan Project</a>
                 <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deletemodal">Delete Project</a>        
-                <a href="/deletescans/{{project['name']}}" class="btn btn-info">Delete All Scans</a>
+                <a href="/deletescans/{{project['name']}}" class="btn btn-secondary">Delete All Scans</a>
               </div>
         </div>
         <div class="modal fade" id="editmodal" tabindex="-1" aria-labelledby="editprojectLabel" aria-hidden="true">

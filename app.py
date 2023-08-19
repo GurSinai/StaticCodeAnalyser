@@ -251,5 +251,13 @@ def request_scan_file():
     scan_file(basedir + filename)
     return redirect('/viewproject/' +project_name)
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('ErrorPage.html', error_title="Page not found 404")
+
+@app.errorhandler(Exception)
+def generic_error_handler(error):
+    return render_template('ErrorPage.html', error_title="Something Went wrong... Please try again.")
+
 if __name__ == '__main__':
         app.run(debug=True)
