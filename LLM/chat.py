@@ -4,19 +4,22 @@ from threading import Lock
 from dotenv import load_dotenv
 load_dotenv()
 
+# IMPORT ANALIZERS FROM ABOVE DIRECTORY
 parent_directory = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-# Add the parent directory path to sys.path
 sys.path.append(parent_directory)
-
 from analyzers import BanditImplementation, Flake8Implementation, PylintImplementation, PyflakesImplementation
+
+# Set basic directories
+Scan_basedir = './LLM'
+scan_summaries_dir = './LLM/scans_summary'
+chat_fix_dir = './LLM/fixes'
+
+# Load enviornment variables and setup anylizers
 openai.api_key = os.getenv("CHAT_API_KEY")
 PylintI = PylintImplementation()
 BanditI = BanditImplementation()
 FlakeI = Flake8Implementation()
 flakesI = PyflakesImplementation()
-Scan_basedir = './LLM'
-scan_summaries_dir = './LLM/scans_summary'
-chat_fix_dir = './LLM/fixes'
 STA = []
 OUT_Paths = []
 STA.append(BanditI)
@@ -28,7 +31,11 @@ OUT_Paths.append(Scan_basedir + '/Pyflakes/')
 STA.append(PylintI)
 OUT_Paths.append(Scan_basedir + '/Pylint/')
 
+
 def list_directory_recursive(directory_path):
+    """
+    List every file under the directory path recieved, recursivly.
+    """
     files = []
     listsdir = os.listdir(directory_path)
     for item in listsdir:
@@ -42,9 +49,13 @@ def list_directory_recursive(directory_path):
     return files
 
 def get_normalized_path(path):
+    """
+    This is a one way, One-To-One function to allow to saving a file with it's path as it's name.
+    It removes : and does the following replacements: \ -> / , // -> /, / -> -
+    It addition, turns file.type into filetype.txt
+    """
     return path[::-1].replace('.', '', 1)[::-1].replace('\\', '/').replace('//', '/').replace(':', '').replace('/', '-') + '.txt'
 
-################## ADD MULTITHREDING LOCKING TO ENTIRE METHODS FROM HERE ################
 fixes_lock = Lock()
 
 def add_fix(file, fix, fix_idx):
@@ -96,8 +107,6 @@ def read_all_db(file) -> list:
             return []
         json_obj = json.loads(read_data)
         return json_obj
-
-##################### TO HEREEEEEE ###########
 
 def scan_file(file_path):
     for i, sta in enumerate(STA):
