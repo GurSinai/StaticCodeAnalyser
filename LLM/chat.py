@@ -28,7 +28,8 @@ OUT_Paths.append(Scan_basedir + '/Pylint/')
 
 def list_directory_recursive(directory_path):
     files = []
-    for item in os.listdir(directory_path):
+    listsdir = os.listdir(directory_path)
+    for item in listsdir:
         item_path = os.path.join(directory_path, item)
         if os.path.isdir(item_path):
             temp = list_directory_recursive(item_path)

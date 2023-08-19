@@ -17,6 +17,8 @@ def create_new_proj(proj_name, lang="", desc="", basedir = "", add_files=True, i
     if get_project(proj_name) is not None:
         return False
     saved = []
+    if len(ignores) == 1 and ignores[0] == '':
+        ignores == []
     basedir = basedir.replace('\\', '/')
     if os.path.isfile(DB_FILE):
         saved = read_all_projects()
@@ -32,11 +34,11 @@ def create_new_proj(proj_name, lang="", desc="", basedir = "", add_files=True, i
         files = list_directory_recursive(basedir)
         for file in files:
             file = file.replace('\\', '/').removeprefix(basedir)
-            file_counter += 1
-            if file_counter > 500:
-                break;
             if file[-3:] == '.py' and not check_excluded(ignores, file):
                 add_file_to_project(proj_name, file.replace('\\', '/').removeprefix(basedir))
+                file_counter += 1
+                if file_counter >= 500:
+                    break;
     return True
 
 def check_excluded(ignores, file):
