@@ -134,7 +134,21 @@ def request_file_fix(norm_path, error_idx):
     add_fix(chat_fix_dir + '/' + norm_path, fix, error_idx)
     return read_all_db(chat_fix_dir + '/' + norm_path)
 
-
+def delete_scans(project_path, file_name):
+    norm = get_normalized_path(project_path + file_name)
+    for path in OUT_Paths:
+        try:
+            os.remove(path + '/' + norm)
+        except FileNotFoundError:
+            print(f"No Scan Available at {path}")
+    try:
+        os.remove(scan_summaries_dir + '/' + norm)
+    except FileNotFoundError:
+        print(f"No Scan Available at {scan_summaries_dir}")
+    try:
+        os.remove(chat_fix_dir + '/' + norm)
+    except FileNotFoundError:
+        print(f"No Scan Available at {chat_fix_dir}")
 
 def chat_with_gpt3(prompt):
     response = openai.ChatCompletion.create(

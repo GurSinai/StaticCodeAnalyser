@@ -12,6 +12,7 @@
                 <a href="/edit/{{project['name']}}" data-bs-toggle="modal" data-bs-target="#editmodal" class="btn btn-primary">Edit Project</a>
                 <a href="/scan/{{project['name']}}" class="btn btn-primary">Scan Project</a>
                 <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deletemodal">Delete Project</a>        
+                <a href="/deletescans/{{project['name']}}" class="btn btn-info">Delete All Scans</a>
               </div>
         </div>
         <div class="modal fade" id="editmodal" tabindex="-1" aria-labelledby="editprojectLabel" aria-hidden="true">
@@ -31,6 +32,18 @@
                     <input type="text" class="form-control" name="project_lang" id="project_lang" value="{{project['lang']}}">
                     <label for="project_desc" class="col-form-label">A short description</label>
                     <input type="text" class="form-control" name="project_desc" id="project_desc" maxlength="70" value="{{project['desc']}}">
+                    <label for="project_ignore_0" class="col-form-label">folder paths to ignore when adding files</label>
+                    <div id="formhelp" class="form-text" style="font-size:0.7rem">
+                      An entry starting with '/' will be treated as a full path to ingore.<br>
+                      An entry without '/' at the start will be treated as a string, Such that if a relative file path contains it, it will be ignored.
+                    </div>
+                    <input type="text" class="form-control" name="project_ignore" id="project_desc" maxlength="250" value="/venv, __pycache__, .git">
+                    <br>
+                    <div class="alert alert-info" role="alert">
+                      Note: At this time, this application only handels .py files. <Br>Every .py file from the base-directory you mentioned above will be added to the project.
+                        (without the ignored directories)
+                    </div>
+                    <br>  
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" name="getnewfiles" id="flexCheckDefault">
                         <label class="form-check-label" for="flexCheckDefault">
@@ -81,11 +94,39 @@
             <li class="list-group-item d-flex text-bg-dark" style="justify-content:space-between">
                 <span>{{file}}</span>
                 <div class="d-flex" style="flex-direction: row;">
-                        <a href="/removefile/{{file.replace('\\', '').replace('/', '')}}/{{project['name']}}"  class="link-wait-hover">
+                        <a class="link-wait-hover" data-bs-toggle="modal" data-bs-target="#deletescansmodal">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
                                 <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
                             </svg>
                         </a>
+                        <!-- Modal -->
+                        <div class="modal fade" id="deletescansmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content" style="color:#222222">
+                              <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Delete file</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body ">
+                                Would you like to delete the scans for this file?
+                              </div>
+                              <div class="modal-footer">
+                                <form action="/removefile" method="POST">
+                                  <input type="hidden" name="filename" value="{{file}}">
+                                  <input type="hidden" name="projectname" value="{{project['name']}}">
+                                  <input type="hidden" name="rmscans" value="0">
+                                  <button type="submit" type="button" class="btn btn-primary">No</a>
+                                </form>
+                                <form action="/removefile" method="POST">
+                                  <input type="hidden" name="filename" value="{{file}}">
+                                  <input type="hidden" name="projectname" value="{{project['name']}}">
+                                  <input type="hidden" name="rmscans" value="1">
+                                  <button type="submit" type="button" class="btn btn-primary">Yes</a>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                     <form id="{{file}}-scannerform" action="/scanfile" method="POST">
                         <input type="hidden" name="filename" value="{{file}}">
                         <input type="hidden" name="projectname" value="{{project['name']}}">

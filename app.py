@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, jsonify
 import db
 import os
-from LLM.chat import scan_project, request_file_fix, scan_file
+from LLM.chat import scan_project, request_file_fix, scan_file, delete_scans
 from LLM.chat import scan_summaries_dir, chat_fix_dir
 from LLM.chat import get_normalized_path, read_all_db_json, read_all_db
 
@@ -24,6 +24,7 @@ def edit_project():
     project_dir = request.form.get('project_dir')
     keep_files = request.form.get('keepfiles')
     get_new_files = request.form.get('getnewfiles')
+    ignores = request.form.get('project_ignore')   
 
     if get_new_files is not None:
         get_new_files = True
@@ -56,7 +57,8 @@ def edit_project():
         desc=project_desc,
         lang=project_lang,
         basedir=project_dir,
-        add_files=get_new_files
+        add_files=get_new_files,
+        ignores=ignores.split(', ')
         )
     if not result:
         return render_template(
@@ -187,18 +189,43 @@ def add_file_to_project():
     return redirect('/viewproject/' + project_name)
 
 
-@app.route('/removefile/<filename>/<projectname>')
-def remove_file(filename, projectname):
+@app.route('/removefile', methods=['POST'])
+def remove_file():
     """
     Args:
         filename (string) \n
         project name (string):
     remove file from project
     """
-    db.remove_file_from_project_no_slash(projectname, filename)
+    filename = request.form.get('filename')
+    projectname = request.form.get('projectname')
+    project_dir = db.get_project(projectname)['basedir']
+    del_scans = request.form.get('rmscans')
+    if del_scans == '1':
+        delete_scans(project_dir, filename)    
+    db.remove_file_from_project(projectname, filename)
     return redirect('/viewproject/' + projectname)
 
+@app.route('/deletescans/<projectname>')
+def delete_project_scans(projectname):
+    project = db.get_project(projectname)
+    files =  project['files']
+    dir = project['basedir']
+    for file in files:
+        delete_scans(dir, file)
+    return redirect('/viewproject/' + projectname)
 
+@app.route('/deleteallscans')
+def delete_all_scans():
+    projects = db.read_all_projects()
+    for project in projects:
+        files =  project['files']
+        dir = project['basedir']
+        for file in files:
+            delete_scans(dir, file)
+    return redirect('/')
+
+    
 @app.route('/scan/<proj_name>')
 def scan_proj(proj_name):
     """
@@ -225,4 +252,4 @@ def request_scan_file():
     return redirect('/viewproject/' +project_name)
 
 if __name__ == '__main__':
-        app.run()
+        app.run(debug=False)

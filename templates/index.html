@@ -12,7 +12,6 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
 
-
           <form action="create_project" id="project-creation-form" style="padding: 1rem" method="POST">
             <label for="project_name" class="col-form-label" onchage="name_change">Project name</label>
             <input pattern="[A-Za-z0-9 ]+" title="Please only use alphanumeric characters" type="text" class="form-control" name="project_name" id="project_name" maxlength="60" required>
@@ -47,8 +46,10 @@
         </div>
       </div>
     </div>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createproject" data-bs-whatever="@getbootstrap">Create new projects</button>
-
+    <div>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createproject" data-bs-whatever="@getbootstrap">Create new projects</button>
+      <a href="/deleteallscans" class="btn btn-primary">Delete all scans</a>
+    </div>
   </div>
   <br>
   <div class="d-flex flex-wrap" style="justify-content: center">
