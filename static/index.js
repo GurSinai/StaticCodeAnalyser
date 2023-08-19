@@ -9,7 +9,7 @@ function fill_file_table(fileContainer, projectname, filename, errors, fixes){
         }else{
             html_addition += "<td id=\""+ id +"\">"+atob(fixes[i])+"</td>"
         }
-        html_addition += "<td> <a onclick=\"generatefix(\'"+projectname+"\',\'" + mod_filename + "\',\'" + i + "\')\" type=\"a\" class=\"btn btn-info\">Request fix</a></td>"
+        html_addition += "<td> <a onclick=\"generatefix(\'"+projectname+"\',\'" + mod_filename + "\',\'" + i + "\')\" type=\"a\" class=\"btn btn-secondary\">Request fix</a></td>"
         html_addition += '\n </tr>'
         
     }
@@ -36,6 +36,14 @@ function getscan(projectname, filename){
         .catch(error => console.error('Error fetching files:', error));
 }
 
+async function scanProject(projectname){
+    document.getElementById("ScanProject").textContent = "Scanning Project..."
+    document.getElementById("ScanProject").style = "pointer-events: none;"
+    await fetch('/scan/'+projectname)
+    document.getElementById("ScanProject").textContent = "Scan Project"
+    document.getElementById("ScanProject").style = "pointer-events: All;"
+}
+
 function generatefix(projectname, filename, erroridx){
     fetch("/generatefix/"+projectname+"/"+filename+"/" + erroridx)
         .then(response => response.json())
@@ -43,7 +51,6 @@ function generatefix(projectname, filename, erroridx){
             id = projectname+"/"+filename+"/"+erroridx
             container = document.getElementById(id)
             container.textContent = atob(fix)
-            console.log(fix)
         })
         .catch(error => console.error('Error getting fix:', error));
 }

@@ -1,12 +1,13 @@
 import openai, os, sys, json, base64
 import time
+from threading import Lock
 
 parent_directory = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Add the parent directory path to sys.path
 sys.path.append(parent_directory)
 
 from analyzers import BanditImplementation, Flake8Implementation, PylintImplementation, PyflakesImplementation
-api_key = "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"
+api_key = "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"
 openai.api_key = api_key
 PylintI = PylintImplementation()
 BanditI = BanditImplementation()
@@ -43,21 +44,28 @@ def get_normalized_path(path):
     return path[::-1].replace('.', '', 1)[::-1].replace('\\', '/').replace('//', '/').replace(':', '').replace('/', '-') + '.txt'
 
 ################## ADD MULTITHREDING LOCKING TO ENTIRE METHODS FROM HERE ################
+fixes_lock = Lock()
+
 def add_fix(file, fix, fix_idx):
     saved = {}
     if os.path.isfile(file):
-        saved = read_all_db_json(file)    
+        saved = read_all_db_json(file)   
     with open(file, 'w') as out:
+        fixes_lock.acquire()
         json_obj = json.loads(r'{"'+str(fix_idx)+'":"'+base64.b64encode(bytes(fix, encoding='utf-8')).decode()+'"}')
         saved = {**saved, **json_obj}
         json.dump(saved, out, indent=1)
         out.close()
+        fixes_lock.release() 
 
 def read_all_db_json(file) -> list:
+    fixes_lock.acquire()
     if not os.path.isfile(file):
         return {}
     with open(file, 'r') as openfile:
         read_data = openfile.read()
+        openfile.close()
+        fixes_lock.release() 
         if read_data == '':
             return {}
         json_obj = json.loads(read_data)

@@ -1,3 +1,15 @@
+.bg-img{
+
+background-image: url('../static/bg.jpg');
+height:100%;
+width:100%;
+background-repeat: repeat-y;
+background-size: cover;
+background-position: center;
+background-color: #7E998A;
+
+}
+
 .link-wait-hover{
     color: gray;
     text-decoration: none;
@@ -10,7 +22,6 @@
 .increase-on-hover-20:hover{
     transform: scale(1.1);
 }
-
 
 .link-wait-hover-dark{
     color: inherit;
