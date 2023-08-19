@@ -3,6 +3,24 @@
     text-decoration: none;
     margin-right: 0.7rem
 }
+.increase-on-hover-20{
+    transform: scale(1);
+    transition: all 0.5s;
+}
+.increase-on-hover-20:hover{
+    transform: scale(1.1);
+}
+
+
+.link-wait-hover-dark{
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.link-wait-hover-dark:hover{
+    color:black
+}
 
 .link-wait-hover:hover{
     color: white;

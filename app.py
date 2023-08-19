@@ -252,4 +252,4 @@ def request_scan_file():
     return redirect('/viewproject/' +project_name)
 
 if __name__ == '__main__':
-        app.run(debug=False)
+        app.run(debug=True)

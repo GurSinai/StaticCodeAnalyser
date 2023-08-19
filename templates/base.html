@@ -13,8 +13,7 @@
   <div>
     <nav class="navbar navbar-dark bg-dark sticky-top">
         <div class="container-fluid">
-          <a class="navbar-brand" href="/">Static Code Analyzer</a>
-
+          <a class="navbar-brand increase-on-hover-20" style="margin-left: 0.7rem" href="/">Static Code Analyzer</a>
         </div>
       </nav>
     </div>
@@ -26,6 +25,11 @@
     {%endfor%}
     {% block content %}
     {% endblock %}
+    <div class="container-md border-top fixed-bottom position-absolute top-100 end-0" style="padding-left: 3rem; padding-top: 1.5rem; margin-bottom: 3rem">
+      <p class="h4">Static code anylizer - Cyber B project.</p>
+      <p class="h5">Proffesor:&nbsp; &nbsp;<i><a class="link-wait-hover-dark" href="https://www.linkedin.com/in/leonpevzner/"> Mr. Leonid pevzner</a>, <a href="https://www.netanya.ac.il/" class="link-wait-hover-dark">Netanya Academic Collage</a></i></p>
+      <p class="h5">Students:&nbsp; &nbsp;<i>Oriel Saban, Gur Sinai</i></p> <br>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <script src="{{url_for('static', filename='index.js')}}"></script>
 </body>
