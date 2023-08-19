@@ -4,6 +4,7 @@ LLM/PyFlakes
 LLM/Pylint
 LLM/fixes
 LLM/scans_summary
+.env
 venv
 __pycache__
 result.txt

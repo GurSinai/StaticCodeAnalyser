@@ -1,14 +1,15 @@
 import openai, os, sys, json, base64
 import time
 from threading import Lock
+from dotenv import load_dotenv
+load_dotenv()
 
 parent_directory = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Add the parent directory path to sys.path
 sys.path.append(parent_directory)
 
 from analyzers import BanditImplementation, Flake8Implementation, PylintImplementation, PyflakesImplementation
-api_key = "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"
-openai.api_key = api_key
+openai.api_key = os.getenv("CHAT_API_KEY")
 PylintI = PylintImplementation()
 BanditI = BanditImplementation()
 FlakeI = Flake8Implementation()
@@ -133,7 +134,7 @@ def summarize_fixes(abs_file_path):
 
 def generate_prompt(sta_name, error):
     prompt = f"using the Static code anylizer \"{sta_name}\" i got this error:\n" + error \
-            + "Give me a short and informed explanation on how to fix it. No more than 200 chars"
+            + "\nGive me a short and informed explanation on how to fix it. No more than 200 chars"
     return prompt
 
 def request_file_fix(norm_path, error_idx):

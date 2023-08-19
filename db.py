@@ -2,33 +2,48 @@ import os, json
 from LLM.chat import list_directory_recursive
 DB_FILE = 'PROJECTS.JSON'
 
+########## UTIL METHODS ##########
 def overwrite_db(projects):
     with open(DB_FILE, 'w') as out:
         json.dump(projects, out, indent=1)
 
-
 def is_alphanumeric_with_spaces(s):
     return all(c.isalnum() or c.isspace() for c in s)
 
-
-def create_new_proj(proj_name, lang="", desc="", basedir = "", add_files=True, ignores = []) -> bool:
+def create_new_proj(proj_name, basedir, lang="", desc="", add_files=True, ignores = []) -> bool:
+    """
+    Args:
+        proj_name (str): must be alphanumeric with spaces
+        lang (str, optional): Defaults to "".
+        desc (str, optional): Defaults to "".
+        basedir (str): Must be a folder.
+        add_files (bool, optional): Add files from basedir. Defaults to True.
+        ignores (list, optional): List of patterns to ignore when adding files.
+            '/path' will ignore every file beiginning with '/path',
+            'str' will ignore every path containing 'str'
+            Defaults to [].
+    will add project according to parameters
+    Returns:
+        True of succsessful
+    """
     if not is_alphanumeric_with_spaces(proj_name) or not os.path.isdir(basedir) or basedir == "":
         return False
     if get_project(proj_name) is not None:
         return False
     saved = []
-    if len(ignores) == 1 and ignores[0] == '':
+    if len(ignores) == 1 and ignores[0] == '': # check if ignores is empty and make it array
         ignores == []
-    basedir = basedir.replace('\\', '/')
+    
+    basedir = basedir.replace('\\', '/') # translate backslashes into forwardslashes to allow for saving
     if os.path.isfile(DB_FILE):
         saved = read_all_projects()
+    
     with open(DB_FILE, 'w') as out:
         myJson = json.loads('{"name":"'+proj_name+'", "files":[], "basedir":"'+basedir+'", "lang":"'+lang+'", "desc":"'+desc+'"}')
         saved.append(myJson)
         json.dump(saved, out, indent=1)
         out.close()
-    if basedir == "":
-        return True
+
     if add_files:
         file_counter = 0
         files = list_directory_recursive(basedir)
@@ -42,6 +57,13 @@ def create_new_proj(proj_name, lang="", desc="", basedir = "", add_files=True, i
     return True
 
 def check_excluded(ignores, file):
+    """
+    Args:
+        ignores (list of str): list of list to ignore
+        file (path): files to check 
+    Returns:
+        True if and only if file should be ignored
+    """
     for ignore in ignores:
         if ignore[0:1] == '/':
             if file[0:len(ignore)] == ignore:
@@ -52,6 +74,10 @@ def check_excluded(ignores, file):
     return False
 
 def read_all_projects() -> list:
+    """
+    Returns:
+        list: Project as dictionaries
+    """
     if not os.path.isfile(DB_FILE):
         return []
     with open(DB_FILE, 'r') as openfile:

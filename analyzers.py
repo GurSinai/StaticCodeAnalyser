@@ -1,7 +1,6 @@
 import os
-from pylint.lint import Run
 
-class PylintImplementation( ):
+class PylintImplementation():
     def get_name(self):
         return "Pylint"
 

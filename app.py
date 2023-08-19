@@ -1,8 +1,8 @@
-from flask import Flask, render_template, request, redirect, jsonify, url_for
+from flask import Flask, render_template, request, redirect, jsonify
 import db
 import os
 from LLM.chat import scan_project, request_file_fix, scan_file, delete_scans
-from LLM.chat import scan_summaries_dir, chat_fix_dir
+from LLM.chat import scan_summaries_dir, chat_fix_dir, OUT_Paths
 from LLM.chat import get_normalized_path, read_all_db_json, read_all_db
 
 app = Flask(__name__)
@@ -16,62 +16,7 @@ def index():
     """
     return render_template('index.html', projects=db.read_all_projects())
 
-@app.route('/edit_project', methods=['POST'])
-def edit_project():
-    project_name = request.form.get('project_name')
-    project_lang = request.form.get('project_lang')
-    project_desc = request.form.get('project_desc')
-    project_dir = request.form.get('project_dir')
-    keep_files = request.form.get('keepfiles')
-    get_new_files = request.form.get('getnewfiles')
-    ignores = request.form.get('project_ignore')   
-
-    if get_new_files is not None:
-        get_new_files = True
-        
-    current_project = db.get_project(request.form.get('current_name'))
-    new_files = current_project['files']
-
-    if project_dir != current_project['basedir'] and keep_files is not None:
-        # CANNOT KEEP FILES IF THERE IS A NEW BASE DIRECTORY
-        keep_files = False
-        return render_template(
-        'project.html',
-        project=current_project,
-        files=current_project['files'],
-        alerts=['You cannot move to a new \
-                            directory and maintain files with relative paths.'])
-    if keep_files is None:
-        new_files = []
-    
-    if (db.get_project(project_name) and project_name != current_project['name']) or project_dir == "":
-        return render_template(
-        'project.html',
-        project=current_project,
-        files=current_project['files'],
-        alerts=['Something went wrong... Check if you have a project with that name or a bad folder-path']
-        )
-    db.remove_project(current_project['name'])
-    result = db.create_new_proj(
-        proj_name=project_name,
-        desc=project_desc,
-        lang=project_lang,
-        basedir=project_dir,
-        add_files=get_new_files,
-        ignores=ignores.split(', ')
-        )
-    if not result:
-        return render_template(
-        'project.html',
-        project=current_project,
-        files=current_project['files'],
-        alerts=['Something went wrong... Check if you have a project with that name or a bad folder-path']
-        )
-    for file in new_files:
-        db.add_file_to_project(project_name, file)
-        
-    return redirect('/')
-
+########## PROJECTs HANDELING ##########
 
 @app.route('/create_project', methods=['POST'])
 def createproject():
@@ -101,6 +46,47 @@ def createproject():
         )
     return redirect('/')
 
+@app.route('/edit_project', methods=['POST'])
+def edit_project():
+    """_summary_
+    Receives via form all new project properties
+    and option to keep or remove current files
+    
+    """
+    ## GET PROPERTIES FROM FORM
+    project_name = request.form.get('project_name')
+    project_lang = request.form.get('project_lang')
+    project_desc = request.form.get('project_desc')
+    project_dir = request.form.get('project_dir')
+    ignores = request.form.get('project_ignore')   
+    current_project = db.get_project(request.form.get('current_name'))
+    
+    ### POSSIBLE ERRORS: CHANGE NAME TO EXISTING NAME / SET NEW BASE DIRECTORY AS EMPTY
+    if (db.get_project(project_name) and project_name != current_project['name']) or project_dir == "" or not os.path.isdir(project_dir):
+        return render_template(
+        'project.html',
+        project=current_project,
+        files=current_project['files'],
+        alerts=['Something went wrong... Check if you have a project with that name or a bad folder-path']
+        )
+    ### Remove current project and re-create it with new properties
+    db.remove_project(current_project['name'])
+    result = db.create_new_proj(
+        proj_name=project_name,
+        desc=project_desc,
+        lang=project_lang,
+        basedir=project_dir,
+        ignores=ignores.split(', ')
+        )
+    if not result:
+        return render_template(
+        'project.html',
+        project=current_project,
+        files=current_project['files'],
+        alerts=['Something went wrong... Check if you have a project with that name or a bad folder-path']
+        )
+    return redirect('/')
+
 @app.route('/deleteproject/<project>')
 def delete_project(project):
     db.remove_project(project)
@@ -121,55 +107,6 @@ def view_project(project):
         files=db.get_project_files(project)
         )
 
-
-@app.route('/getscan/<project_name>/<file>')
-def get_file_scan(project_name, file):
-    """
-    Args:
-        project_name (string): the project's name
-        file (string): the file's relative path
-
-    Returns:
-        The scan results of 'file' under 'project'
-    """
-    project = db.get_project(project_name)
-    nor = get_normalized_path(project['basedir'] + file)
-    output = read_all_db(scan_summaries_dir + '/' + nor)
-    for i, scan in enumerate(output):
-        output[i] = scan.replace('\\', '/')
-    return jsonify(output)
-
-
-@app.route('/generatefix/<project_name>/<file>/<error_index>', methods=['GET'])
-def generate_fix(project_name, file, error_index):
-    """_summary_
-    Args:
-        project_name (string): the project's name
-        file (string): the file's relative path
-        error_index (int): the index of the error inside the scan summary
-    Returns:
-        Chat gpt's fix for the error
-    """
-    project = db.get_project(project_name)
-    norm = get_normalized_path(project['basedir'] + file)
-    request_file_fix(norm, error_index)
-    return jsonify(read_all_db_json(chat_fix_dir + '/' + norm)[error_index])
-
-
-@app.route('/getfixes/<project_name>/<file>')
-def get_fixes(project_name, file):
-    """_summary_
-    Args:
-        project_name (string)
-        file (string): file name with all '/' replaced with '-' to allow for url parameters using GET
-    Returns:
-        A list of all errors
-    """
-    project = db.get_project(project_name)
-    norm = get_normalized_path(project['basedir'] + file)
-    return jsonify(read_all_db_json(chat_fix_dir + '/' + norm))
-
-
 @app.route('/addfile', methods=['POST'])
 def add_file_to_project():
     """Add a file to the projects
@@ -188,14 +125,11 @@ def add_file_to_project():
 
     return redirect('/viewproject/' + project_name)
 
-
 @app.route('/removefile', methods=['POST'])
 def remove_file():
     """
-    Args:
-        filename (string) \n
-        project name (string):
-    remove file from project
+    remove file from project.
+    Choose if to remove scans or not.
     """
     filename = request.form.get('filename')
     projectname = request.form.get('projectname')
@@ -205,6 +139,52 @@ def remove_file():
         delete_scans(project_dir, filename)    
     db.remove_file_from_project(projectname, filename)
     return redirect('/viewproject/' + projectname)
+
+########## SCANs HANDELING ##########
+@app.route('/getscan/<project_name>/<file>')
+def get_file_scan(project_name, file):
+    """
+    Args:
+        project_name (string): the project's name
+        file (string): the file's relative path
+
+    Returns:
+        The scan results of 'file' under 'project'
+    """
+    project = db.get_project(project_name)
+    nor = get_normalized_path(project['basedir'] + file)
+    output = read_all_db(scan_summaries_dir + '/' + nor)
+    for i, scan in enumerate(output):
+        output[i] = scan.replace('\\', '/')
+    return jsonify(output)
+
+@app.route('/generatefix/<project_name>/<file>/<error_index>', methods=['GET'])
+def generate_fix(project_name, file, error_index):
+    """_summary_
+    Args:
+        project_name (string): the project's name
+        file (string): the file's relative path
+        error_index (int): the index of the error inside the scan summary
+    Returns:
+        Chat gpt's fix for the error
+    """
+    project = db.get_project(project_name)
+    norm = get_normalized_path(project['basedir'] + file)
+    request_file_fix(norm, error_index)
+    return jsonify(read_all_db_json(chat_fix_dir + '/' + norm)[error_index])
+
+@app.route('/getfixes/<project_name>/<file>')
+def get_fixes_for_file(project_name, file):
+    """_summary_
+    Args:
+        project_name (string)
+        file (string): file name with all '/' replaced with '-' to allow for url parameters using GET
+    Returns:
+        A list of all errors
+    """
+    project = db.get_project(project_name)
+    norm = get_normalized_path(project['basedir'] + file)
+    return jsonify(read_all_db_json(chat_fix_dir + '/' + norm))
 
 @app.route('/deletescans/<projectname>')
 def delete_project_scans(projectname):
@@ -217,15 +197,22 @@ def delete_project_scans(projectname):
 
 @app.route('/deleteallscans')
 def delete_all_scans():
-    projects = db.read_all_projects()
-    for project in projects:
-        files =  project['files']
-        dir = project['basedir']
+    """_summary_
+    Go over all scan and fixes folders, and remove everything.
+    """
+    for path in OUT_Paths:
+        files = os.listdir(path)
         for file in files:
-            delete_scans(dir, file)
-    return redirect('/')
-
+            os.remove(path + '/' + file)
+    scans = os.listdir(scan_summaries_dir)
+    fixes = os.listdir(chat_fix_dir)
+    for scan in scans:
+        os.remove(scan_summaries_dir + '/' + scan)
+    for fix in fixes:
+        os.remove(chat_fix_dir + '/' + fix)
     
+    return redirect('/')
+   
 @app.route('/scan/<proj_name>')
 def scan_proj(proj_name):
     """
@@ -251,6 +238,7 @@ def request_scan_file():
     scan_file(basedir + filename)
     return redirect('/viewproject/' +project_name)
 
+########## ERROR HANDLERS ##########
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('ErrorPage.html', error_title="Page not found 404")
@@ -260,4 +248,4 @@ def generic_error_handler(error):
     return render_template('ErrorPage.html', error_title="Something Went wrong... Please try again.")
 
 if __name__ == '__main__':
-        app.run(debug=True)
+        app.run()
