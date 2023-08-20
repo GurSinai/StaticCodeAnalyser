@@ -1,15 +1,14 @@
 [
  {
-  "name": "Static code anylizer",
+  "name": "dsa",
   "files": [
    "/analyzers.py",
    "/app.py",
    "/db.py",
-   "/interface.py",
    "/LLM/chat.py"
   ],
   "basedir": "C:/Users/gurgu/OneDrive/\u05e9\u05d5\u05dc\u05d7\u05df \u05d4\u05e2\u05d1\u05d5\u05d3\u05d4/\u05ea\u05db\u05e0\u05d5\u05ea/\u05e9\u05e0\u05d4 5/Cyber B/Project-StaticCodeAnalysor",
-  "lang": "python",
-  "desc": "Static code anylizers scan project and chatgpt 3.5 gives fixes"
+  "lang": "",
+  "desc": ""
  }
 ]

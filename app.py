@@ -87,8 +87,10 @@ def edit_project():
         )
     return redirect('/')
 
-@app.route('/deleteproject/<project>')
-def delete_project(project):
+@app.route('/deleteproject/<project>/<deletescans>')
+def delete_project(project, deletescans):
+    if deletescans == '1':
+        delete_project_scans(project)   
     db.remove_project(project)
     return redirect('/')
 
