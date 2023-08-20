@@ -74,8 +74,8 @@ def add_fix(file, fix, fix_idx):
         json_obj = json.loads(r'{"'+str(fix_idx)+'":"'+base64.b64encode(bytes(fix, encoding='utf-8')).decode()+'"}')
         saved = {**saved, **json_obj}
         json.dump(saved, out, indent=1)
-        out.close()
         fixes_lock.release() 
+        out.close()
 
 
 def append_to_scans(file, str) -> bool:
@@ -89,9 +89,9 @@ def append_to_scans(file, str) -> bool:
 
 
 def read_all_db_json(file) -> list:
-    fixes_lock.acquire()
     if not os.path.isfile(file):
         return {}
+    fixes_lock.acquire()
     with open(file, 'r') as openfile:
         read_data = openfile.read()
         openfile.close()
@@ -100,7 +100,7 @@ def read_all_db_json(file) -> list:
             return {}
         json_obj = json.loads(read_data)
         return json_obj
-
+    
 
 def read_all_db(file) -> list:
     if not os.path.isfile(file):

@@ -2,7 +2,6 @@
  {
   "name": "dsa",
   "files": [
-   "/analyzers.py",
    "/app.py",
    "/db.py",
    "/LLM/chat.py"

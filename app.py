@@ -91,7 +91,7 @@ def edit_project():
 def delete_project(project, deletescans):
     if deletescans == '1':
         delete_project_scans(project)   
-    db.remove_project(project)
+    db.remove_project(project)  
     return redirect('/')
 
 @app.route('/viewproject/<project>')

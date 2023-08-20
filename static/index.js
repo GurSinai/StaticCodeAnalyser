@@ -1,19 +1,26 @@
 function fill_file_table(fileContainer, projectname, filename, errors, fixes){
-    html_addition = " <table class=\"table\"><thead><tr><th scope=\"col\">Error</th><th scope=\"col\">Fix</th></tr></thead><tbody>"
-    for (i = 1; i < errors.length; i += 2){
-        html_addition += '\n <tr>'
-        html_addition += "<td>" + errors[i] + "</td>"
-        id = projectname+"/"+filename+"/"+i
-        if (!fixes[i]){
-            html_addition += "<td id=\"" + id + "\">No fix Available </td>"
-        }else{
-            html_addition += "<td id=\""+ id +"\">"+atob(fixes[i])+"</td>"
-        }
-        html_addition += "<td> <a onclick=\"generatefix(\'"+projectname+"\',\'" + mod_filename + "\',\'" + i + "\')\" type=\"a\" class=\"btn btn-secondary\">Request fix</a></td>"
-        html_addition += '\n </tr>'
-        
+    html_addition = ""
+    if (errors.length == 0){
+        html_addition += '<p class="h4">No fixes found, Please scan the file.</p>'
     }
-    html_addition += "</tbody></table>"
+    else{
+        html_addition = " <table class=\"table\"><thead><tr><th scope=\"col\">Error</th><th scope=\"col\">Fix</th></tr></thead><tbody>"
+    
+        for (i = 1; i < errors.length; i += 2){
+            html_addition += '\n <tr>'
+            html_addition += "<td>" + errors[i] + "</td>"
+            id = projectname+"/"+filename+"/"+i
+            if (!fixes[i]){
+                html_addition += "<td id=\"" + id + "\">No fix Available </td>"
+            }else{
+                html_addition += "<td id=\""+ id +"\">"+atob(fixes[i])+"</td>"
+            }
+            html_addition += "<td> <a onclick=\"generatefix(\'"+projectname+"\',\'" + mod_filename + "\',\'" + i + "\')\" type=\"a\" class=\"btn btn-secondary\">Request fix</a></td>"
+            html_addition += '\n </tr>'
+            
+        }
+        html_addition += "</tbody></table>"
+    }
     fileContainer.innerHTML = html_addition
 }
 
