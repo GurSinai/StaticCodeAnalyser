@@ -31,7 +31,7 @@ OUT_Paths.append(Scan_basedir + '/Pyflakes/')
 STA.append(PylintI)
 OUT_Paths.append(Scan_basedir + '/Pylint/')
 
-
+########## DB MANAGEMENT ֳֳֳֳֳֳ##########
 def list_directory_recursive(directory_path):
     """
     List every file under the directory path recieved, recursivly.
@@ -58,6 +58,13 @@ def get_normalized_path(path):
 
 fixes_lock = Lock()
 
+def reset_scans_file(file):
+    saved = []
+    with open(file, 'w') as out:
+        json.dump(saved, out, indent=1)
+        out.close()
+
+
 def add_fix(file, fix, fix_idx):
     saved = {}
     if os.path.isfile(file):
@@ -69,6 +76,17 @@ def add_fix(file, fix, fix_idx):
         json.dump(saved, out, indent=1)
         out.close()
         fixes_lock.release() 
+
+
+def append_to_scans(file, str) -> bool:
+    saved = []
+    if os.path.isfile(file):
+        saved = read_all_db(file)    
+    with open(file, 'w') as out:
+        saved.append(str)
+        json.dump(saved, out, indent=1)
+        out.close()
+
 
 def read_all_db_json(file) -> list:
     fixes_lock.acquire()
@@ -83,20 +101,6 @@ def read_all_db_json(file) -> list:
         json_obj = json.loads(read_data)
         return json_obj
 
-def reset_scans_file(file):
-    saved = []
-    with open(file, 'w') as out:
-        json.dump(saved, out, indent=1)
-        out.close()
-    
-def append_to_scans(file, str) -> bool:
-    saved = []
-    if os.path.isfile(file):
-        saved = read_all_db(file)    
-    with open(file, 'w') as out:
-        saved.append(str)
-        json.dump(saved, out, indent=1)
-        out.close()
 
 def read_all_db(file) -> list:
     if not os.path.isfile(file):
@@ -108,7 +112,11 @@ def read_all_db(file) -> list:
         json_obj = json.loads(read_data)
         return json_obj
 
+
 def scan_file(file_path):
+    """
+    Append the scan from each STA to it's corrisponding folder in Outpaths/norm-file-path
+    """
     for i, sta in enumerate(STA):
         temp = get_normalized_path(file_path)
         f = open(OUT_Paths[i] + f'/{temp}', 'w')
@@ -118,11 +126,20 @@ def scan_file(file_path):
     time.sleep(0.1)
     summarize_fixes(file_path)
 
+
 def scan_project(project_path, files):
+    """
+    Scan each file inside project
+    """
     for file in files:
         scan_file(project_path + '/' + file)
 
+
 def summarize_fixes(abs_file_path):
+    """
+    Reset the scan summeries file and fetch scans from each STA, into a summary list
+    Reset fixes file
+    """
     norm_path = get_normalized_path(abs_file_path)
     reset_scans_file(scan_summaries_dir+ '/' + norm_path)
     for i, sta in enumerate(STA):
@@ -141,18 +158,33 @@ def summarize_fixes(abs_file_path):
     f = open(chat_fix_dir + '/' + norm_path, 'w')
     f.close()
 
+
 def generate_prompt(sta_name, error):
+    """
+    Generates the prompt for chat-gpt to use
+    """
     prompt = f"using the Static code anylizer \"{sta_name}\" i got this error:\n" + error \
             + "\nGive me a short and informed explanation on how to fix it. No more than 200 chars"
     return prompt
 
+
 def request_file_fix(norm_path, error_idx):
+    """
+    Send a request for a fix from chat-gpt
+    based on the file, and the error index.
+    (The STA's name is always saved as the index before!)
+    Scans are saved in Base64 to avoid escape character saving
+    """
     scan = read_all_db(scan_summaries_dir + '/' + norm_path)
     fix = chat_with_gpt3(generate_prompt(scan[int(error_idx)-1], scan[int(error_idx)]))
     add_fix(chat_fix_dir + '/' + norm_path, fix, error_idx)
     return read_all_db(chat_fix_dir + '/' + norm_path)
 
+
 def delete_scans(project_path, file_name):
+    """
+    Delete all scans CURRENTLY assosiated with a projects
+    """
     norm = get_normalized_path(project_path + file_name)
     for path in OUT_Paths:
         try:
@@ -168,7 +200,11 @@ def delete_scans(project_path, file_name):
     except FileNotFoundError:
         print(f"No Scan Available at {chat_fix_dir}")
 
+
 def chat_with_gpt3(prompt):
+    """
+    Receive a responce from chat-gpt-3.5-turbo based on prompt saved.
+    """
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[
