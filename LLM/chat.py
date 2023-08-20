@@ -13,7 +13,10 @@ from analyzers import BanditImplementation, Flake8Implementation, PylintImplemen
 Scan_basedir = './LLM'
 scan_summaries_dir = './LLM/scans_summary'
 chat_fix_dir = './LLM/fixes'
-
+if not os.path.isdir(scan_summaries_dir):
+    os.makedirs(scan_summaries_dir)
+if not os.path.isdir(chat_fix_dir):
+    os.makedirs(chat_fix_dir)
 # Load enviornment variables and setup anylizers
 openai.api_key = os.getenv("CHAT_API_KEY")
 PylintI = PylintImplementation()
@@ -119,6 +122,8 @@ def scan_file(file_path):
     """
     for i, sta in enumerate(STA):
         temp = get_normalized_path(file_path)
+        if not os.path.isdir(OUT_Paths[i]):
+            os.makedirs(OUT_Paths[i])
         f = open(OUT_Paths[i] + f'/{temp}', 'w')
         f.close()
         time.sleep(0.1)
