@@ -123,6 +123,8 @@ def add_file_to_project():
     # CHECK if file received is a relatuve file path, and if it is, add it!
     if (file != "" and file is not None and
          os.path.isfile(project['basedir'] + '/' + file)):
+        if file[0] != '/':
+            file = '/' + file
         db.add_file_to_project(project_name, file)
 
     return redirect('/viewproject/' + project_name)
