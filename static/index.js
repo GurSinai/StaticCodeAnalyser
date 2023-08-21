@@ -1,7 +1,7 @@
 function fill_file_table(fileContainer, projectname, filename, errors, fixes){
     html_addition = ""
     if (errors.length == 0){
-        html_addition += '<p class="h4">No fixes found, Please scan the file.</p>'
+        html_addition += '<p class="h4">No Scan found, Please scan the file to continue.</p>'
     }
     else{
         html_addition = " <table class=\"table\"><thead><tr><th scope=\"col\">Error</th><th scope=\"col\">Fix</th></tr></thead><tbody>"
@@ -24,9 +24,6 @@ function fill_file_table(fileContainer, projectname, filename, errors, fixes){
     fileContainer.innerHTML = html_addition
 }
 
-function requestProjectScan(projectname){
-    
-}
 
 function getscan(projectname, filename){
     mod_filename = filename.replaceAll('/', '-')

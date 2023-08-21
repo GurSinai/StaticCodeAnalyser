@@ -13,16 +13,20 @@ from analyzers import BanditImplementation, Flake8Implementation, PylintImplemen
 Scan_basedir = './LLM'
 scan_summaries_dir = './LLM/scans_summary'
 chat_fix_dir = './LLM/fixes'
+
 if not os.path.isdir(scan_summaries_dir):
     os.makedirs(scan_summaries_dir)
 if not os.path.isdir(chat_fix_dir):
     os.makedirs(chat_fix_dir)
 # Load enviornment variables and setup anylizers
+
 openai.api_key = os.getenv("CHAT_API_KEY")
 PylintI = PylintImplementation()
 BanditI = BanditImplementation()
 FlakeI = Flake8Implementation()
 flakesI = PyflakesImplementation()
+#STA_NEW = STA_NEWImplementation()
+
 STA = []
 OUT_Paths = []
 STA.append(BanditI)
@@ -33,6 +37,9 @@ STA.append(flakesI)
 OUT_Paths.append(Scan_basedir + '/Pyflakes/')
 STA.append(PylintI)
 OUT_Paths.append(Scan_basedir + '/Pylint/')
+#STA.append(STA_NEW)
+#OUT_Paths.append(Scan_basedir + '/STA_NEW/')
+
 
 ########## DB MANAGEMENT ֳֳֳֳֳֳ##########
 def list_directory_recursive(directory_path):
@@ -50,6 +57,7 @@ def list_directory_recursive(directory_path):
         else:
             files.append(item_path)
     return files
+
 
 def get_normalized_path(path):
     """
@@ -91,7 +99,7 @@ def append_to_scans(file, str) -> bool:
         out.close()
 
 
-def read_all_db_json(file) -> list:
+def read_all_db_json(file) -> json:
     if not os.path.isfile(file):
         return {}
     fixes_lock.acquire()
@@ -155,7 +163,8 @@ def summarize_fixes(abs_file_path):
             content = f.read()
         except UnicodeDecodeError:
             f = open(path,'r')
-            content = f.read() 
+            content = f.read()
+         
         errors = sta.split_output(content)
         for error in errors:
             append_to_scans(scan_summaries_dir + '/' + norm_path, sta.get_name())
