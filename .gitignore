@@ -8,4 +8,4 @@ LLM/scans_summary
 venv
 __pycache__
 result.txt
-PROJECTS
+PROJECTS.JSON
